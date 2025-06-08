@@ -2,9 +2,10 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Lightbulb, Heart, Users } from 'lucide-react';
+import { Target, Lightbulb } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const AboutSection: React.FC = () => {
   return (
@@ -17,10 +18,13 @@ const AboutSection: React.FC = () => {
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <img  
-              className="rounded-2xl shadow-2xl object-cover w-full h-auto max-h-[550px]" 
+            <Image
+              className="rounded-2xl shadow-2xl object-cover w-full h-auto max-h-[550px]"
               alt="Diverse group of smiling community members and volunteers working together"
-             src="https://images.unsplash.com/photo-1580982333389-cca46f167381" />
+              src="https://images.unsplash.com/photo-1580982333389-cca46f167381"
+              width={800}
+              height={450}
+            />
           </motion.div>
 
           <motion.div
@@ -39,7 +43,7 @@ const AboutSection: React.FC = () => {
             <p className="text-lg text-slate-700 leading-relaxed">
               Dreamlight Welfare Society is a passionate non-profit organization committed to uplifting underserved communities. We believe in creating sustainable solutions that empower individuals and foster self-reliance.
             </p>
-            
+
             <div className="space-y-5 pt-3">
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0 bg-dream-purple-light/10 p-3 rounded-full mt-1">

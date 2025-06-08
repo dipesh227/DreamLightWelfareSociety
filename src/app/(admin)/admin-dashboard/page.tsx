@@ -1,20 +1,17 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Users, 
-  Calendar, 
-  DollarSign, 
-  TrendingUp, 
-  Bell, 
-  Settings, 
-  FileText, 
+import {
+  Users,
+  Calendar,
+  DollarSign,
+  TrendingUp,
+  Bell,
+  Settings,
+  FileText,
   BarChart3,
   Activity,
-  Globe,
-  Shield,
-  Clock
+  Globe
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -22,7 +19,7 @@ const StatCard = ({ title, value, change, icon: Icon, color = "blue" }: {
   title: string;
   value: string;
   change: string;
-  icon: any;
+  icon: React.ElementType;
   color?: string;
 }) => {
   const colorClasses = {
@@ -45,7 +42,7 @@ const StatCard = ({ title, value, change, icon: Icon, color = "blue" }: {
           <p className="text-sm text-green-600 dark:text-green-400 mt-1">{change}</p>
         </div>
         <div className={`p-3 rounded-xl bg-gradient-to-br ${colorClasses[color as keyof typeof colorClasses]} shadow-lg`}>
-          <Icon className="w-6 h-6 text-white" />
+          {Icon && <Icon className="w-6 h-6 text-white" />}
         </div>
       </div>
     </motion.div>
@@ -55,7 +52,7 @@ const StatCard = ({ title, value, change, icon: Icon, color = "blue" }: {
 const QuickAction = ({ title, description, icon: Icon, onClick }: {
   title: string;
   description: string;
-  icon: any;
+  icon: React.ElementType;
   onClick: () => void;
 }) => (
   <motion.button
@@ -66,7 +63,7 @@ const QuickAction = ({ title, description, icon: Icon, onClick }: {
   >
     <div className="flex items-start space-x-3">
       <div className="p-2 bg-gradient-to-br from-red-500 to-red-600 rounded-lg shadow-md">
-        <Icon className="w-5 h-5 text-white" />
+        {Icon && <Icon className="w-5 h-5 text-white" />}
       </div>
       <div>
         <h3 className="font-semibold text-slate-900 dark:text-slate-100">{title}</h3>
@@ -77,12 +74,6 @@ const QuickAction = ({ title, description, icon: Icon, onClick }: {
 );
 
 export default function AdminDashboardPage() {
-  const [notifications] = useState([
-    { id: 1, message: "New volunteer registration", time: "5 min ago", type: "info" },
-    { id: 2, message: "Monthly report generated", time: "1 hour ago", type: "success" },
-    { id: 3, message: "System maintenance scheduled", time: "2 hours ago", type: "warning" },
-  ]);
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
       <div className="space-y-8">
@@ -97,7 +88,7 @@ export default function AdminDashboardPage() {
               Admin Dashboard
             </h1>
             <p className="text-slate-600 dark:text-slate-400 mt-1">
-              Welcome back, Admin. Here's what's happening today.
+              Welcome back, Admin. Here&apos;s what&apos;s happening today.
             </p>
           </div>
           <div className="flex items-center space-x-3 mt-4 sm:mt-0">
@@ -161,25 +152,25 @@ export default function AdminDashboardPage() {
                   title="Manage Volunteers"
                   description="View and manage volunteer accounts"
                   icon={Users}
-                  onClick={() => {}}
+                  onClick={() => { }}
                 />
                 <QuickAction
                   title="Create Event"
                   description="Schedule a new community event"
                   icon={Calendar}
-                  onClick={() => {}}
+                  onClick={() => { }}
                 />
                 <QuickAction
                   title="Generate Report"
                   description="Create monthly activity report"
                   icon={FileText}
-                  onClick={() => {}}
+                  onClick={() => { }}
                 />
                 <QuickAction
                   title="System Settings"
                   description="Configure platform settings"
                   icon={Settings}
-                  onClick={() => {}}
+                  onClick={() => { }}
                 />
               </div>
             </motion.div>
@@ -210,7 +201,7 @@ export default function AdminDashboardPage() {
                 ].map((activity, index) => (
                   <div key={index} className="flex items-center space-x-3 p-3 rounded-lg hover:bg-slate-50/50 dark:hover:bg-slate-700/50 transition-colors">
                     <div className="p-2 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg">
-                      <activity.icon className="w-4 h-4 text-white" />
+                      {activity.icon && <activity.icon className="w-4 h-4 text-white" />}
                     </div>
                     <div className="flex-1">
                       <p className="text-sm font-medium text-slate-900 dark:text-slate-100">

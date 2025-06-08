@@ -2,10 +2,11 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, Target, Lightbulb, Heart, Award, ShieldCheck, Info, CalendarClock } from 'lucide-react';
+import { Users, Target, Heart, ShieldCheck, Info, CalendarClock } from 'lucide-react';
 import PageHeader from '@/components/layout/PageHeader';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 interface StatCardProps {
   value: string;
@@ -15,7 +16,7 @@ interface StatCardProps {
 }
 
 const StatCard: React.FC<StatCardProps> = ({ value, label, icon: Icon, color }) => (
-  <motion.div 
+  <motion.div
     className="bg-white p-6 rounded-xl shadow-lg text-center card-hover"
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -78,7 +79,7 @@ const AboutPage: React.FC = () => {
 
   return (
     <div className="bg-slate-50">
-      <PageHeader 
+      <PageHeader
         title="Our Story of Change"
         subtitle="Dreamlight Welfare Society was born from a simple belief: everyone deserves a chance to shine. We are committed to empowering communities and transforming lives."
         icon={Info}
@@ -95,7 +96,7 @@ const AboutPage: React.FC = () => {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.7 }}
             >
-              <img className="rounded-xl shadow-2xl object-cover w-full h-auto max-h-[500px]" alt="Diverse group of people collaborating happily" src="https://images.unsplash.com/photo-1603201667141-5a2d4c673378" />
+              <Image className="rounded-xl shadow-2xl object-cover w-full h-auto max-h-[500px]" alt="Diverse group of people collaborating happily" src="https://images.unsplash.com/photo-1603201667141-5a2d4c673378" width={800} height={500} priority />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 50 }}
@@ -122,13 +123,13 @@ const AboutPage: React.FC = () => {
           <div className="text-center mb-16 md:mb-24">
             <h2 className="text-3xl md:text-4xl font-bold text-dream-purple-dark mb-12">Our Milestones: A Journey of Impact</h2>
             <div className="relative wrap overflow-hidden p-2 md:p-10 h-full">
-              <div className="absolute h-full border border-dream-purple-light/50 border-dashed" style={{left: '50%', display: 'none' /* Hide for now, enable for desktop timeline */}}></div>
+              <div className="absolute h-full border border-dream-purple-light/50 border-dashed" style={{ left: '50%', display: 'none' /* Hide for now, enable for desktop timeline */ }}></div>
               {timelineData.map((event, index) => (
                 <TimelineEvent key={index} {...event} alignLeft={index % 2 === 0} index={index} />
               ))}
             </div>
           </div>
-          
+
           <div className="text-center mb-16 md:mb-24">
             <h2 className="text-3xl md:text-4xl font-bold text-dream-purple-dark mb-12">Our Achievements</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">

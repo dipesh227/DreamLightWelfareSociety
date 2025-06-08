@@ -3,16 +3,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Heart, Users, PlayCircle, Award, ShieldCheck, Sparkles } from 'lucide-react';
+import { Heart, Users, PlayCircle, Award, ShieldCheck } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface HeroSectionProps {
   logoUrl: string;
   handleDonate: () => void;
-  handleVolunteer: () => void;
 }
 
-const HeroSection: React.FC<HeroSectionProps> = ({ logoUrl, handleDonate, handleVolunteer }) => {
+const HeroSection: React.FC<HeroSectionProps> = ({ logoUrl, handleDonate }) => {
   const stats = [
     { value: "12+", label: "Years Strong", icon: Award, color: "text-dream-gold" },
     { value: "75K+", label: "Lives Touched", icon: Users, color: "text-dream-purple" },
@@ -40,7 +40,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ logoUrl, handleDonate, handle
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <img src={logoUrl} alt="Dreamlight Welfare Society main logo" className="h-24 w-24 md:h-32 md:w-32" />
+            <Image src={logoUrl} alt="Dreamlight Welfare Society main logo" className="h-24 w-24 md:h-32 md:w-32" />
           </motion.div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground tracking-tighter leading-tight">

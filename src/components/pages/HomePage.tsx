@@ -21,15 +21,9 @@ const HomePage: React.FC<HomePageProps> = ({ logoUrl }) => {
     });
   };
 
-  const handleVolunteerToast = () => {
-    toast.success("Welcome aboard!", {
-      description: "Thank you for wanting to volunteer. We'll contact you soon with opportunities.",
-    });
-  };
-
   return (
     <>
-      <HeroSection logoUrl={logoUrl} handleDonate={handleDonateToast} handleVolunteer={handleVolunteerToast} />
+      <HeroSection logoUrl={logoUrl} handleDonate={handleDonateToast} />
       {/* Add other sections as they are created */}
       {/* <AboutSection />
       <ProgramsSection />

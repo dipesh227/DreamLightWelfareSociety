@@ -2,24 +2,22 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  TrendingUp, 
-  Users, 
-  Heart, 
-  BookOpen, 
-  Droplets, 
-  Building, 
+import {
+  TrendingUp,
+  Users,
+  Heart,
+  BookOpen,
+  Droplets,
+  Building,
   TreePine,
   Award,
-  Target,
-  MapPin,
-  Calendar,
-  CheckCircle
+  Target
 } from 'lucide-react';
+import Image from 'next/image';
 import PageHeader from '@/components/layout/PageHeader';
 
 const StatCard = ({ icon: Icon, number, label, description, color = "blue" }: {
-  icon: any;
+  icon: React.ElementType;
   number: string;
   label: string;
   description: string;
@@ -70,7 +68,7 @@ const ProgressBar = ({ label, current, target, unit = "", color = "blue" }: {
   color?: string;
 }) => {
   const percentage = Math.min((current / target) * 100, 100);
-  
+
   const colorClasses = {
     blue: "bg-blue-500",
     green: "bg-green-500",
@@ -121,10 +119,12 @@ const ImpactStory = ({ title, description, stats, image }: {
   >
     <div className="md:flex">
       <div className="md:w-1/2">
-        <img
+        <Image
           src={image}
           alt={title}
           className="w-full h-64 md:h-full object-cover"
+          width={500}
+          height={300}
         />
       </div>
       <div className="md:w-1/2 p-8">
@@ -235,7 +235,7 @@ const ImpactPage = () => {
               Impact by Numbers
             </h2>
             <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
-              Since our inception, we've been committed to creating measurable, sustainable impact in the communities we serve.
+              Since our inception, we&apos;ve been committed to creating measurable, sustainable impact in the communities we serve.
             </p>
           </motion.div>
 

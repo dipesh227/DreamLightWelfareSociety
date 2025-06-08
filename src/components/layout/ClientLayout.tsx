@@ -17,8 +17,8 @@ const ClientLayout: React.FC<ClientLayoutProps> = ({ children, logoUrl }) => {
       const elements = document.querySelectorAll('.scroll-reveal');
       elements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
-        const elementVisible = 80; 
-        
+        const elementVisible = 80;
+
         if (elementTop < window.innerHeight - elementVisible) {
           element.classList.add('revealed');
         }
@@ -26,7 +26,7 @@ const ClientLayout: React.FC<ClientLayoutProps> = ({ children, logoUrl }) => {
     };
 
     window.addEventListener('scroll', handleScrollReveal);
-    handleScrollReveal(); 
+    handleScrollReveal();
     return () => window.removeEventListener('scroll', handleScrollReveal);
   }, []);
 
@@ -37,17 +37,10 @@ const ClientLayout: React.FC<ClientLayoutProps> = ({ children, logoUrl }) => {
     });
   };
 
-  const handleVolunteerToast = () => {
-    toast.success("Welcome aboard!", {
-      description: "Thank you for wanting to volunteer. We'll contact you soon with opportunities.",
-      className: "bg-dream-gold text-dream-purple-dark border-dream-purple shadow-xl",
-    });
-  };
-
   return (
     <div className="min-h-screen bg-slate-100 flex flex-col antialiased">
       <Navbar logoUrl={logoUrl} handleDonateToast={handleDonateToast} />
-      
+
       <main className="flex-grow pt-20 md:pt-24">
         <motion.div
           initial={{ opacity: 0 }}
@@ -58,7 +51,7 @@ const ClientLayout: React.FC<ClientLayoutProps> = ({ children, logoUrl }) => {
           {children}
         </motion.div>
       </main>
-      
+
       <Footer logoUrl={logoUrl} />
     </div>
   );

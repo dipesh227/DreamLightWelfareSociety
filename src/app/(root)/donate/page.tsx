@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Heart, DollarSign, Gift, Users, CheckCircle, Info, BookOpen, Stethoscope, Droplets, Briefcase, Leaf } from 'lucide-react';
+import { Heart, DollarSign, Gift, Users, CheckCircle, Info, BookOpen, Stethoscope, Droplets, Briefcase } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Slider } from '@/components/ui/slider'; 
+import { Slider } from '@/components/ui/slider';
 import { toast } from '@/components/ui/use-toast';
 import { useSearchParams } from 'next/navigation';
 import PageHeader from '@/components/layout/PageHeader';
@@ -17,7 +17,7 @@ interface DonationImpactCardProps {
 }
 
 const DonationImpactCard: React.FC<DonationImpactCardProps> = ({ amount, impact, icon: Icon, iconColor }) => (
-  <motion.div 
+  <motion.div
     className="bg-dream-purple-light/10 p-4 rounded-lg text-center flex items-center space-x-3"
     initial={{ opacity: 0, y: 10 }}
     animate={{ opacity: 1, y: 0 }}
@@ -49,10 +49,10 @@ const FundTargetProgress: React.FC<FundTargetProgressProps> = ({ targetName, cur
         <span className={`font-bold ${color}`}>${current.toLocaleString()} / ${target.toLocaleString()}</span>
       </div>
       <div className="w-full bg-slate-200 rounded-full h-3">
-        <motion.div 
+        <motion.div
           className={`h-3 rounded-full ${color === 'text-dream-gold' ? 'bg-dream-gold' : color === 'text-blue-600' ? 'bg-blue-600' : color === 'text-green-600' ? 'bg-green-600' : 'bg-dream-purple'}`}
           initial={{ width: 0 }}
-          animate={{ width: `${percentage}%`}}
+          animate={{ width: `${percentage}%` }}
           transition={{ duration: 1, ease: "easeOut" }}
         />
       </div>
@@ -85,7 +85,7 @@ const DonatePage: React.FC = () => {
       duration: 7000,
     });
   };
-  
+
   const fundTargets = [
     { name: "Education for All Children", current: 12500, target: 25000, color: "text-dream-purple" },
     { name: "Clean Water Access Initiative", current: 8200, target: 15000, color: "text-blue-600" },
@@ -112,7 +112,7 @@ const DonatePage: React.FC = () => {
 
       <section className="py-16 md:py-24">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-3 gap-12">
-          
+
           <motion.div
             className="lg:col-span-2 bg-white p-8 md:p-10 rounded-2xl shadow-xl"
             initial={{ opacity: 0, x: -50 }}
@@ -173,7 +173,7 @@ const DonatePage: React.FC = () => {
                 </div>
                 {donationFrequency === 'monthly' && (
                   <p className="text-xs text-slate-500 mt-2 flex items-center">
-                    <Info className="h-3 w-3 mr-1.5 text-dream-purple"/> Monthly donations provide sustainable support for our ongoing projects.
+                    <Info className="h-3 w-3 mr-1.5 text-dream-purple" /> Monthly donations provide sustainable support for our ongoing projects.
                   </p>
                 )}
               </div>
@@ -195,7 +195,7 @@ const DonatePage: React.FC = () => {
                   <option value="emergency">Emergency Relief</option>
                 </select>
               </div>
-              
+
               <Button type="submit" size="lg" className="w-full gradient-bg text-white text-lg py-3.5 rounded-lg hover:opacity-90 shadow-lg">
                 <Heart className="mr-2 h-5 w-5" /> Donate ${donationAmount} {donationFrequency === 'monthly' ? 'Monthly' : 'Now'}
               </Button>
@@ -234,7 +234,7 @@ const DonatePage: React.FC = () => {
                   <Users className="h-6 w-6 mr-3 text-dream-purple flex-shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-semibold text-slate-700">Fundraise for Us</h4>
-                    <p className="text-sm text-slate-600">Start your own campaign to support our projects. We'll provide resources!</p>
+                    <p className="text-sm text-slate-600">Start your own campaign to support our projects. We&apos;ll provide resources!</p>
                   </div>
                 </li>
               </ul>
@@ -251,7 +251,7 @@ const DonatePage: React.FC = () => {
               <FundTargetProgress key={fund.name} targetName={fund.name} current={fund.current} target={fund.target} color={fund.color} />
             ))}
           </div>
-           <p className="text-center text-sm text-slate-600 mt-10">
+          <p className="text-center text-sm text-slate-600 mt-10">
             These are some of our priority areas. Your contribution to the General Fund allows us to allocate resources where they are most urgently needed.
           </p>
         </div>
@@ -259,11 +259,11 @@ const DonatePage: React.FC = () => {
 
       <section className="py-16 md:py-24 text-center">
         <div className="max-w-screen-md mx-auto px-4 sm:px-6 lg:px-8">
-            <CheckCircle className="h-16 w-16 mx-auto mb-6 text-green-500"/>
-            <h2 className="text-3xl md:text-4xl font-bold text-dream-purple-dark mb-6">Your Trust, Our Commitment</h2>
-            <p className="text-lg md:text-xl mb-8 text-slate-700 max-w-2xl mx-auto">
-                We are dedicated to transparency and ensuring your donation makes the maximum possible impact. 95% of all donations go directly to our programs.
-            </p>
+          <CheckCircle className="h-16 w-16 mx-auto mb-6 text-green-500" />
+          <h2 className="text-3xl md:text-4xl font-bold text-dream-purple-dark mb-6">Your Trust, Our Commitment</h2>
+          <p className="text-lg md:text-xl mb-8 text-slate-700 max-w-2xl mx-auto">
+            We are dedicated to transparency and ensuring your donation makes the maximum possible impact. 95% of all donations go directly to our programs.
+          </p>
         </div>
       </section>
     </div>

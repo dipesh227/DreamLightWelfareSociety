@@ -1,7 +1,9 @@
 @import "tailwindcss";
+/* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"); */
 
 :root {
-  --background: 0 0% 100%;
+  --background: 220 20% 97%;
   --foreground: 224 71.4% 4.1%;
   --card: 0 0% 100%;
   --card-foreground: 224 71.4% 4.1%;
@@ -9,28 +11,28 @@
   --popover-foreground: 224 71.4% 4.1%;
   --primary: 283 89% 37%;
   --primary-foreground: 0 0% 98%;
-  --secondary: 43 99% 49%;
+  --secondary: 43 96% 49%;
   --secondary-foreground: 276 100% 10%;
-  --muted: 220 14.3% 95.9%;
+  --muted: 220 14.3% 93%;
   --muted-foreground: 220 8.9% 46.1%;
-  --accent: 283 89% 95%;
-  --accent-foreground: 283 89% 15%;
-  --destructive: 0 84.2% 60.2%;
+  --accent: 283 89% 96%;
+  --accent-foreground: 283 89% 25%;
+  --destructive: 0 72% 51%;
   --destructive-foreground: 0 0% 98%;
-  --border: 220 13% 91%;
-  --input: 220 13% 91%;
+  --border: 220 13% 88%;
+  --input: 220 13% 88%;
   --ring: 283 89% 50%;
   --radius: 0.75rem;
 
-  /* Dream Light Custom Colors - Improved contrast */
-  --dream-purple-darker: 276 100% 20%;
-  --dream-purple-dark: 276 100% 28%;
+  /* Dream Light Custom Colors - Enhanced accessibility */
+  --dream-purple-darker: 276 100% 25%;
+  --dream-purple-dark: 276 100% 32%;
   --dream-purple: 283 89% 37%;
-  --dream-purple-light: 316 79% 45%;
-  --dream-purple-lighter: 316 79% 95%;
-  --dream-gold: 43 96% 45%;
-  --dream-gold-light: 55 96% 55%;
-  --dream-gold-darker: 43 96% 35%;
+  --dream-purple-light: 316 79% 40%;
+  --dream-purple-lighter: 316 79% 92%;
+  --dream-gold: 43 99% 49%;
+  --dream-gold-light: 55 100% 50%;
+  --dream-gold-darker: 43 99% 40%;
 
   /* Enhanced semantic colors */
   --success: 142 76% 36%;
@@ -44,9 +46,9 @@
 .dark {
   --background: 224 71.4% 4.1%;
   --foreground: 0 0% 95%;
-  --card: 224 71.4% 4.1%;
+  --card: 215 27.9% 8%;
   --card-foreground: 0 0% 95%;
-  --popover: 224 71.4% 4.1%;
+  --popover: 215 27.9% 8%;
   --popover-foreground: 0 0% 95%;
   --primary: 283 89% 70%;
   --primary-foreground: 224 71.4% 4.1%;

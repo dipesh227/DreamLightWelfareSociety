@@ -2,15 +2,15 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Stethoscope, Droplets, Home, Users, Briefcase, Leaf, Sun } from 'lucide-react';
+import { BookOpen, Stethoscope, Droplets, Briefcase, Leaf, Sun } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface ProgramHighlightCardProps {
   icon: React.ElementType;
   title: string;
   description: string;
-  imageSrc: string;
   imageAlt: string;
   bgColor: string;
   iconBgColor: string;
@@ -18,18 +18,17 @@ interface ProgramHighlightCardProps {
   id: string;
 }
 
-const ProgramHighlightCard: React.FC<ProgramHighlightCardProps> = ({ 
-  icon: Icon, 
-  title, 
-  description, 
-  imageSrc, 
-  imageAlt, 
-  bgColor, 
-  iconBgColor, 
-  linkTo, 
-  id 
+const ProgramHighlightCard: React.FC<ProgramHighlightCardProps> = ({
+  icon: Icon,
+  title,
+  description,
+  imageAlt,
+  bgColor,
+  iconBgColor,
+  linkTo,
+  id
 }) => (
-  <motion.div 
+  <motion.div
     id={id}
     className={`scroll-reveal rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row items-center my-12 ${bgColor}`}
     initial={{ opacity: 0, y: 50 }}
@@ -38,7 +37,7 @@ const ProgramHighlightCard: React.FC<ProgramHighlightCardProps> = ({
     transition={{ duration: 0.7 }}
   >
     <div className="md:w-2/5 w-full h-64 md:h-auto">
-      <img className="w-full h-full object-cover" alt={imageAlt} src="https://images.unsplash.com/photo-1627577741153-74b82d87607b" />
+      <Image className="w-full h-full object-cover" alt={imageAlt} src="https://images.unsplash.com/photo-1627577741153-74b82d87607b" width={500} height={500} />
     </div>
     <div className="md:w-3/5 p-8 md:p-12">
       <div className={`${iconBgColor} p-3 rounded-full w-14 h-14 flex items-center justify-center mb-6 shadow-md`}>
@@ -61,56 +60,51 @@ const ProgramHighlightCard: React.FC<ProgramHighlightCardProps> = ({
 
 const ProgramsPage: React.FC = () => {
   const programs = [
-    { 
+    {
       id: "education",
-      icon: BookOpen, 
-      title: "Education Empowerment", 
-      description: "We believe education is the cornerstone of development. Our programs provide quality learning opportunities, from early childhood to adult literacy and vocational training, unlocking potential and fostering lifelong learning.", 
-      imageSrc: "placeholder_education.jpg",
+      icon: BookOpen,
+      title: "Education Empowerment",
+      description: "We believe education is the cornerstone of development. Our programs provide quality learning opportunities, from early childhood to adult literacy and vocational training, unlocking potential and fostering lifelong learning.",
       imageAlt: "Children learning in a classroom",
       bgColor: "bg-dream-purple-light/10",
       iconBgColor: "bg-dream-purple",
       linkTo: "/donate?program=education"
     },
-    { 
+    {
       id: "healthcare",
-      icon: Stethoscope, 
-      title: "Community Health Initiatives", 
+      icon: Stethoscope,
+      title: "Community Health Initiatives",
       description: "Access to healthcare is a fundamental right. We run mobile clinics, health awareness campaigns, and support local health infrastructure to ensure communities receive essential medical care and health education.",
-      imageSrc: "placeholder_health.jpg",
       imageAlt: "Doctor checking a patient",
       bgColor: "bg-green-500/10",
       iconBgColor: "bg-green-600",
       linkTo: "/donate?program=healthcare"
     },
-    { 
+    {
       id: "water",
-      icon: Droplets, 
-      title: "Clean Water & Sanitation", 
+      icon: Droplets,
+      title: "Clean Water & Sanitation",
       description: "Safe water and proper sanitation are vital for health and dignity. We work to provide access to clean drinking water sources and promote hygiene practices, significantly reducing waterborne diseases.",
-      imageSrc: "placeholder_water.jpg",
       imageAlt: "Clean water flowing from a tap",
       bgColor: "bg-blue-500/10",
       iconBgColor: "bg-blue-600",
       linkTo: "/donate?program=water"
     },
-    { 
+    {
       id: "livelihood",
-      icon: Briefcase, 
-      title: "Sustainable Livelihoods", 
+      icon: Briefcase,
+      title: "Sustainable Livelihoods",
       description: "We empower individuals with skills and resources to achieve economic independence. Our programs include vocational training, entrepreneurship support, and access to microfinance, fostering self-reliance.",
-      imageSrc: "placeholder_livelihood.jpg",
       imageAlt: "Person working at a craft",
       bgColor: "bg-dream-gold/10",
       iconBgColor: "bg-dream-gold",
       linkTo: "/donate?program=livelihood"
     },
-     { 
+    {
       id: "environment",
-      icon: Leaf, 
-      title: "Environmental Conservation", 
+      icon: Leaf,
+      title: "Environmental Conservation",
       description: "Protecting our planet is crucial for future generations. We engage in tree plantation drives, promote renewable energy, and educate communities on sustainable environmental practices.",
-      imageSrc: "placeholder_environment.jpg",
       imageAlt: "Hands planting a sapling",
       bgColor: "bg-teal-500/10",
       iconBgColor: "bg-teal-600",
@@ -123,7 +117,7 @@ const ProgramsPage: React.FC = () => {
       <header className="relative py-24 md:py-32 bg-gradient-to-br from-dream-gold to-dream-gold-light text-center overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-20"></div>
         <div className="relative z-10">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -131,13 +125,13 @@ const ProgramsPage: React.FC = () => {
           >
             Our Fields of Action
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg md:text-xl max-w-3xl mx-auto text-dream-purple/90"
           >
-            Discover the comprehensive programs we've designed to address critical community needs and foster sustainable, positive change.
+            Discover the comprehensive programs we&apos;ve designed to address critical community needs and foster sustainable, positive change.
           </motion.p>
         </div>
       </header>
@@ -152,16 +146,16 @@ const ProgramsPage: React.FC = () => {
 
       <section className="py-16 md:py-24 bg-dream-purple-dark text-white">
         <div className="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <Sun className="h-16 w-16 mx-auto mb-6 text-dream-gold-light"/>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Support Our Vision</h2>
-            <p className="text-lg md:text-xl mb-8 text-slate-300 max-w-2xl mx-auto">
-                Your contribution, big or small, fuels these vital programs and brings hope to countless individuals. Partner with us to build a brighter tomorrow.
-            </p>
-            <Link href="/donate">
-                <Button size="lg" className="bg-dream-gold text-dream-purple-dark hover:bg-dream-gold-light rounded-full px-10 py-3 text-base font-semibold">
-                    Donate Today
-                </Button>
-            </Link>
+          <Sun className="h-16 w-16 mx-auto mb-6 text-dream-gold-light" />
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Support Our Vision</h2>
+          <p className="text-lg md:text-xl mb-8 text-slate-300 max-w-2xl mx-auto">
+            Your contribution, big or small, fuels these vital programs and brings hope to countless individuals. Partner with us to build a brighter tomorrow.
+          </p>
+          <Link href="/donate">
+            <Button size="lg" className="bg-dream-gold text-dream-purple-dark hover:bg-dream-gold-light rounded-full px-10 py-3 text-base font-semibold">
+              Donate Today
+            </Button>
+          </Link>
         </div>
       </section>
     </div>

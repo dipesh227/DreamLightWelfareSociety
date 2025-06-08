@@ -59,22 +59,11 @@ interface DropdownMenuProps {
   closeMobileMenu?: () => void;
 }
 
-interface NavItem {
-  to?: string;
-  label: string;
-  icon?: React.ElementType;
-  subLinks?: SubLink[];
-}
-
 const DropdownMenu: React.FC<DropdownMenuProps> = ({ label, icon: Icon, subLinks, mobile = false, closeMobileMenu }) => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const isParentActive = subLinks?.some(link => pathname === link.to || (link.subLinks && link.subLinks.some(sl => sl.to === pathname))) || false;
   const menuRef = useRef<HTMLDivElement>(null);
-
-  if (!subLinks) {
-    return null;
-  }
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -112,7 +101,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ label, icon: Icon, subLinks
               exit={{ opacity: 0, height: 0 }}
               className="pl-5 border-l-2 border-dream-purple-lighter ml-3"
             >
-              {subLinks.map(link =>
+              {Array.isArray(subLinks) && subLinks.map(link =>
                 link.subLinks ?
                   <DropdownMenu key={link.label} {...link} mobile={true} closeMobileMenu={closeMobileMenu} /> :
                   <NavLinkItem key={link.to} {...link} mobile={true} onClick={closeMobileMenu} />
@@ -142,7 +131,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ label, icon: Icon, subLinks
             transition={{ duration: 0.2, ease: "easeOut" }}
             className="absolute left-0 mt-2 w-64 bg-card rounded-xl shadow-2xl py-2 z-20 border border-border"
           >
-            {subLinks.map(link =>
+            {Array.isArray(subLinks) && subLinks.map(link =>
               link.subLinks ?
                 <div key={link.label} className="relative group/submenu">
                   <button className="flex items-center justify-between w-full px-4 py-2.5 text-sm text-foreground hover:bg-accent hover:text-dream-purple rounded-md transition-all duration-200">
@@ -158,7 +147,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({ label, icon: Icon, subLinks
                     exit={{ opacity: 0, x: -10 }}
                     className="absolute left-full top-[-8px] ml-1 w-60 bg-card rounded-xl shadow-2xl py-2 z-30 border border-border hidden group-hover/submenu:block"
                   >
-                    {link.subLinks.map(sl => <NavLinkItem key={sl.to} {...sl} onClick={() => setIsOpen(false)} className="px-4 py-2.5" />)}
+                    {Array.isArray(link.subLinks) && link.subLinks.map(sl => <NavLinkItem key={sl.to} {...sl} onClick={() => setIsOpen(false)} className="px-4 py-2.5" />)}
                   </motion.div>
                 </div>
                 :

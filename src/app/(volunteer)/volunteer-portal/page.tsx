@@ -2,13 +2,13 @@
 
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { 
-  Calendar, 
-  Clock, 
-  MapPin, 
-  Users, 
-  Heart, 
-  Award, 
+import {
+  Calendar,
+  Clock,
+  MapPin,
+  Users,
+  Heart,
+  Award,
   TrendingUp,
   BookOpen,
   Droplets,
@@ -24,7 +24,7 @@ const StatCard = ({ title, value, change, icon: Icon, color = "blue" }: {
   title: string;
   value: string;
   change: string;
-  icon: any;
+  icon: React.ElementType;
   color?: string;
 }) => {
   const colorClasses = {
@@ -99,9 +99,9 @@ const EventCard = ({ title, date, time, location, description, participants, cat
           </div>
         </div>
       </div>
-      
+
       <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">{description}</p>
-      
+
       <div className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
         <div className="flex items-center space-x-2">
           <Calendar className="w-4 h-4" />
@@ -120,10 +120,10 @@ const EventCard = ({ title, date, time, location, description, participants, cat
           <span>{participants} participants</span>
         </div>
       </div>
-      
+
       <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-600">
-        <Button 
-          size="sm" 
+        <Button
+          size="sm"
           className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
           disabled={status === 'completed'}
         >
@@ -211,11 +211,10 @@ export default function VolunteerPortalPage() {
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all ${
-              activeTab === tab
+            className={`flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all ${activeTab === tab
                 ? 'bg-blue-600 text-white shadow-md'
                 : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
-            }`}
+              }`}
           >
             {tab.charAt(0).toUpperCase() + tab.slice(1)}
           </button>

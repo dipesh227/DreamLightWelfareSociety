@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Camera, X, ChevronLeft, ChevronRight, Image as ImageIcon, Filter } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import PageHeader from '@/components/layout/PageHeader';
+import Image from 'next/image';
 
 interface GalleryImage {
   id: number;
@@ -98,8 +99,8 @@ const GalleryPage = () => {
 
   const categories = ['all', ...new Set(galleryImages.map(img => img.category))];
 
-  const filteredImages = selectedCategory === 'all' 
-    ? galleryImages 
+  const filteredImages = selectedCategory === 'all'
+    ? galleryImages
     : galleryImages.filter(img => img.category === selectedCategory);
 
   const openModal = (image: GalleryImage) => {
@@ -113,14 +114,14 @@ const GalleryPage = () => {
 
   const navigateImage = (direction: 'prev' | 'next') => {
     if (!selectedImage) return;
-    
+
     let newIndex = currentImageIndex;
     if (direction === 'prev') {
       newIndex = currentImageIndex > 0 ? currentImageIndex - 1 : filteredImages.length - 1;
     } else {
       newIndex = currentImageIndex < filteredImages.length - 1 ? currentImageIndex + 1 : 0;
     }
-    
+
     setCurrentImageIndex(newIndex);
     setSelectedImage(filteredImages[newIndex]);
   };
@@ -149,11 +150,10 @@ const GalleryPage = () => {
                   key={category}
                   onClick={() => setSelectedCategory(category)}
                   variant={selectedCategory === category ? "default" : "outline"}
-                  className={`rounded-full px-6 py-2 text-sm capitalize transition-all duration-300 ${
-                    selectedCategory === category
+                  className={`rounded-full px-6 py-2 text-sm capitalize transition-all duration-300 ${selectedCategory === category
                       ? 'gradient-bg text-white shadow-lg'
                       : 'border-purple-500 text-purple-600 hover:bg-purple-50 dark:border-purple-400 dark:text-purple-400 dark:hover:bg-purple-900/20'
-                  }`}
+                    }`}
                 >
                   {category}
                 </Button>
@@ -162,7 +162,7 @@ const GalleryPage = () => {
           </div>
 
           {/* Image Grid */}
-          <motion.div 
+          <motion.div
             layout
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
@@ -179,9 +179,11 @@ const GalleryPage = () => {
                   onClick={() => openModal(image)}
                 >
                   <div className="aspect-w-16 aspect-h-12 relative overflow-hidden">
-                    <img
+                    <Image
                       src={image.src}
                       alt={image.alt}
+                      layout="fill"
+                      objectFit="cover"
                       className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -252,9 +254,12 @@ const GalleryPage = () => {
 
               {/* Image */}
               <div className="relative">
-                <img
+                <Image
                   src={selectedImage.src}
                   alt={selectedImage.alt}
+                  layout="responsive"
+                  width={800}
+                  height={600}
                   className="w-full max-h-[70vh] object-contain"
                 />
               </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Facebook, Twitter, Instagram, Youtube, Linkedin, ArrowUpCircle, Info, Briefcase, BarChart2, FolderHeart as HandHeart, Calendar, FileText, Users, ShieldCheck, BookOpen, Droplets, Leaf, Mail, Award, Newspaper, Landmark, ShieldAlert, Trees, Rss } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Youtube, Linkedin, ArrowUpCircle, Info, Briefcase, BarChart2, FolderHeart as HandHeart, Calendar, Users, ShieldCheck, BookOpen, Rss, Award, Newspaper, Mail, ShieldAlert, Trees } from 'lucide-react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -17,7 +17,7 @@ const Footer: React.FC<FooterProps> = ({ logoUrl = '/logo1.jpeg' }) => {
     { to: '/team', label: 'Our Team', icon: Users },
     { to: '/values', label: 'Our Values', icon: HandHeart },
     { to: '/transparency', label: 'Transparency', icon: ShieldCheck },
-    { to: '/financials', label: 'Financials', icon: Landmark },
+    { to: '/financials', label: 'Financials', icon: BarChart2 },
   ];
 
   const workLinks = [
@@ -33,7 +33,7 @@ const Footer: React.FC<FooterProps> = ({ logoUrl = '/logo1.jpeg' }) => {
     { to: '/events', label: 'Upcoming Events', icon: Calendar },
     { to: '/partnerships', label: 'Partner With Us', icon: Users },
   ];
-  
+
   const resourcesLinks = [
     { to: '/gallery', label: 'Photo Gallery', icon: BarChart2 },
     { to: '/press-media', label: 'Press & Media', icon: Newspaper },
@@ -100,9 +100,9 @@ const Footer: React.FC<FooterProps> = ({ logoUrl = '/logo1.jpeg' }) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-10 mb-12">
           <div className="space-y-5 sm:col-span-2 lg:col-span-2">
             <Link href="/" className="flex items-center space-x-3">
-              <motion.img 
-                src={logoUrl} 
-                alt="Dreamlight Welfare Society footer logo" 
+              <motion.img
+                src={logoUrl}
+                alt="Dreamlight Welfare Society footer logo"
                 className="h-12 w-auto"
                 whileHover={{ scale: 1.1, rotate: -5 }}
                 transition={{ type: "spring", stiffness: 400 }}
@@ -115,8 +115,8 @@ const Footer: React.FC<FooterProps> = ({ logoUrl = '/logo1.jpeg' }) => {
             <form onSubmit={handleNewsletterSubmit} className="mt-6">
               <label htmlFor="newsletter-email" className="block text-sm font-medium text-dream-gold-light mb-2">Stay Updated</label>
               <div className="flex gap-2">
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   id="newsletter-email"
                   name="email"
                   required
@@ -130,11 +130,11 @@ const Footer: React.FC<FooterProps> = ({ logoUrl = '/logo1.jpeg' }) => {
             </form>
             <div className="flex space-x-4 pt-4">
               {socialMediaLinks.map(social => (
-                <motion.a 
-                  key={social.label} 
-                  href={social.href} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <motion.a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
                   className={`text-slate-400 ${social.color} transition-colors duration-300`}
                   whileHover={{ y: -3, scale: 1.1 }}
@@ -154,7 +154,7 @@ const Footer: React.FC<FooterProps> = ({ logoUrl = '/logo1.jpeg' }) => {
             <FooterLinkColumn title="Policies" links={policyLinks} />
           </div>
         </div>
-        
+
         <div className="border-t border-dream-purple/50 pt-8 mt-10 flex flex-col md:flex-row justify-between items-center">
           <p className="text-center md:text-left text-xs text-slate-400/80 mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} Dreamlight Welfare Society. All rights reserved. Registered Non-Profit Organization.
