@@ -1,8 +1,21 @@
+# Allow indexing of root pages only
 User-agent: *
 Allow: /
+Allow: /about
+Allow: /contact
+Allow: /donate
+Allow: /programs
 
-# Sitemap
-Sitemap: https://dreamlightwelfaresociety.org/sitemap.xml
+# Disallow admin and volunteer sections
+Disallow: /admin*
+Disallow: /volunteer*
+Disallow: /(admin)*
+Disallow: /(volunteer)*
 
-# Crawl-delay (optional - adjust based on server capacity)
-Crawl-delay: 1
+# Additional security
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Sitemap location
+Sitemap: https://dreamlightwelfare.org/sitemap.xml

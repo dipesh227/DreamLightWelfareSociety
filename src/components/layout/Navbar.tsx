@@ -346,12 +346,18 @@ const Navbar: React.FC<NavbarProps> = ({ logoUrl = '/logo1.jpeg', handleDonateTo
                   </button>
               </div>
 
-              {navStructure.map(item => 
-                item.subLinks ? 
+              {navStructure.map(item =>
+                item.subLinks ?
                 <DropdownMenu key={item.label} {...item} mobile={true} closeMobileMenu={closeMobileMenu} /> :
                 <NavLinkItem key={item.to} {...item} mobile={true} onClick={closeMobileMenu} />
               )}
-              <Link href="/donate" className="block w-full pt-4">
+              
+              <div className="flex items-center justify-between pt-4 pb-2 border-t border-slate-200/60 mt-4">
+                <span className="text-sm font-medium text-slate-600">Theme</span>
+                <ThemeToggle />
+              </div>
+              
+              <Link href="/donate" className="block w-full pt-2">
                 <Button onClick={() => { handleDonateToast?.(); closeMobileMenu(); }} className="w-full gradient-bg text-white hover:opacity-95 rounded-full py-4 text-base font-semibold shadow-md">
                   Donate Now
                 </Button>

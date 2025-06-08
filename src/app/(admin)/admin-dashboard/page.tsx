@@ -1,0 +1,289 @@
+'use client';
+
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { 
+  Users, 
+  Calendar, 
+  DollarSign, 
+  TrendingUp, 
+  Bell, 
+  Settings, 
+  FileText, 
+  BarChart3,
+  Activity,
+  Globe,
+  Shield,
+  Clock
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
+
+const StatCard = ({ title, value, change, icon: Icon, color = "blue" }: {
+  title: string;
+  value: string;
+  change: string;
+  icon: any;
+  color?: string;
+}) => {
+  const colorClasses = {
+    blue: "from-blue-500 to-blue-600",
+    green: "from-green-500 to-green-600",
+    purple: "from-purple-500 to-purple-600",
+    orange: "from-orange-500 to-orange-600"
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl rounded-2xl p-6 border border-white/20 dark:border-slate-700/50 shadow-lg"
+    >
+      <div className="flex items-center justify-between">
+        <div>
+          <p className="text-sm font-medium text-slate-600 dark:text-slate-400">{title}</p>
+          <p className="text-2xl font-bold text-slate-900 dark:text-slate-100 mt-1">{value}</p>
+          <p className="text-sm text-green-600 dark:text-green-400 mt-1">{change}</p>
+        </div>
+        <div className={`p-3 rounded-xl bg-gradient-to-br ${colorClasses[color as keyof typeof colorClasses]} shadow-lg`}>
+          <Icon className="w-6 h-6 text-white" />
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+const QuickAction = ({ title, description, icon: Icon, onClick }: {
+  title: string;
+  description: string;
+  icon: any;
+  onClick: () => void;
+}) => (
+  <motion.button
+    whileHover={{ scale: 1.02 }}
+    whileTap={{ scale: 0.98 }}
+    onClick={onClick}
+    className="w-full bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl rounded-xl p-4 border border-white/20 dark:border-slate-700/50 shadow-lg text-left hover:shadow-xl transition-all"
+  >
+    <div className="flex items-start space-x-3">
+      <div className="p-2 bg-gradient-to-br from-red-500 to-red-600 rounded-lg shadow-md">
+        <Icon className="w-5 h-5 text-white" />
+      </div>
+      <div>
+        <h3 className="font-semibold text-slate-900 dark:text-slate-100">{title}</h3>
+        <p className="text-sm text-slate-600 dark:text-slate-400">{description}</p>
+      </div>
+    </div>
+  </motion.button>
+);
+
+export default function AdminDashboardPage() {
+  const [notifications] = useState([
+    { id: 1, message: "New volunteer registration", time: "5 min ago", type: "info" },
+    { id: 2, message: "Monthly report generated", time: "1 hour ago", type: "success" },
+    { id: 3, message: "System maintenance scheduled", time: "2 hours ago", type: "warning" },
+  ]);
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+      <div className="space-y-8">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="flex flex-col sm:flex-row sm:items-center sm:justify-between"
+        >
+          <div>
+            <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-100">
+              Admin Dashboard
+            </h1>
+            <p className="text-slate-600 dark:text-slate-400 mt-1">
+              Welcome back, Admin. Here's what's happening today.
+            </p>
+          </div>
+          <div className="flex items-center space-x-3 mt-4 sm:mt-0">
+            <Button size="sm" variant="outline" className="bg-white/50 dark:bg-slate-800/50">
+              <Bell className="w-4 h-4 mr-2" />
+              Notifications
+            </Button>
+            <Button size="sm" variant="outline" className="bg-white/50 dark:bg-slate-800/50">
+              <Settings className="w-4 h-4 mr-2" />
+              Settings
+            </Button>
+          </div>
+        </motion.div>
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <StatCard
+            title="Total Volunteers"
+            value="1,234"
+            change="+12.5% from last month"
+            icon={Users}
+            color="blue"
+          />
+          <StatCard
+            title="Active Programs"
+            value="18"
+            change="+3 new this month"
+            icon={Activity}
+            color="green"
+          />
+          <StatCard
+            title="Donations"
+            value="₹2,45,670"
+            change="+23.1% from last month"
+            icon={DollarSign}
+            color="purple"
+          />
+          <StatCard
+            title="Events"
+            value="7"
+            change="2 upcoming"
+            icon={Calendar}
+            color="orange"
+          />
+        </div>
+
+        {/* Main Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Quick Actions */}
+          <div className="lg:col-span-1">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl rounded-2xl p-6 border border-white/20 dark:border-slate-700/50 shadow-lg"
+            >
+              <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-4">
+                Quick Actions
+              </h2>
+              <div className="space-y-3">
+                <QuickAction
+                  title="Manage Volunteers"
+                  description="View and manage volunteer accounts"
+                  icon={Users}
+                  onClick={() => {}}
+                />
+                <QuickAction
+                  title="Create Event"
+                  description="Schedule a new community event"
+                  icon={Calendar}
+                  onClick={() => {}}
+                />
+                <QuickAction
+                  title="Generate Report"
+                  description="Create monthly activity report"
+                  icon={FileText}
+                  onClick={() => {}}
+                />
+                <QuickAction
+                  title="System Settings"
+                  description="Configure platform settings"
+                  icon={Settings}
+                  onClick={() => {}}
+                />
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Recent Activity & Notifications */}
+          <div className="lg:col-span-2 space-y-6">
+            {/* Recent Activity */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl rounded-2xl p-6 border border-white/20 dark:border-slate-700/50 shadow-lg"
+            >
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+                  Recent Activity
+                </h2>
+                <Button size="sm" variant="ghost">
+                  View All
+                </Button>
+              </div>
+              <div className="space-y-4">
+                {[
+                  { action: "New volunteer registration", user: "Priya Sharma", time: "2 min ago", icon: Users },
+                  { action: "Program update published", user: "Admin", time: "15 min ago", icon: FileText },
+                  { action: "Event scheduled", user: "Rahul Kumar", time: "1 hour ago", icon: Calendar },
+                  { action: "Donation received", user: "Anonymous", time: "2 hours ago", icon: DollarSign },
+                ].map((activity, index) => (
+                  <div key={index} className="flex items-center space-x-3 p-3 rounded-lg hover:bg-slate-50/50 dark:hover:bg-slate-700/50 transition-colors">
+                    <div className="p-2 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg">
+                      <activity.icon className="w-4 h-4 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-sm font-medium text-slate-900 dark:text-slate-100">
+                        {activity.action}
+                      </p>
+                      <p className="text-xs text-slate-600 dark:text-slate-400">
+                        by {activity.user} • {activity.time}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Analytics Overview */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl rounded-2xl p-6 border border-white/20 dark:border-slate-700/50 shadow-lg"
+            >
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
+                  Analytics Overview
+                </h2>
+                <div className="flex items-center space-x-2">
+                  <BarChart3 className="w-5 h-5 text-slate-600 dark:text-slate-400" />
+                  <span className="text-sm text-slate-600 dark:text-slate-400">Last 30 days</span>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="text-center p-4 rounded-xl bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20">
+                  <TrendingUp className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                  <p className="text-lg font-bold text-green-700 dark:text-green-400">+45%</p>
+                  <p className="text-sm text-green-600 dark:text-green-500">Volunteer Growth</p>
+                </div>
+                <div className="text-center p-4 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20">
+                  <Globe className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+                  <p className="text-lg font-bold text-blue-700 dark:text-blue-400">2.3K</p>
+                  <p className="text-sm text-blue-600 dark:text-blue-500">Website Visits</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* System Status */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl rounded-2xl p-6 border border-white/20 dark:border-slate-700/50 shadow-lg"
+        >
+          <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-4">
+            System Status
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="flex items-center space-x-3">
+              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+              <span className="text-sm text-slate-600 dark:text-slate-400">Database</span>
+              <span className="text-sm font-medium text-green-600">Operational</span>
+            </div>
+            <div className="flex items-center space-x-3">
+              <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+              <span className="text-sm text-slate-600 dark:text-slate-400">API Services</span>
+              <span className="text-sm font-medium text-green-600">Operational</span>
+            </div>
+            <div className="flex items-center space-x-3">
+              <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+              <span className="text-sm text-slate-600 dark:text-slate-400">Email Service</span>
+              <span className="text-sm font-medium text-yellow-600">Maintenance</span>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  );
+}
