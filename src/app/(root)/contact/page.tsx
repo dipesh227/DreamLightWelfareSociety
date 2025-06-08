@@ -32,7 +32,7 @@ const ContactInfoItemBig: React.FC<ContactInfoItemBigProps> = ({ icon: Icon, tit
 const ContactPage: React.FC = () => {
   const contactDetails = [
     { icon: MapPin, title: "Our Main Office", lines: ["123 Welfare Street, Community Center", "New Delhi, India 110001"], iconBgColor: "bg-dream-purple-light/20", iconColor: "text-dream-purple" },
-    { icon: Phone, title: "Call Us", lines: ["General Inquiries: +91 98765 43210", "Donations: +91 87654 32109"], iconBgColor: "bg-green-500/10", iconColor: "text-green-600" },
+    { icon: Phone, title: "Call Us", lines: ["General Inquiries: +91 98765 43210", "Donations: +91 87654 32109"], iconBgColor: "bg-success/10", iconColor: "text-success" },
     { icon: Mail, title: "Email Us", lines: ["info@dreamlightwelfare.org", "partnerships@dreamlightwelfare.org"], iconBgColor: "bg-dream-gold/10", iconColor: "text-dream-gold" },
   ];
 
@@ -105,30 +105,29 @@ const ContactPage: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-          >
-            <div id="volunteer" className="bg-white p-8 rounded-2xl shadow-xl">
-              <Users className="h-10 w-10 mb-4 text-dream-purple" />
-              <h3 className="text-2xl font-bold text-dream-purple-dark mb-3">Volunteer With Us</h3>
-              <p className="text-slate-600 mb-4 leading-relaxed">
+          >            <div id="volunteer" className="bg-card p-8 rounded-2xl shadow-xl">
+              <Users className="h-10 w-10 mb-4 text-[hsl(var(--dream-purple))]" />
+              <h3 className="text-2xl font-bold text-[hsl(var(--dream-purple-dark))] mb-3">Volunteer With Us</h3>
+              <p className="text-muted-foreground mb-4 leading-relaxed">
                 Share your skills and time to make a direct impact. We have various opportunities for individuals and groups.
               </p>
-              <Button variant="outline" className="border-dream-purple text-dream-purple hover:bg-dream-purple/10 rounded-full px-6">Learn About Volunteering</Button>
+              <Button variant="outline" className="border-[hsl(var(--dream-purple))] text-[hsl(var(--dream-purple))] hover:bg-[hsl(var(--dream-purple))]/10 rounded-full px-6">Learn About Volunteering</Button>
             </div>
-            <div id="partner" className="bg-white p-8 rounded-2xl shadow-xl">
-              <Briefcase className="h-10 w-10 mb-4 text-dream-gold" />
-              <h3 className="text-2xl font-bold text-dream-purple-dark mb-3">Partner With Us</h3>
-              <p className="text-slate-600 mb-4 leading-relaxed">
+            <div id="partner" className="bg-card p-8 rounded-2xl shadow-xl">
+              <Briefcase className="h-10 w-10 mb-4 text-[hsl(var(--dream-gold))]" />
+              <h3 className="text-2xl font-bold text-[hsl(var(--dream-purple-dark))] mb-3">Partner With Us</h3>
+              <p className="text-muted-foreground mb-4 leading-relaxed">
                 Collaborate with us on projects, sponsor an event, or explore corporate social responsibility initiatives.
               </p>
-              <Button variant="outline" className="border-dream-gold text-dream-gold hover:bg-dream-gold/10 rounded-full px-6">Explore Partnerships</Button>
+              <Button variant="outline" className="border-[hsl(var(--dream-gold))] text-[hsl(var(--dream-gold))] hover:bg-[hsl(var(--dream-gold))]/10 rounded-full px-6">Explore Partnerships</Button>
             </div>
-            <div id="reports" className="bg-white p-8 rounded-2xl shadow-xl">
-              <FileText className="h-10 w-10 mb-4 text-green-600" />
-              <h3 className="text-2xl font-bold text-dream-purple-dark mb-3">Our Reports</h3>
-              <p className="text-slate-600 mb-4 leading-relaxed">
+            <div id="reports" className="bg-card p-8 rounded-2xl shadow-xl">
+              <FileText className="h-10 w-10 mb-4 text-success" />
+              <h3 className="text-2xl font-bold text-[hsl(var(--dream-purple-dark))] mb-3">Our Reports</h3>
+              <p className="text-muted-foreground mb-4 leading-relaxed">
                 We believe in transparency. Access our annual reports and financial statements to see how your support is utilized.
               </p>
-              <Button variant="outline" className="border-green-600 text-green-600 hover:bg-green-600/10 rounded-full px-6">View Annual Reports</Button>
+              <Button variant="outline" className="border-success text-success hover:bg-success/10 rounded-full px-6">View Annual Reports</Button>
             </div>
           </motion.div>
         </div>
@@ -144,14 +143,13 @@ const ContactPage: React.FC = () => {
             { q: "Is my donation tax-deductible?", a: "Yes, Dreamlight Welfare Society is a registered non-profit organization, and donations are typically tax-deductible. Please consult your tax advisor for specifics." },
             { q: "How is my donation used?", a: "We are committed to transparency. At least 90% of donations go directly to program activities. You can view our annual reports for detailed financial breakdowns." },
             { q: "Can I volunteer remotely?", a: "Yes, we have several remote volunteering opportunities, especially in areas like content creation, digital marketing, and research. Check our volunteer section or contact us." },
-          ].map((faq, index) => (
-            <details key={index} className="bg-white p-4 rounded-lg shadow-md group">
-              <summary className="font-semibold text-slate-700 cursor-pointer list-none flex justify-between items-center">
-                {faq.q}
-                <span className="transform transition-transform duration-200 group-open:rotate-45 text-dream-purple">+</span>
-              </summary>
-              <p className="text-slate-600 mt-2 text-sm leading-relaxed">{faq.a}</p>
-            </details>
+          ].map((faq, index) => (<details key={index} className="bg-card p-4 rounded-lg shadow-md group">
+            <summary className="font-semibold text-foreground cursor-pointer list-none flex justify-between items-center">
+              {faq.q}
+              <span className="transform transition-transform duration-200 group-open:rotate-45 text-[hsl(var(--dream-purple))]">+</span>
+            </summary>
+            <p className="text-muted-foreground mt-2 text-sm leading-relaxed">{faq.a}</p>
+          </details>
           ))}
         </div>
       </div>

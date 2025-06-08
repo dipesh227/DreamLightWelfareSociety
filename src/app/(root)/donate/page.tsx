@@ -28,7 +28,7 @@ const DonationImpactCard: React.FC<DonationImpactCardProps> = ({ amount, impact,
     </div>
     <div>
       <p className="text-xl font-bold text-dream-purple">${amount}</p>
-      <p className="text-xs text-slate-600 text-left">{impact}</p>
+      <p className="text-xs text-muted-foreground text-left">{impact}</p>
     </div>
   </motion.div>
 );
@@ -48,15 +48,15 @@ const FundTargetProgress: React.FC<FundTargetProgressProps> = ({ targetName, cur
         <span className="font-semibold text-dream-purple-dark">{targetName}</span>
         <span className={`font-bold ${color}`}>${current.toLocaleString()} / ${target.toLocaleString()}</span>
       </div>
-      <div className="w-full bg-slate-200 rounded-full h-3">
+      <div className="w-full bg-secondary rounded-full h-3">
         <motion.div
-          className={`h-3 rounded-full ${color === 'text-dream-gold' ? 'bg-dream-gold' : color === 'text-blue-600' ? 'bg-blue-600' : color === 'text-green-600' ? 'bg-green-600' : 'bg-dream-purple'}`}
+          className={`h-3 rounded-full ${color === 'text-dream-gold' ? 'bg-dream-gold' : color === 'text-info' ? 'bg-info' : color === 'text-success' ? 'bg-success' : 'bg-dream-purple'}`}
           initial={{ width: 0 }}
           animate={{ width: `${percentage}%` }}
           transition={{ duration: 1, ease: "easeOut" }}
         />
       </div>
-      <p className="text-xs text-slate-500 mt-1 text-right">{percentage.toFixed(0)}% Funded</p>
+      <p className="text-xs text-muted-foreground mt-1 text-right">{percentage.toFixed(0)}% Funded</p>
     </div>
   );
 };
@@ -87,21 +87,19 @@ const DonatePage: React.FC = () => {
   };
 
   const fundTargets = [
-    { name: "Education for All Children", current: 12500, target: 25000, color: "text-dream-purple" },
-    { name: "Clean Water Access Initiative", current: 8200, target: 15000, color: "text-blue-600" },
-    { name: "Healthcare Support Fund", current: 18000, target: 30000, color: "text-green-600" },
+    { name: "Education for All Children", current: 12500, target: 25000, color: "text-dream-purple" }, { name: "Clean Water Access Initiative", current: 8200, target: 15000, color: "text-info" },
+    { name: "Healthcare Support Fund", current: 18000, target: 30000, color: "text-success" },
     { name: "Emergency Relief Operations", current: 5500, target: 10000, color: "text-dream-gold" },
   ];
 
   const impactExamples = [
-    { amount: 25, impact: "Provides school supplies for a child for one month.", icon: BookOpen, iconColor: "text-dream-purple" },
-    { amount: 50, impact: "Offers a family access to clean water solutions for six months.", icon: Droplets, iconColor: "text-blue-600" },
-    { amount: 100, impact: "Supports a health check-up for 5 individuals in a remote community.", icon: Stethoscope, iconColor: "text-green-600" },
+    { amount: 25, impact: "Provides school supplies for a child for one month.", icon: BookOpen, iconColor: "text-dream-purple" }, { amount: 50, impact: "Offers a family access to clean water solutions for six months.", icon: Droplets, iconColor: "text-info" },
+    { amount: 100, impact: "Supports a health check-up for 5 individuals in a remote community.", icon: Stethoscope, iconColor: "text-success" },
     { amount: 250, impact: "Helps fund a vocational training module for one aspiring youth.", icon: Briefcase, iconColor: "text-dream-gold" },
   ];
 
   return (
-    <div className="bg-slate-50">
+    <div className="bg-secondary/30">
       <PageHeader
         title="Your Gift Makes a Difference"
         subtitle="Every contribution, no matter the size, empowers us to continue our vital work. Join us in creating lasting change and building brighter futures."
@@ -123,7 +121,7 @@ const DonatePage: React.FC = () => {
             <h2 className="text-3xl font-bold text-dream-purple-dark mb-8 text-center md:text-left">Make Your Donation</h2>
             <form onSubmit={handleDonationSubmit} className="space-y-8">
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">Choose Amount (USD)</label>
+                <label className="block text-sm font-semibold text-foreground mb-2">Choose Amount (USD)</label>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
                   {predefinedAmounts.map(amount => (
                     <Button
@@ -131,14 +129,14 @@ const DonatePage: React.FC = () => {
                       type="button"
                       variant={donationAmount === amount ? "default" : "outline"}
                       onClick={() => setDonationAmount(amount)}
-                      className={`w-full py-3 text-base rounded-lg transition-all duration-200 ${donationAmount === amount ? 'gradient-bg text-white shadow-md' : 'border-slate-300 text-slate-700 hover:bg-slate-100'}`}
+                      className={`w-full py-3 text-base rounded-lg transition-all duration-200 ${donationAmount === amount ? 'gradient-bg text-white shadow-md' : 'border-border text-foreground hover:bg-accent'}`}
                     >
                       ${amount}
                     </Button>
                   ))}
                 </div>
                 <div className="flex items-center space-x-3">
-                  <DollarSign className="h-6 w-6 text-slate-500" />
+                  <DollarSign className="h-6 w-6 text-muted-foreground" />
                   <Slider
                     defaultValue={[50]}
                     max={500}
@@ -151,13 +149,13 @@ const DonatePage: React.FC = () => {
                     type="number"
                     value={donationAmount}
                     onChange={(e) => setDonationAmount(Number(e.target.value))}
-                    className="w-24 p-2 border border-slate-300 rounded-md text-center font-semibold text-dream-purple"
+                    className="w-24 p-2 border border-input rounded-md text-center font-semibold text-[hsl(var(--dream-purple))]"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">Donation Frequency</label>
+                <label className="block text-sm font-semibold text-foreground mb-2">Donation Frequency</label>
                 <div className="flex space-x-3">
                   {['one-time', 'monthly'].map(freq => (
                     <Button
@@ -165,26 +163,26 @@ const DonatePage: React.FC = () => {
                       type="button"
                       variant={donationFrequency === freq ? "default" : "outline"}
                       onClick={() => setDonationFrequency(freq)}
-                      className={`flex-1 py-3 text-base rounded-lg capitalize transition-all duration-200 ${donationFrequency === freq ? 'gradient-bg text-white shadow-md' : 'border-slate-300 text-slate-700 hover:bg-slate-100'}`}
+                      className={`flex-1 py-3 text-base rounded-lg capitalize transition-all duration-200 ${donationFrequency === freq ? 'gradient-bg text-white shadow-md' : 'border-input text-foreground hover:bg-accent hover:text-accent-foreground'}`}
                     >
                       {freq.replace('-', ' ')}
                     </Button>
                   ))}
                 </div>
                 {donationFrequency === 'monthly' && (
-                  <p className="text-xs text-slate-500 mt-2 flex items-center">
+                  <p className="text-xs text-muted-foreground mt-2 flex items-center">
                     <Info className="h-3 w-3 mr-1.5 text-dream-purple" /> Monthly donations provide sustainable support for our ongoing projects.
                   </p>
                 )}
               </div>
 
               <div>
-                <label htmlFor="program" className="block text-sm font-semibold text-slate-700 mb-2">Designate Your Gift (Optional)</label>
+                <label htmlFor="program" className="block text-sm font-semibold text-foreground mb-2">Designate Your Gift (Optional)</label>
                 <select
                   id="program"
                   value={selectedProgram}
                   onChange={(e) => setSelectedProgram(e.target.value)}
-                  className="w-full p-3 border border-slate-300 rounded-lg bg-white focus:ring-2 focus:ring-dream-purple focus:border-transparent"
+                  className="w-full p-3 border border-border rounded-lg bg-background focus:ring-2 focus:ring-dream-purple focus:border-transparent"
                 >
                   <option value="general">General Fund (Where most needed)</option>
                   <option value="education">Education Empowerment</option>
@@ -200,7 +198,7 @@ const DonatePage: React.FC = () => {
                 <Heart className="mr-2 h-5 w-5" /> Donate ${donationAmount} {donationFrequency === 'monthly' ? 'Monthly' : 'Now'}
               </Button>
 
-              <p className="text-xs text-slate-500 text-center">
+              <p className="text-xs text-muted-foreground text-center">
                 All donations are securely processed. You will receive a receipt via email. Dreamlight Welfare Society is a registered non-profit organization.
               </p>
             </form>
@@ -225,16 +223,14 @@ const DonatePage: React.FC = () => {
               <ul className="space-y-4">
                 <li className="flex items-start">
                   <Gift className="h-6 w-6 mr-3 text-dream-gold flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-semibold text-slate-700">Corporate Partnerships</h4>
-                    <p className="text-sm text-slate-600">Align your brand with a cause. Contact us for partnership opportunities.</p>
+                  <div>                    <h4 className="font-semibold text-foreground">Corporate Partnerships</h4>
+                    <p className="text-sm text-muted-foreground">Align your brand with a cause. Contact us for partnership opportunities.</p>
                   </div>
                 </li>
                 <li className="flex items-start">
                   <Users className="h-6 w-6 mr-3 text-dream-purple flex-shrink-0 mt-0.5" />
-                  <div>
-                    <h4 className="font-semibold text-slate-700">Fundraise for Us</h4>
-                    <p className="text-sm text-slate-600">Start your own campaign to support our projects. We&apos;ll provide resources!</p>
+                  <div>                    <h4 className="font-semibold text-foreground">Fundraise for Us</h4>
+                    <p className="text-sm text-muted-foreground">Start your own campaign to support our projects. We&apos;ll provide resources!</p>
                   </div>
                 </li>
               </ul>
@@ -251,7 +247,7 @@ const DonatePage: React.FC = () => {
               <FundTargetProgress key={fund.name} targetName={fund.name} current={fund.current} target={fund.target} color={fund.color} />
             ))}
           </div>
-          <p className="text-center text-sm text-slate-600 mt-10">
+          <p className="text-center text-sm text-muted-foreground mt-10">
             These are some of our priority areas. Your contribution to the General Fund allows us to allocate resources where they are most urgently needed.
           </p>
         </div>
@@ -259,9 +255,9 @@ const DonatePage: React.FC = () => {
 
       <section className="py-16 md:py-24 text-center">
         <div className="max-w-screen-md mx-auto px-4 sm:px-6 lg:px-8">
-          <CheckCircle className="h-16 w-16 mx-auto mb-6 text-green-500" />
+          <CheckCircle className="h-16 w-16 mx-auto mb-6 text-success" />
           <h2 className="text-3xl md:text-4xl font-bold text-dream-purple-dark mb-6">Your Trust, Our Commitment</h2>
-          <p className="text-lg md:text-xl mb-8 text-slate-700 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl mb-8 text-muted-foreground max-w-2xl mx-auto">
             We are dedicated to transparency and ensuring your donation makes the maximum possible impact. 95% of all donations go directly to our programs.
           </p>
         </div>

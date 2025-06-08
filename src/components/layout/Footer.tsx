@@ -3,15 +3,12 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Youtube, Linkedin, ArrowUpCircle, Info, Briefcase, BarChart2, FolderHeart as HandHeart, Calendar, Users, ShieldCheck, BookOpen, Rss, Award, Newspaper, Mail, ShieldAlert, Trees } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { toast } from '@/components/ui/use-toast';
 
-interface FooterProps {
-  logoUrl?: string;
-}
-
-const Footer: React.FC<FooterProps> = ({ logoUrl = '/logo1.jpeg' }) => {
+const Footer = () => {
   const aboutLinks = [
     { to: '/about', label: 'Our Story', icon: Info },
     { to: '/team', label: 'Our Team', icon: Users },
@@ -46,13 +43,12 @@ const Footer: React.FC<FooterProps> = ({ logoUrl = '/logo1.jpeg' }) => {
     { to: '/child-protection-policy', label: 'Child Protection', icon: ShieldAlert },
     { to: '/environmental-policy', label: 'Environment Policy', icon: Trees },
   ];
-
   const socialMediaLinks = [
-    { href: "https://facebook.com", icon: Facebook, label: "Facebook", color: "hover:text-blue-400" },
-    { href: "https://twitter.com", icon: Twitter, label: "Twitter", color: "hover:text-sky-400" },
-    { href: "https://instagram.com", icon: Instagram, label: "Instagram", color: "hover:text-pink-400" },
-    { href: "https://youtube.com", icon: Youtube, label: "YouTube", color: "hover:text-red-500" },
-    { href: "https://linkedin.com", icon: Linkedin, label: "LinkedIn", color: "hover:text-blue-600" },
+    { href: "https://facebook.com", icon: Facebook, label: "Facebook", color: "hover:text-info" },
+    { href: "https://twitter.com", icon: Twitter, label: "Twitter", color: "hover:text-info" },
+    { href: "https://instagram.com", icon: Instagram, label: "Instagram", color: "hover:text-secondary" },
+    { href: "https://youtube.com", icon: Youtube, label: "YouTube", color: "hover:text-destructive" },
+    { href: "https://linkedin.com", icon: Linkedin, label: "LinkedIn", color: "hover:text-info" },
   ];
 
   const scrollToTop = () => {
@@ -67,8 +63,8 @@ const Footer: React.FC<FooterProps> = ({ logoUrl = '/logo1.jpeg' }) => {
 
   const FooterLinkColumn = ({ title, links }: { title: string; links: LinkItem[] }) => (
     <div>
-      <h3 className="text-md font-semibold text-dream-gold-light mb-5 tracking-wider uppercase">{title}</h3>
-      <ul className="space-y-2.5">
+      <h3 className="text-md font-semibold text-dream-gold-light mb-6 tracking-wider uppercase">{title}</h3>
+      <ul className="space-y-3">
         {links.map(link => (
           <li key={link.to || link.label}>
             <Link href={link.to} className="text-sm hover:text-white transition-colors duration-200 hover:underline underline-offset-4 flex items-center group">
@@ -94,26 +90,35 @@ const Footer: React.FC<FooterProps> = ({ logoUrl = '/logo1.jpeg' }) => {
   };
 
   return (
-    <footer className="bg-gradient-to-br from-dream-purple-dark to-dream-purple text-slate-300 pt-20 pb-8 relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-dream-purple-dark to-dream-purple text-muted-foreground pt-20 pb-8 relative overflow-hidden">
       <div className="absolute inset-0 hero-pattern opacity-10"></div>
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-10 mb-12">
           <div className="space-y-5 sm:col-span-2 lg:col-span-2">
             <Link href="/" className="flex items-center space-x-3">
-              <motion.img
-                src={logoUrl}
-                alt="Dreamlight Welfare Society footer logo"
-                className="h-12 w-auto"
+              <motion.div
+                className="h-12"
                 whileHover={{ scale: 1.1, rotate: -5 }}
                 transition={{ type: "spring", stiffness: 400 }}
-              />
+              >
+                <Image
+                  src="/images/logo1.jpeg"
+                  alt="Dreamlight Welfare Society footer logo"
+                  width={48}
+                  height={48}
+                  quality={90}
+                  className="h-full w-auto"
+                  loading="lazy"
+                  style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))' }}
+                />
+              </motion.div>
               <span className="text-2xl font-bold text-dream-gold">Dreamlight</span>
             </Link>
-            <p className="text-sm leading-relaxed text-slate-300/90">
+            <p className="text-sm leading-[1.8] text-muted-foreground/90">
               Empowering communities through education, healthcare, and sustainable development programs. Join us in making a difference.
             </p>
             <form onSubmit={handleNewsletterSubmit} className="mt-6">
-              <label htmlFor="newsletter-email" className="block text-sm font-medium text-dream-gold-light mb-2">Stay Updated</label>
+              <label htmlFor="newsletter-email" className="block text-sm font-medium text-dream-gold-light mb-3">Stay Updated</label>
               <div className="flex gap-2">
                 <input
                   type="email"
@@ -121,14 +126,14 @@ const Footer: React.FC<FooterProps> = ({ logoUrl = '/logo1.jpeg' }) => {
                   name="email"
                   required
                   placeholder="your.email@example.com"
-                  className="w-full px-4 py-2.5 rounded-lg bg-dream-purple-dark/50 border border-dream-purple-light/30 text-white placeholder-slate-400 focus:ring-2 focus:ring-dream-gold focus:border-transparent text-sm"
+                  className="w-full px-4 py-2.5 rounded-lg bg-dream-purple-dark/50 border border-dream-purple-light/30 text-white placeholder-muted-foreground focus:ring-2 focus:ring-dream-gold focus:border-transparent text-sm"
                 />
                 <Button type="submit" className="bg-dream-gold text-dream-purple-dark hover:bg-dream-gold-light px-5 rounded-lg text-sm">
                   Subscribe
                 </Button>
               </div>
             </form>
-            <div className="flex space-x-4 pt-4">
+            <div className="flex space-x-5 pt-6">
               {socialMediaLinks.map(social => (
                 <motion.a
                   key={social.label}
@@ -136,7 +141,7 @@ const Footer: React.FC<FooterProps> = ({ logoUrl = '/logo1.jpeg' }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className={`text-slate-400 ${social.color} transition-colors duration-300`}
+                  className={`text-muted-foreground ${social.color} transition-colors duration-300`}
                   whileHover={{ y: -3, scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -155,11 +160,10 @@ const Footer: React.FC<FooterProps> = ({ logoUrl = '/logo1.jpeg' }) => {
           </div>
         </div>
 
-        <div className="border-t border-dream-purple/50 pt-8 mt-10 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-center md:text-left text-xs text-slate-400/80 mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} Dreamlight Welfare Society. All rights reserved. Registered Non-Profit Organization.
-          </p>
-          <p className="text-center md:text-right text-xs text-slate-400/80">
+        <div className="border-t border-dream-purple/50 pt-8 mt-10 flex flex-col md:flex-row justify-between items-center">          <p className="text-center md:text-left text-xs text-muted-foreground/60 mb-4 md:mb-0 leading-relaxed">
+          &copy; {new Date().getFullYear()} Dreamlight Welfare Society. All rights reserved. Registered Non-Profit Organization.
+        </p>
+          <p className="text-center md:text-right text-xs text-muted-foreground/60 leading-relaxed">
             Designed with <span className="text-dream-gold-light">&hearts;</span> by Hostinger Horizons.
           </p>
         </div>

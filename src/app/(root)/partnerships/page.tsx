@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Users, Briefcase, Zap, HeartHandshake as Handshake, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface PartnershipType {
    icon: React.ComponentType<any>;
@@ -41,7 +42,7 @@ const PartnershipTypeCard = ({ icon: Icon, title, description, benefits, color, 
          </ul>
       </div>
       <Link href="/contact?subject=PartnershipInquiry" className="mt-auto">
-         <Button variant="outline" className={`w-full border-2 ${color.replace('text-', 'border-')} ${color} hover:bg-primary/10 rounded-full`}>
+         <Button variant="outline" className={`w-full border-2 ${color.replace('text-', 'border-')} ${color} hover:bg-${color.split('-')[1]}/10 rounded-full`}>
             Inquire About {title}
          </Button>
       </Link>
@@ -60,7 +61,13 @@ const PartnerLogo = ({ src, alt, link, index }: Partner & { index: number }) => 
       transition={{ duration: 0.5, delay: index * 0.05 }}
       whileHover={{ y: -3 }}
    >
-      <img className="h-16 w-auto mx-auto object-contain" alt={alt} src={src} />
+      <Image
+         className="h-16 w-auto mx-auto object-contain"
+         alt={alt}
+         src={src}
+         width={120}
+         height={64}
+      />
    </motion.a>
 );
 
@@ -172,8 +179,8 @@ export default function PartnershipsPage() {
          <section className="py-20 bg-card">
             <div className="max-w-3xl mx-auto px-4 text-center">
                <MessageSquare className="h-16 w-16 mx-auto text-[hsl(var(--dream-gold))] mb-6" />
-               <h2 className="text-3xl md:text-4xl font-bold text-[hsl(var(--dream-purple-dark))] mb-6">Let's Discuss a Partnership</h2>
-               <p className="text-foreground text-lg leading-relaxed mb-8">
+               <h2 className="text-3xl md:text-4xl font-bold text-[hsl(var(--dream-purple-dark))] mb-6">Let&apos;s Discuss a Partnership</h2>
+               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                   If your organization is interested in exploring a partnership with Dreamlight Welfare Society, we would love to hear from you. Contact our partnerships team to start a conversation.
                </p>
                <motion.div
@@ -181,7 +188,7 @@ export default function PartnershipsPage() {
                   whileTap={{ scale: 0.95 }}
                >
                   <Link href="/contact?subject=PartnershipInquiry">
-                     <Button size="lg" className="bg-gradient-to-r from-[hsl(var(--dream-purple))] to-[hsl(var(--dream-purple-dark))] text-white font-semibold px-10 py-3.5 rounded-full text-base shadow-lg hover:shadow-xl transition-all duration-300">
+                     <Button size="lg" className="gradient-bg text-white font-semibold px-10 py-3.5 rounded-full text-base shadow-lg hover:shadow-xl transition-all duration-300">
                         Contact Our Partnerships Team
                      </Button>
                   </Link>

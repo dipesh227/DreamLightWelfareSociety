@@ -28,23 +28,22 @@ const StatCard = ({ title, value, change, icon: Icon, color = "blue" }: {
   color?: string;
 }) => {
   const colorClasses = {
-    blue: "from-blue-500 to-blue-600",
-    green: "from-green-500 to-green-600",
-    purple: "from-purple-500 to-purple-600",
-    orange: "from-orange-500 to-orange-600"
+    blue: "from-primary to-primary/90",
+    green: "from-success to-success/90",
+    purple: "from-primary to-secondary",
+    orange: "from-warning to-warning/90"
   };
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl rounded-2xl p-6 border border-white/20 dark:border-slate-700/50 shadow-lg"
+      className="bg-card/70 backdrop-blur-xl rounded-2xl p-6 border border-border/20 shadow-lg"
     >
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm font-medium text-slate-600 dark:text-slate-400">{title}</p>
-          <p className="text-2xl font-bold text-slate-900 dark:text-slate-100 mt-1">{value}</p>
-          <p className="text-sm text-green-600 dark:text-green-400 mt-1">{change}</p>
+          <p className="text-sm font-medium text-muted-foreground">{title}</p>
+          <p className="text-2xl font-bold text-foreground mt-1">{value}</p>
+          <p className="text-sm text-success mt-1">{change}</p>
         </div>
         <div className={`p-3 rounded-xl bg-gradient-to-br ${colorClasses[color as keyof typeof colorClasses]} shadow-lg`}>
           <Icon className="w-6 h-6 text-white" />
@@ -65,9 +64,9 @@ const EventCard = ({ title, date, time, location, description, participants, cat
   status: 'upcoming' | 'ongoing' | 'completed';
 }) => {
   const statusColors = {
-    upcoming: "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400",
-    ongoing: "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400",
-    completed: "bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-400"
+    upcoming: "bg-info/10 text-info border border-info/20",
+    ongoing: "bg-success/10 text-success border border-success/20",
+    completed: "bg-muted text-muted-foreground border border-border"
   };
 
   const categoryIcons = {
@@ -79,20 +78,19 @@ const EventCard = ({ title, date, time, location, description, participants, cat
   };
 
   const CategoryIcon = categoryIcons[category as keyof typeof categoryIcons] || Building;
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl rounded-xl p-6 border border-white/20 dark:border-slate-700/50 shadow-lg hover:shadow-xl transition-all"
+      className="bg-card/70 backdrop-blur-xl rounded-xl p-6 border border-border/20 shadow-lg hover:shadow-xl transition-all"
     >
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-start space-x-3">
-          <div className="p-2 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg">
+          <div className="p-2 bg-gradient-to-br from-primary to-primary/90 rounded-lg">
             <CategoryIcon className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h3 className="font-semibold text-slate-900 dark:text-slate-100">{title}</h3>
+            <h3 className="font-semibold text-foreground">{title}</h3>
             <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium mt-1 ${statusColors[status]}`}>
               {status.charAt(0).toUpperCase() + status.slice(1)}
             </span>
@@ -100,9 +98,9 @@ const EventCard = ({ title, date, time, location, description, participants, cat
         </div>
       </div>
 
-      <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">{description}</p>
+      <p className="text-sm text-muted-foreground mb-4">{description}</p>
 
-      <div className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+      <div className="space-y-2 text-sm text-muted-foreground">
         <div className="flex items-center space-x-2">
           <Calendar className="w-4 h-4" />
           <span>{date}</span>
@@ -119,12 +117,10 @@ const EventCard = ({ title, date, time, location, description, participants, cat
           <Users className="w-4 h-4" />
           <span>{participants} participants</span>
         </div>
-      </div>
-
-      <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-600">
+      </div>      <div className="mt-4 pt-4 border-t border-border">
         <Button
           size="sm"
-          className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
+          className="w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary/80"
           disabled={status === 'completed'}
         >
           {status === 'completed' ? 'Completed' : status === 'ongoing' ? 'View Details' : 'Join Event'}
@@ -169,12 +165,11 @@ export default function VolunteerPortalPage() {
       status: "ongoing" as const
     }
   ];
-
   const achievements = [
-    { title: "Volunteer of the Month", description: "December 2023", icon: Award, color: "text-yellow-600" },
-    { title: "Community Helper", description: "50+ hours served", icon: Heart, color: "text-red-600" },
-    { title: "Event Organizer", description: "Led 3 successful events", icon: Star, color: "text-blue-600" },
-    { title: "Team Player", description: "Perfect attendance", icon: CheckCircle2, color: "text-green-600" }
+    { title: "Volunteer of the Month", description: "December 2023", icon: Award, color: "text-warning" },
+    { title: "Community Helper", description: "50+ hours served", icon: Heart, color: "text-destructive" },
+    { title: "Event Organizer", description: "Led 3 successful events", icon: Star, color: "text-info" },
+    { title: "Team Player", description: "Perfect attendance", icon: CheckCircle2, color: "text-success" }
   ];
 
   return (
@@ -184,36 +179,33 @@ export default function VolunteerPortalPage() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         className="flex flex-col sm:flex-row sm:items-center sm:justify-between"
-      >
-        <div>
-          <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-100">
+      >        <div>
+          <h1 className="text-3xl font-bold text-foreground">
             Volunteer Portal
           </h1>
-          <p className="text-slate-600 dark:text-slate-400 mt-1">
+          <p className="text-muted-foreground mt-1">
             Welcome back, Priya! Ready to make a difference today?
           </p>
         </div>
         <div className="flex items-center space-x-3 mt-4 sm:mt-0">
-          <Button size="sm" variant="outline" className="bg-white/50 dark:bg-slate-800/50">
+          <Button size="sm" variant="outline" className="bg-card/50">
             <Calendar className="w-4 h-4 mr-2" />
             Schedule
           </Button>
-          <Button size="sm" className="bg-gradient-to-r from-blue-600 to-blue-700">
+          <Button size="sm" className="bg-gradient-to-r from-primary to-primary/90">
             <Heart className="w-4 h-4 mr-2" />
             New Activity
           </Button>
         </div>
-      </motion.div>
-
-      {/* Navigation Tabs */}
-      <div className="flex space-x-1 bg-white/50 dark:bg-slate-800/50 p-1 rounded-xl">
+      </motion.div>      {/* Navigation Tabs */}
+      <div className="flex space-x-1 bg-card/50 p-1 rounded-xl">
         {['overview', 'events', 'achievements', 'schedule'].map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
             className={`flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all ${activeTab === tab
-                ? 'bg-blue-600 text-white shadow-md'
-                : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100'
+              ? 'bg-primary text-white shadow-md'
+              : 'text-muted-foreground hover:text-foreground'
               }`}
           >
             {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -256,13 +248,12 @@ export default function VolunteerPortalPage() {
             />
           </div>
 
-          {/* Recent Activities */}
-          <motion.div
+          {/* Recent Activities */}          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl rounded-2xl p-6 border border-white/20 dark:border-slate-700/50 shadow-lg"
+            className="bg-card/70 backdrop-blur-xl rounded-2xl p-6 border border-border/20 shadow-lg"
           >
-            <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-4">
+            <h2 className="text-lg font-semibold text-foreground mb-4">
               Recent Activities
             </h2>
             <div className="space-y-3">
@@ -272,15 +263,15 @@ export default function VolunteerPortalPage() {
                 { activity: "Organized educational workshop", time: "3 days ago", type: "organized" },
                 { activity: "Received volunteer recognition", time: "1 week ago", type: "achievement" }
               ].map((item, index) => (
-                <div key={index} className="flex items-center space-x-3 p-3 rounded-lg hover:bg-slate-50/50 dark:hover:bg-slate-700/50 transition-colors">
-                  <div className="p-2 bg-gradient-to-br from-green-500 to-green-600 rounded-lg">
+                <div key={index} className="flex items-center space-x-3 p-3 rounded-lg hover:bg-muted/50 transition-colors">
+                  <div className="p-2 bg-gradient-to-br from-success to-success/90 rounded-lg">
                     <CheckCircle2 className="w-4 h-4 text-white" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm font-medium text-slate-900 dark:text-slate-100">
+                    <p className="text-sm font-medium text-foreground">
                       {item.activity}
                     </p>
-                    <p className="text-xs text-slate-600 dark:text-slate-400">
+                    <p className="text-xs text-muted-foreground">
                       {item.time}
                     </p>
                   </div>
@@ -291,30 +282,27 @@ export default function VolunteerPortalPage() {
         </div>
       )}
 
-      {activeTab === 'events' && (
-        <div className="space-y-6">
-          <div className="flex items-center justify-between">
-            <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100">
-              Available Events
-            </h2>
-            <div className="flex items-center space-x-2">
-              <AlertCircle className="w-5 h-5 text-blue-600" />
-              <span className="text-sm text-slate-600 dark:text-slate-400">
-                {upcomingEvents.length} events available
-              </span>
-            </div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {upcomingEvents.map((event, index) => (
-              <EventCard key={index} {...event} />
-            ))}
+      {activeTab === 'events' && (<div className="space-y-6">
+        <div className="flex items-center justify-between">
+          <h2 className="text-xl font-semibold text-foreground">
+            Available Events
+          </h2>
+          <div className="flex items-center space-x-2">
+            <AlertCircle className="w-5 h-5 text-info" />
+            <span className="text-sm text-muted-foreground">
+              {upcomingEvents.length} events available
+            </span>
           </div>
         </div>
-      )}
-
-      {activeTab === 'achievements' && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {upcomingEvents.map((event, index) => (
+            <EventCard key={index} {...event} />
+          ))}
+        </div>
+      </div>
+      )}      {activeTab === 'achievements' && (
         <div className="space-y-6">
-          <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100">
+          <h2 className="text-xl font-semibold text-foreground">
             Your Achievements
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -324,17 +312,17 @@ export default function VolunteerPortalPage() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl rounded-xl p-6 border border-white/20 dark:border-slate-700/50 shadow-lg"
+                className="bg-card/70 backdrop-blur-xl rounded-xl p-6 border border-border/20 shadow-lg"
               >
                 <div className="flex items-center space-x-4">
-                  <div className="p-3 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl">
+                  <div className="p-3 bg-gradient-to-br from-primary to-primary/90 rounded-xl">
                     <achievement.icon className={`w-6 h-6 text-white`} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-slate-900 dark:text-slate-100">
+                    <h3 className="font-semibold text-foreground">
                       {achievement.title}
                     </h3>
-                    <p className="text-sm text-slate-600 dark:text-slate-400">
+                    <p className="text-sm text-muted-foreground">
                       {achievement.description}
                     </p>
                   </div>
@@ -343,20 +331,18 @@ export default function VolunteerPortalPage() {
             ))}
           </div>
         </div>
-      )}
-
-      {activeTab === 'schedule' && (
+      )}      {activeTab === 'schedule' && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl rounded-2xl p-6 border border-white/20 dark:border-slate-700/50 shadow-lg"
+          className="bg-card/70 backdrop-blur-xl rounded-2xl p-6 border border-border/20 shadow-lg"
         >
-          <h2 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-4">
+          <h2 className="text-xl font-semibold text-foreground mb-4">
             Your Schedule
           </h2>
           <div className="text-center py-12">
-            <Calendar className="w-16 h-16 text-slate-400 mx-auto mb-4" />
-            <p className="text-slate-600 dark:text-slate-400">
+            <Calendar className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
+            <p className="text-muted-foreground">
               Schedule management feature coming soon!
             </p>
           </div>

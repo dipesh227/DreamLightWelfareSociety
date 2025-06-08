@@ -184,7 +184,7 @@ export default function FinancialsOverviewPage() {
             <div className="max-w-3xl mx-auto px-4 text-center">
                <FileText className="h-16 w-16 mx-auto text-[hsl(var(--dream-gold-light))] mb-6" />
                <h2 className="text-3xl md:text-4xl font-bold mb-6">Detailed Reports & Audits</h2>
-               <p className="text-slate-300 text-lg leading-relaxed mb-8">
+               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                   For a comprehensive understanding of our financial performance, governance, and impact, please refer to our detailed annual reports and audited financial statements.
                </p>
                <div className="flex flex-col sm:flex-row gap-4 justify-center">

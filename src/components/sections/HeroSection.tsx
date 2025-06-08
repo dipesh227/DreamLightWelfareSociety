@@ -8,19 +8,18 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 interface HeroSectionProps {
-  logoUrl: string;
   handleDonate: () => void;
 }
 
-const HeroSection: React.FC<HeroSectionProps> = ({ logoUrl, handleDonate }) => {
+const HeroSection: React.FC<HeroSectionProps> = ({ handleDonate }) => {
   const stats = [
     { value: "12+", label: "Years Strong", icon: Award, color: "text-dream-gold" },
     { value: "75K+", label: "Lives Touched", icon: Users, color: "text-dream-purple" },
-    { value: "95%", label: "Fund Utilization", icon: ShieldCheck, color: "text-green-500" },
+    { value: "95%", label: "Fund Utilization", icon: ShieldCheck, color: "text-success" },
   ];
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-dream-purple-lighter via-slate-50 to-dream-gold-light/10">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-dream-purple/10 via-background to-dream-gold/5">
       <motion.div
         className="absolute inset-0 z-0 hero-pattern opacity-60"
         initial={{ opacity: 0 }}
@@ -33,22 +32,33 @@ const HeroSection: React.FC<HeroSectionProps> = ({ logoUrl, handleDonate }) => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-          className="space-y-8 md:space-y-10"
+          className="space-y-10 md:space-y-12"
         >
           <motion.div
             className="inline-block p-3 bg-white/70 rounded-full shadow-2xl backdrop-blur-md pulse-glow"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <Image src={logoUrl} alt="Dreamlight Welfare Society main logo" className="h-24 w-24 md:h-32 md:w-32" />
+            <Image
+              src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Children learning together at Dream Light Welfare Society"
+              width={800}
+              height={600}
+              priority
+              quality={100}
+              className="h-24 w-24 md:h-32 md:w-32 object-contain"
+            />
           </motion.div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground tracking-tighter leading-tight">
-            Igniting Hope, <br className="hidden sm:block" /> <span className="gradient-text">Empowering Futures.</span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-foreground tracking-tighter leading-[1.1]">
+            Empowering Lives, <br className="hidden sm:block" />
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-dream-purple via-dream-gold to-dream-purple-light">
+              Building Tomorrow.
+            </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed font-medium">
-            Dreamlight Welfare Society is a beacon of change, dedicated to uplifting communities through sustainable education, healthcare, and livelihood programs. Join our movement to transform lives.
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-[1.8] font-medium">
+            Dream Light Welfare Society is a beacon of hope in Uttarakhand, India. We&apos;re dedicated to empowering communities through sustainable education, healthcare, and rural development initiatives. Join us in creating lasting positive change.
           </p>
 
           <motion.div
@@ -57,31 +67,33 @@ const HeroSection: React.FC<HeroSectionProps> = ({ logoUrl, handleDonate }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
           >
-            <Link href="/donate">
-              <Button
-                onClick={handleDonate}
-                size="xl"
-                className="gradient-bg text-white rounded-full w-full sm:w-auto group"
-              >
-                <Heart className="mr-2.5 h-5 w-5 group-hover:animate-pulse" />
-                Donate Now
-              </Button>
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 items-center">
+              <Link href="/donate">
+                <Button
+                  onClick={handleDonate}
+                  size="xl"
+                  className="bg-gradient-to-r from-dream-purple to-dream-gold text-white rounded-full w-full sm:w-auto group hover:opacity-90 transition-all duration-300"
+                >
+                  <Heart className="mr-2.5 h-5 w-5 group-hover:animate-pulse" />
+                  Support Our Cause
+                </Button>
+              </Link>
 
-            <Link href="/volunteer">
-              <Button
-                variant="outline"
-                size="xl"
-                className="rounded-full border-2 border-primary text-primary hover:bg-primary/10 w-full sm:w-auto group"
-              >
-                <Users className="mr-2.5 h-5 w-5 group-hover:text-dream-gold transition-colors" />
-                Get Involved
-              </Button>
-            </Link>
+              <Link href="/volunteer">
+                <Button
+                  variant="outline"
+                  size="xl"
+                  className="rounded-full border-2 border-dream-purple text-dream-purple hover:bg-dream-purple/10 w-full sm:w-auto group transition-all duration-300"
+                >
+                  <Users className="mr-2.5 h-5 w-5 group-hover:text-dream-gold transition-colors" />
+                  Join Our Mission
+                </Button>
+              </Link>
+            </div>
           </motion.div>
 
           <motion.div
-            className="pt-8 md:pt-12 grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-2xl mx-auto"
+            className="pt-10 md:pt-14 grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 max-w-2xl mx-auto"
             initial="hidden"
             animate="visible"
             variants={{
@@ -91,12 +103,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ logoUrl, handleDonate }) => {
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
-                className="bg-card/80 backdrop-blur-sm p-4 rounded-xl shadow-lg text-center border border-border hover:shadow-xl transition-shadow duration-300"
+                className="bg-card/80 backdrop-blur-sm p-5 rounded-xl shadow-lg text-center border border-border hover:shadow-xl transition-shadow duration-300"
                 variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
               >
                 <stat.icon className={`h-8 w-8 mx-auto mb-2 ${stat.color}`} />
-                <p className="text-xl md:text-2xl font-bold text-foreground">{stat.value}</p>
-                <p className="text-xs md:text-sm text-muted-foreground font-medium">{stat.label}</p>
+                <p className="text-xl md:text-2xl font-bold text-foreground mb-1">{stat.value}</p>
+                <p className="text-xs md:text-sm text-muted-foreground font-medium leading-relaxed">{stat.label}</p>
               </motion.div>
             ))}
           </motion.div>

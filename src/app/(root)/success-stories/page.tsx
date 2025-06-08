@@ -1,10 +1,11 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Award, Users, ArrowRight, Filter, XCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Award, BookOpen, Stethoscope, Droplets, Briefcase, ArrowRight, Filter, XCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface Story {
    id: number;
@@ -54,68 +55,105 @@ const categories = ["All", ...new Set(storiesData.map(story => story.category))]
 
 const StoryCard = ({ story, onReadMore }: { story: Story; onReadMore: (story: Story) => void }) => (
    <motion.div
-      className="bg-card rounded-2xl shadow-xl overflow-hidden flex flex-col group"
+      className="bg-card rounded-2xl shadow-xl overflow-hidden flex flex-col group hover:shadow-2xl transition-shadow duration-300"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
    >
       <div className="relative h-56 overflow-hidden">
-         <img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt={story.title} src={story.imageSrc} />
-         <div className="absolute top-3 right-3 bg-[hsl(var(--dream-gold))] text-[hsl(var(--dream-purple-dark))] px-3 py-1 rounded-full text-xs font-semibold shadow-md">{story.category}</div>
+         <Image
+            src={story.imageSrc}
+            alt={story.title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
+         />
+         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </div>
-      <div className="p-6 flex flex-col flex-grow">
-         <h3 className="text-xl font-bold text-[hsl(var(--dream-purple-dark))] mb-2">{story.title}</h3>
-         <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-grow">{story.excerpt}</p>
-         <Button onClick={() => onReadMore(story)} size="sm" variant="link" className="text-[hsl(var(--dream-purple))] hover:text-[hsl(var(--dream-gold))] font-semibold self-start px-0 group/link">
-            Read Full Story <ArrowRight size={16} className="ml-1.5 group-hover/link:translate-x-1 transition-transform" />
+      <div className="p-6 flex-grow flex flex-col">
+         <span className="inline-block text-xs font-semibold text-[hsl(var(--dream-gold))] bg-[hsl(var(--dream-gold))]/10 px-2.5 py-1 rounded-full mb-3 self-start">
+            {story.category}
+         </span>
+         <h3 className="text-xl font-bold text-[hsl(var(--dream-purple-dark))] mb-3">{story.title}</h3>
+         <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-grow">{story.excerpt}</p>
+         <Button
+            onClick={() => onReadMore(story)}
+            variant="outline"
+            className="w-full border-[hsl(var(--dream-purple))] text-[hsl(var(--dream-purple))] hover:bg-[hsl(var(--dream-purple))]/10 group/btn"
+         >
+            Read Full Story
+            <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
          </Button>
       </div>
    </motion.div>
 );
 
-const StoryModal = ({ story, onClose }: { story: Story; onClose: () => void }) => (
-   <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="fixed inset-0 bg-black/70 backdrop-blur-md z-[100] flex items-center justify-center p-4"
-      onClick={onClose}
-   >
+const StoryModal = ({ story, isOpen, onClose }: { story: Story | null; isOpen: boolean; onClose: () => void }) => {
+   if (!isOpen || !story) return null;
+
+   return (
       <motion.div
-         initial={{ scale: 0.8, opacity: 0, y: 20 }}
-         animate={{ scale: 1, opacity: 1, y: 0 }}
-         exit={{ scale: 0.8, opacity: 0, y: 20 }}
-         transition={{ type: "spring", stiffness: 300, damping: 25 }}
-         className="bg-card rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 md:p-8"
-         onClick={(e) => e.stopPropagation()}
+         className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
+         initial={{ opacity: 0 }}
+         animate={{ opacity: 1 }}
+         exit={{ opacity: 0 }}
+         onClick={onClose}
       >
-         <div className="flex justify-between items-start mb-4">
-            <h2 className="text-2xl md:text-3xl font-bold text-[hsl(var(--dream-purple-dark))]">{story.title}</h2>
-            <button onClick={onClose} className="text-muted-foreground hover:text-[hsl(var(--dream-purple))]">
-               <XCircle size={28} />
-            </button>
-         </div>
-         <img className="w-full h-64 object-cover rounded-lg mb-6" alt={story.title} src={story.imageSrc} />
-         <p className="text-sm text-[hsl(var(--dream-gold))] font-semibold mb-1">{story.category}</p>
-         <p className="text-foreground leading-relaxed mb-6 whitespace-pre-line">{story.fullStory}</p>
+         <motion.div
+            className="bg-card rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
+            onClick={(e) => e.stopPropagation()}
+         >
+            <div className="relative h-64 md:h-80">
+               <Image
+                  src={story.imageSrc}
+                  alt={story.title}
+                  fill
+                  className="object-cover"
+               />
+               <Button
+                  onClick={onClose}
+                  variant="outline"
+                  size="sm"
+                  className="absolute top-4 right-4 bg-background/80 hover:bg-background"
+               >
+                  <XCircle className="h-4 w-4" />
+               </Button>
+            </div>
+            <div className="p-6 md:p-8">
+               <span className="inline-block text-xs font-semibold text-[hsl(var(--dream-gold))] bg-[hsl(var(--dream-gold))]/10 px-2.5 py-1 rounded-full mb-4">
+                  {story.category}
+               </span>
+               <h2 className="text-2xl md:text-3xl font-bold text-[hsl(var(--dream-purple-dark))] mb-4">{story.title}</h2>
+               <p className="text-muted-foreground leading-relaxed mb-6">{story.fullStory}</p>
 
-         <h4 className="text-md font-semibold text-[hsl(var(--dream-purple-dark))] mb-2">Key Impacts:</h4>
-         <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground mb-6">
-            {story.impact.map((item, index) => <li key={index}>{item}</li>)}
-         </ul>
+               <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-foreground mb-3">Impact Achieved:</h3>
+                  <ul className="space-y-2">
+                     {story.impact.map((item, index) => (
+                        <li key={index} className="flex items-center text-sm text-muted-foreground">
+                           <div className="w-2 h-2 bg-[hsl(var(--dream-gold))] rounded-full mr-3"></div>
+                           {item}
+                        </li>
+                     ))}
+                  </ul>
+               </div>
 
-         <Link href={story.relatedProgram}>
-            <Button variant="outline" className="border-[hsl(var(--dream-purple))] text-[hsl(var(--dream-purple))] hover:bg-[hsl(var(--dream-purple))]/10 rounded-full">
-               Learn about our {story.category} programs
-            </Button>
-         </Link>
+               <Link href={story.relatedProgram}>
+                  <Button className="gradient-bg text-white">
+                     Learn About Related Programs
+                  </Button>
+               </Link>
+            </div>
+         </motion.div>
       </motion.div>
-   </motion.div>
-);
+   );
+};
 
 const PageHeader = ({ title, subtitle }: { title: string; subtitle: string }) => (
-   <div className="relative bg-gradient-to-br from-[hsl(var(--dream-gold))] to-[hsl(var(--dream-gold-light))] py-20 md:py-32 overflow-hidden">
+   <div className="relative bg-gradient-to-br from-[hsl(var(--dream-purple))] to-[hsl(var(--dream-purple-dark))] py-20 md:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-black/10"></div>
       <div className="relative max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
          <motion.div
@@ -123,11 +161,11 @@ const PageHeader = ({ title, subtitle }: { title: string; subtitle: string }) =>
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
          >
-            <Award className="h-16 w-16 md:h-20 md:w-20 mx-auto text-[hsl(var(--dream-purple-dark))] mb-6" />
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[hsl(var(--dream-purple-dark))] mb-6">
+            <Award className="h-16 w-16 md:h-20 md:w-20 mx-auto text-white mb-6" />
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
                {title}
             </h1>
-            <p className="text-xl md:text-2xl text-[hsl(var(--dream-purple-dark))]/80 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
                {subtitle}
             </p>
          </motion.div>
@@ -138,74 +176,96 @@ const PageHeader = ({ title, subtitle }: { title: string; subtitle: string }) =>
 export default function SuccessStoriesPage() {
    const [selectedCategory, setSelectedCategory] = useState("All");
    const [selectedStory, setSelectedStory] = useState<Story | null>(null);
+   const [isModalOpen, setIsModalOpen] = useState(false);
 
    const filteredStories = selectedCategory === "All"
       ? storiesData
       : storiesData.filter(story => story.category === selectedCategory);
 
+   const handleReadMore = (story: Story) => {
+      setSelectedStory(story);
+      setIsModalOpen(true);
+   };
+
+   const closeModal = () => {
+      setIsModalOpen(false);
+      setSelectedStory(null);
+   };
+
    return (
-      <div className="bg-background min-h-screen">
+      <div className="bg-background">
          <PageHeader
-            title="Stories of Transformation"
-            subtitle="Witness the real-life impact of your support. These stories highlight the resilience, hope, and positive change fostered by Dreamlight's initiatives."
+            title="Stories of Change"
+            subtitle="Real people, real impact. Discover how Dreamlight Welfare Society's programs have transformed lives and communities across India."
          />
 
-         <section className="py-12 md:py-20">
+         <section className="py-16 md:py-24">
             <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-               <div className="mb-10 md:mb-14 flex flex-wrap justify-center items-center gap-3">
-                  <Filter className="h-5 w-5 text-[hsl(var(--dream-purple))] mr-1 hidden sm:inline" />
-                  {categories.map(category => (
+               <div className="text-center mb-12">
+                  <h2 className="text-3xl md:text-4xl font-bold text-[hsl(var(--dream-purple-dark))] mb-4">
+                     Celebrating Impact Through Stories
+                  </h2>
+                  <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                     Each story represents lives touched, communities uplifted, and dreams realized through collective effort and compassion.
+                  </p>
+               </div>
+
+               <div className="flex flex-wrap justify-center gap-2 mb-12">
+                  {categories.map((category) => (
                      <Button
                         key={category}
                         onClick={() => setSelectedCategory(category)}
                         variant={selectedCategory === category ? "default" : "outline"}
-                        size="sm"
-                        className={`rounded-full px-5 py-2 text-xs sm:text-sm capitalize transition-all duration-300 shadow-sm hover:shadow-md
-                  ${selectedCategory === category
-                              ? 'bg-gradient-to-r from-[hsl(var(--dream-purple))] to-[hsl(var(--dream-purple-dark))] text-white'
-                              : 'border-[hsl(var(--dream-purple))]/50 text-[hsl(var(--dream-purple))] hover:bg-[hsl(var(--dream-purple))]/10'}`}
+                        className={`rounded-full px-6 py-2 transition-all duration-200 ${selectedCategory === category
+                              ? "gradient-bg text-white"
+                              : "border-[hsl(var(--dream-purple))] text-[hsl(var(--dream-purple))] hover:bg-[hsl(var(--dream-purple))]/10"
+                           }`}
                      >
+                        <Filter className="h-4 w-4 mr-2" />
                         {category}
                      </Button>
                   ))}
                </div>
 
-               {filteredStories.length > 0 ? (
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-                     {filteredStories.map(story => (
-                        <StoryCard key={story.id} story={story} onReadMore={setSelectedStory} />
-                     ))}
+               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {filteredStories.map((story) => (
+                     <StoryCard key={story.id} story={story} onReadMore={handleReadMore} />
+                  ))}
+               </div>
+
+               {filteredStories.length === 0 && (
+                  <div className="text-center py-12">
+                     <p className="text-muted-foreground">No stories found for the selected category.</p>
                   </div>
-               ) : (
-                  <motion.p
-                     initial={{ opacity: 0 }}
-                     animate={{ opacity: 1 }}
-                     className="text-center text-muted-foreground text-lg mt-12"
-                  >
-                     No stories found for "{selectedCategory}". Please select another category.
-                  </motion.p>
                )}
             </div>
          </section>
 
-         <section className="py-16 md:py-24 bg-[hsl(var(--dream-purple-dark))] text-white">
-            <div className="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 text-center">
-               <Users className="h-16 w-16 mx-auto mb-6 text-[hsl(var(--dream-gold-light))]" />
-               <h2 className="text-3xl md:text-4xl font-bold mb-6">Share Your Story</h2>
-               <p className="text-lg md:text-xl mb-8 text-slate-300 max-w-2xl mx-auto">
-                  Have you been impacted by Dreamlight's work? We'd love to hear from you. Your story can inspire others and highlight the importance of community support.
+         <section className="py-16 md:py-24 bg-[hsl(var(--dream-purple-light))]/10">
+            <div className="max-w-3xl mx-auto px-4 text-center">
+               <BookOpen className="h-16 w-16 mx-auto text-[hsl(var(--dream-gold))] mb-6" />
+               <h2 className="text-3xl md:text-4xl font-bold text-[hsl(var(--dream-purple-dark))] mb-6">
+                  Be Part of the Next Story
+               </h2>
+               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                  Your support can help us create more success stories. Join us in our mission to transform lives and build stronger communities.
                </p>
-               <Link href="/contact?subject=MyStory">
-                  <Button size="lg" className="bg-[hsl(var(--dream-gold))] text-[hsl(var(--dream-purple-dark))] hover:bg-[hsl(var(--dream-gold-light))] rounded-full px-10 py-3 text-base font-semibold">
-                     Contact Us to Share
-                  </Button>
-               </Link>
+               <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link href="/donate">
+                     <Button size="lg" className="gradient-bg text-white px-8 py-3">
+                        Support Our Programs
+                     </Button>
+                  </Link>
+                  <Link href="/volunteer">
+                     <Button size="lg" variant="outline" className="border-[hsl(var(--dream-purple))] text-[hsl(var(--dream-purple))] hover:bg-[hsl(var(--dream-purple))]/10 px-8 py-3">
+                        Volunteer With Us
+                     </Button>
+                  </Link>
+               </div>
             </div>
          </section>
 
-         <AnimatePresence>
-            {selectedStory && <StoryModal story={selectedStory} onClose={() => setSelectedStory(null)} />}
-         </AnimatePresence>
+         <StoryModal story={selectedStory} isOpen={isModalOpen} onClose={closeModal} />
       </div>
    );
 }

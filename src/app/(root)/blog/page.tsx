@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { BookOpen, Calendar, User, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -57,11 +58,12 @@ const BlogCard = ({ post, index }: { post: BlogPost; index: number }) => (
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-   >
-      <div className="relative h-48 overflow-hidden">
-         <img
+   >      <div className="relative h-48 overflow-hidden">
+         <Image
             src={post.imageUrl}
             alt={post.title}
+            width={800}
+            height={400}
             className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
          />
          <div className="absolute top-4 left-4">

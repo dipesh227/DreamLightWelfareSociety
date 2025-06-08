@@ -17,15 +17,15 @@ interface StatCardProps {
 
 const StatCard: React.FC<StatCardProps> = ({ value, label, icon: Icon, color }) => (
   <motion.div
-    className="bg-white p-6 rounded-xl shadow-lg text-center card-hover"
+    className="bg-card p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow duration-300"
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, amount: 0.5 }}
     transition={{ duration: 0.5 }}
   >
     <Icon className={`h-12 w-12 mx-auto mb-3 ${color}`} />
-    <p className="text-3xl font-bold text-dream-purple-dark">{value}</p>
-    <p className="text-sm text-slate-600">{label}</p>
+    <p className="text-3xl font-bold text-[hsl(var(--dream-purple-dark))]">{value}</p>
+    <p className="text-sm text-muted-foreground">{label}</p>
   </motion.div>
 );
 
@@ -50,17 +50,16 @@ const TimelineEvent: React.FC<TimelineEventProps> = ({ year, title, description,
       <div className="hidden md:flex w-1/12 justify-center">
         <div className="h-full w-1 bg-dream-purple-light rounded-t-full rounded-b-full"></div>
       </div>
-      <div className="w-full md:w-5/12">
-        <div className={`bg-white p-6 rounded-xl shadow-xl relative ${alignLeft ? 'md:mr-auto' : 'md:ml-auto'}`}>
-          <div className={`absolute ${alignLeft ? 'md:right-full md:-mr-5' : 'md:left-full md:-ml-5'} top-1/2 -translate-y-1/2 hidden md:block`}>
-            <div className="bg-dream-purple text-white w-10 h-10 rounded-full flex items-center justify-center font-bold shadow-md">
-              {year}
-            </div>
+      <div className="w-full md:w-5/12">        <div className={`bg-card p-6 rounded-xl shadow-xl relative ${alignLeft ? 'md:mr-auto' : 'md:ml-auto'}`}>
+        <div className={`absolute ${alignLeft ? 'md:right-full md:-mr-5' : 'md:left-full md:-ml-5'} top-1/2 -translate-y-1/2 hidden md:block`}>
+          <div className="bg-[hsl(var(--dream-purple))] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold shadow-md">
+            {year}
           </div>
-          <div className="md:hidden bg-dream-purple text-white w-10 h-10 rounded-full flex items-center justify-center font-bold shadow-md mb-3">{year}</div>
-          <h3 className="text-lg font-semibold text-dream-purple-dark mb-1">{title}</h3>
-          <p className="text-xs text-slate-600 leading-relaxed">{description}</p>
         </div>
+        <div className="md:hidden bg-[hsl(var(--dream-purple))] text-white w-10 h-10 rounded-full flex items-center justify-center font-bold shadow-md mb-3">{year}</div>
+        <h3 className="text-lg font-semibold text-[hsl(var(--dream-purple-dark))] mb-1">{title}</h3>
+        <p className="text-xs text-muted-foreground leading-relaxed">{description}</p>
+      </div>
       </div>
     </motion.div>
   );
@@ -78,7 +77,7 @@ const AboutPage: React.FC = () => {
   ];
 
   return (
-    <div className="bg-slate-50">
+    <div className="bg-muted/30">
       <PageHeader
         title="Our Story of Change"
         subtitle="Dreamlight Welfare Society was born from a simple belief: everyone deserves a chance to shine. We are committed to empowering communities and transforming lives."
@@ -105,11 +104,10 @@ const AboutPage: React.FC = () => {
               transition={{ duration: 0.7 }}
               className="space-y-6"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-dream-purple-dark mb-4">Our Journey & Purpose</h2>
-              <p className="text-slate-700 leading-relaxed">
+              <h2 className="text-3xl md:text-4xl font-bold text-dream-purple-dark mb-4">Our Journey & Purpose</h2>              <p className="text-muted-foreground leading-relaxed">
                 Founded in 2010, Dreamlight Welfare Society started as a small initiative to support local education. Witnessing the profound impact of dedicated effort, we expanded our horizons to address broader community needs including healthcare, clean water, and sustainable livelihoods.
               </p>
-              <p className="text-slate-700 leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 Our purpose is to act as a catalyst for positive change, empowering individuals and communities to break cycles of poverty and build self-reliant, brighter futures. We believe in a holistic approach, addressing interconnected challenges with sustainable solutions.
               </p>
               <Link href="/our-values">
@@ -142,7 +140,7 @@ const AboutPage: React.FC = () => {
 
           <div className="text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-dream-purple-dark mb-6">Meet Our Dedicated Team</h2>
-            <p className="text-slate-600 max-w-xl mx-auto mb-10">The passionate individuals driving our mission forward.</p>
+            <p className="text-muted-foreground max-w-xl mx-auto mb-10">The passionate individuals driving our mission forward.</p>
             <Link href="/team">
               <Button size="lg" className="gradient-bg text-white rounded-full px-10 py-3.5 hover:opacity-90">
                 View Our Team <Users size={18} className="ml-2" />

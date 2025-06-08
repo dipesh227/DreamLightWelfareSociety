@@ -42,10 +42,9 @@ const ProgramHighlightCard: React.FC<ProgramHighlightCardProps> = ({
     <div className="md:w-3/5 p-8 md:p-12">
       <div className={`${iconBgColor} p-3 rounded-full w-14 h-14 flex items-center justify-center mb-6 shadow-md`}>
         <Icon className="h-7 w-7 text-white" />
-      </div>
-      <h3 className="text-3xl font-bold text-dream-purple-dark mb-4">{title}</h3>
-      <p className="text-slate-700 leading-relaxed mb-6">{description}</p>
-      <div className="space-y-2 text-sm text-slate-600 mb-8">
+      </div>      <h3 className="text-3xl font-bold text-[hsl(var(--dream-purple-dark))] mb-4">{title}</h3>
+      <p className="text-foreground leading-relaxed mb-6">{description}</p>
+      <div className="space-y-2 text-sm text-muted-foreground mb-8">
         <p><strong>Key Activities:</strong> Curriculum development, teacher training, resource provision, community workshops.</p>
         <p><strong>Expected Outcomes:</strong> Improved literacy, increased school enrollment, enhanced vocational skills.</p>
       </div>
@@ -75,9 +74,8 @@ const ProgramsPage: React.FC = () => {
       icon: Stethoscope,
       title: "Community Health Initiatives",
       description: "Access to healthcare is a fundamental right. We run mobile clinics, health awareness campaigns, and support local health infrastructure to ensure communities receive essential medical care and health education.",
-      imageAlt: "Doctor checking a patient",
-      bgColor: "bg-green-500/10",
-      iconBgColor: "bg-green-600",
+      imageAlt: "Doctor checking a patient", bgColor: "bg-success/10",
+      iconBgColor: "bg-success",
       linkTo: "/donate?program=healthcare"
     },
     {
@@ -85,9 +83,8 @@ const ProgramsPage: React.FC = () => {
       icon: Droplets,
       title: "Clean Water & Sanitation",
       description: "Safe water and proper sanitation are vital for health and dignity. We work to provide access to clean drinking water sources and promote hygiene practices, significantly reducing waterborne diseases.",
-      imageAlt: "Clean water flowing from a tap",
-      bgColor: "bg-blue-500/10",
-      iconBgColor: "bg-blue-600",
+      imageAlt: "Clean water flowing from a tap", bgColor: "bg-info/10",
+      iconBgColor: "bg-info",
       linkTo: "/donate?program=water"
     },
     {
@@ -113,7 +110,7 @@ const ProgramsPage: React.FC = () => {
   ];
 
   return (
-    <div className="bg-slate-50">
+    <div className="bg-secondary/30">
       <header className="relative py-24 md:py-32 bg-gradient-to-br from-dream-gold to-dream-gold-light text-center overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-20"></div>
         <div className="relative z-10">
@@ -148,7 +145,7 @@ const ProgramsPage: React.FC = () => {
         <div className="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Sun className="h-16 w-16 mx-auto mb-6 text-dream-gold-light" />
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Support Our Vision</h2>
-          <p className="text-lg md:text-xl mb-8 text-slate-300 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl mb-8 text-muted-foreground max-w-2xl mx-auto">
             Your contribution, big or small, fuels these vital programs and brings hope to countless individuals. Partner with us to build a brighter tomorrow.
           </p>
           <Link href="/donate">

@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Twitter, Mail, Users, Award } from 'lucide-react';
 import PageHeader from '@/components/layout/PageHeader';
+import Image from 'next/image';
 
 interface TeamMember {
    name: string;
@@ -94,27 +95,29 @@ const TeamMemberCard: React.FC<{ member: TeamMember; index: number }> = ({ membe
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, delay: index * 0.1, ease: [0.25, 1, 0.5, 1] }}
-   >
-      <div className="relative h-72">
-         <img
+   >      <div className="relative h-72">
+         <Image
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             alt={member.name}
             src={member.imageUrl}
+            width={400}
+            height={288}
+            quality={85}
          />
          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4">
             <div className="flex space-x-3 justify-center">
                {member.socials.linkedin && (
-                  <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-slate-200 hover:text-dream-gold transition-colors">
+                  <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-[hsl(var(--dream-gold))] transition-colors">
                      <Linkedin size={20} />
                   </a>
                )}
                {member.socials.twitter && (
-                  <a href={member.socials.twitter} target="_blank" rel="noopener noreferrer" className="text-slate-200 hover:text-dream-gold transition-colors">
+                  <a href={member.socials.twitter} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-[hsl(var(--dream-gold))] transition-colors">
                      <Twitter size={20} />
                   </a>
                )}
                {member.socials.mail && (
-                  <a href={member.socials.mail} className="text-slate-200 hover:text-dream-gold transition-colors">
+                  <a href={member.socials.mail} className="text-muted-foreground hover:text-[hsl(var(--dream-gold))] transition-colors">
                      <Mail size={20} />
                   </a>
                )}
