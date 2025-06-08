@@ -1,58 +1,84 @@
 @import "tailwindcss";
 
 :root {
-  --background: 220 20% 97%;
-  --foreground: 224 71% 4%;
+  --background: 0 0% 100%;
+  --foreground: 224 71.4% 4.1%;
   --card: 0 0% 100%;
-  --card-foreground: 224 71% 4%;
+  --card-foreground: 224 71.4% 4.1%;
   --popover: 0 0% 100%;
-  --popover-foreground: 224 71% 4%;
+  --popover-foreground: 224 71.4% 4.1%;
   --primary: 283 89% 37%;
-  --primary-foreground: 0 0% 100%;
+  --primary-foreground: 0 0% 98%;
   --secondary: 43 99% 49%;
   --secondary-foreground: 276 100% 10%;
-  --muted: 220 14% 93%;
-  --muted-foreground: 220 9% 46%;
-  --accent: 283 89% 96%;
-  --accent-foreground: 283 89% 25%;
-  --destructive: 0 72% 51%;
-  --destructive-foreground: 0 0% 100%;
-  --border: 220 13% 88%;
-  --input: 220 13% 88%;
+  --muted: 220 14.3% 95.9%;
+  --muted-foreground: 220 8.9% 46.1%;
+  --accent: 283 89% 95%;
+  --accent-foreground: 283 89% 15%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 220 13% 91%;
+  --input: 220 13% 91%;
   --ring: 283 89% 50%;
   --radius: 0.75rem;
-  
-  /* Dream Light Custom Colors */
-  --dream-purple-darker: 276 100% 25%;
-  --dream-purple-dark: 276 100% 32%;
+
+  /* Dream Light Custom Colors - Improved contrast */
+  --dream-purple-darker: 276 100% 20%;
+  --dream-purple-dark: 276 100% 28%;
   --dream-purple: 283 89% 37%;
-  --dream-purple-light: 316 79% 40%;
-  --dream-purple-lighter: 316 79% 92%;
-  --dream-gold: 43 99% 49%;
-  --dream-gold-light: 55 100% 50%;
-  --dream-gold-darker: 43 99% 40%;
+  --dream-purple-light: 316 79% 45%;
+  --dream-purple-lighter: 316 79% 95%;
+  --dream-gold: 43 96% 45%;
+  --dream-gold-light: 55 96% 55%;
+  --dream-gold-darker: 43 96% 35%;
+
+  /* Enhanced semantic colors */
+  --success: 142 76% 36%;
+  --success-foreground: 0 0% 98%;
+  --warning: 43 96% 45%;
+  --warning-foreground: 276 100% 10%;
+  --info: 199 89% 48%;
+  --info-foreground: 0 0% 98%;
 }
 
 .dark {
-  --background: 224 71% 4%;
-  --foreground: 220 20% 97%;
-  --card: 224 71% 4%;
-  --card-foreground: 220 20% 97%;
-  --popover: 224 71% 4%;
-  --popover-foreground: 220 20% 97%;
-  --primary: 220 20% 97%;
-  --primary-foreground: 224 71% 4%;
-  --secondary: 283 89% 37%;
-  --secondary-foreground: 220 20% 97%;
+  --background: 224 71.4% 4.1%;
+  --foreground: 0 0% 95%;
+  --card: 224 71.4% 4.1%;
+  --card-foreground: 0 0% 95%;
+  --popover: 224 71.4% 4.1%;
+  --popover-foreground: 0 0% 95%;
+  --primary: 283 89% 70%;
+  --primary-foreground: 224 71.4% 4.1%;
+  --secondary: 43 96% 65%;
+  --secondary-foreground: 224 71.4% 4.1%;
   --muted: 215 27.9% 16.9%;
-  --muted-foreground: 217.9 10.6% 64.9%;
+  --muted-foreground: 217.9 10.6% 65.9%;
   --accent: 215 27.9% 16.9%;
-  --accent-foreground: 220 20% 97%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 220 20% 97%;
-  --border: 215 27.9% 16.9%;
-  --input: 215 27.9% 16.9%;
-  --ring: 283 89% 50%;
+  --accent-foreground: 0 0% 95%;
+  --destructive: 0 62.8% 50.6%;
+  --destructive-foreground: 0 0% 95%;
+  --border: 215 27.9% 20.9%;
+  --input: 215 27.9% 20.9%;
+  --ring: 283 89% 70%;
+
+  /* Dark theme Dream Light colors - Better contrast */
+  --dream-purple-darker: 276 100% 80%;
+  --dream-purple-dark: 276 100% 75%;
+  --dream-purple: 283 89% 70%;
+  --dream-purple-light: 316 79% 65%;
+  --dream-purple-lighter: 316 79% 15%;
+  --dream-gold: 43 96% 65%;
+  --dream-gold-light: 55 96% 70%;
+  --dream-gold-darker: 43 96% 55%;
+
+  /* Enhanced semantic colors for dark mode */
+  --success: 142 76% 55%;
+  --success-foreground: 224 71.4% 4.1%;
+  --warning: 43 96% 65%;
+  --warning-foreground: 224 71.4% 4.1%;
+  --info: 199 89% 65%;
+  --info-foreground: 224 71.4% 4.1%;
 }
 
 * {
@@ -63,45 +89,74 @@
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
-  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-poppins), var(--font-inter), sans-serif;
   letter-spacing: -0.02em;
 }
 
 /* Utility Classes */
 .gradient-bg {
-  background: linear-gradient(135deg, hsl(var(--dream-purple)) 0%, hsl(var(--dream-purple-dark)) 100%);
+  background: linear-gradient(
+    135deg,
+    hsl(var(--dream-purple)) 0%,
+    hsl(var(--dream-purple-dark)) 100%
+  );
   transition: background 0.3s ease;
 }
 .gradient-bg:hover {
-   background: linear-gradient(135deg, hsl(var(--dream-purple-dark)) 0%, hsl(var(--dream-purple-darker)) 100%);
+  background: linear-gradient(
+    135deg,
+    hsl(var(--dream-purple-dark)) 0%,
+    hsl(var(--dream-purple-darker)) 100%
+  );
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, hsl(var(--dream-purple)) 0%, hsl(var(--dream-gold)) 100%);
+  background: linear-gradient(
+    135deg,
+    hsl(var(--dream-purple)) 0%,
+    hsl(var(--dream-gold)) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  display: inline-block; 
+  display: inline-block;
 }
 
 .glass-effect {
-  background: hsla(var(--dream-purple-dark), 0.05); 
+  background: hsla(var(--dream-purple-dark), 0.05);
   backdrop-filter: blur(16px) saturate(180%);
   border: 1px solid hsla(var(--dream-purple), 0.1);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
 }
 
 .hero-pattern {
-  background-image: 
-    radial-gradient(circle at 10% 15%, hsla(var(--dream-purple), 0.06) 0%, transparent 35%),
-    radial-gradient(circle at 90% 80%, hsla(var(--dream-gold), 0.06) 0%, transparent 35%),
-    linear-gradient(170deg, hsla(var(--dream-purple-lighter), 0.1) 0%, transparent 50%);
+  background-image: radial-gradient(
+      circle at 10% 15%,
+      hsla(var(--dream-purple), 0.06) 0%,
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      hsla(var(--dream-gold), 0.06) 0%,
+      transparent 35%
+    ),
+    linear-gradient(
+      170deg,
+      hsla(var(--dream-purple-lighter), 0.1) 0%,
+      transparent 50%
+    );
 }
 
 .floating-animation {
@@ -114,8 +169,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(30px); 
-  transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .scroll-reveal.revealed {
@@ -124,71 +180,272 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card-hover {
-  transition: transform 0.35s cubic-bezier(0.075, 0.82, 0.165, 1), box-shadow 0.35s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 0.35s cubic-bezier(0.075, 0.82, 0.165, 1),
+    box-shadow 0.35s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .card-hover:hover {
-  transform: translateY(-10px) scale(1.02); 
-  box-shadow: 0 20px 40px -15px hsla(var(--dream-purple-dark), 0.15); 
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px -15px hsla(var(--dream-purple-dark), 0.15);
 }
 
 .text-shadow {
-  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.08); 
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.08);
 }
 
-.bg-pattern { 
-  background-image: 
-    linear-gradient(45deg, hsla(var(--dream-purple), 0.02) 25%, transparent 25%),
-    linear-gradient(-45deg, hsla(var(--dream-purple), 0.02) 25%, transparent 25%),
+.bg-pattern {
+  background-image: linear-gradient(
+      45deg,
+      hsla(var(--dream-purple), 0.02) 25%,
+      transparent 25%
+    ),
+    linear-gradient(
+      -45deg,
+      hsla(var(--dream-purple), 0.02) 25%,
+      transparent 25%
+    ),
     linear-gradient(45deg, transparent 75%, hsla(var(--dream-gold), 0.02) 75%),
     linear-gradient(-45deg, transparent 75%, hsla(var(--dream-gold), 0.02) 75%);
-  background-size: 30px 30px; 
+  background-size: 30px 30px;
   background-position: 0 0, 0 15px, 15px -15px, -15px 0px;
 }
 
 /* Dream Light Color Classes */
-.text-dream-purple-darker { color: hsl(var(--dream-purple-darker)); }
-.text-dream-purple-dark { color: hsl(var(--dream-purple-dark)); }
-.text-dream-purple { color: hsl(var(--dream-purple)); }
-.text-dream-purple-light { color: hsl(var(--dream-purple-light)); }
-.text-dream-purple-lighter { color: hsl(var(--dream-purple-lighter)); }
-.text-dream-gold { color: hsl(var(--dream-gold)); }
-.text-dream-gold-light { color: hsl(var(--dream-gold-light)); }
-.text-dream-gold-darker { color: hsl(var(--dream-gold-darker)); }
+.text-dream-purple-darker {
+  color: hsl(var(--dream-purple-darker));
+}
+.text-dream-purple-dark {
+  color: hsl(var(--dream-purple-dark));
+}
+.text-dream-purple {
+  color: hsl(var(--dream-purple));
+}
+.text-dream-purple-light {
+  color: hsl(var(--dream-purple-light));
+}
+.text-dream-purple-lighter {
+  color: hsl(var(--dream-purple-lighter));
+}
+.text-dream-gold {
+  color: hsl(var(--dream-gold));
+}
+.text-dream-gold-light {
+  color: hsl(var(--dream-gold-light));
+}
+.text-dream-gold-darker {
+  color: hsl(var(--dream-gold-darker));
+}
 
-.bg-dream-purple-darker { background-color: hsl(var(--dream-purple-darker)); }
-.bg-dream-purple-dark { background-color: hsl(var(--dream-purple-dark)); }
-.bg-dream-purple { background-color: hsl(var(--dream-purple)); }
-.bg-dream-purple-light { background-color: hsl(var(--dream-purple-light)); }
-.bg-dream-purple-lighter { background-color: hsl(var(--dream-purple-lighter)); }
-.bg-dream-gold { background-color: hsl(var(--dream-gold)); }
-.bg-dream-gold-light { background-color: hsl(var(--dream-gold-light)); }
-.bg-dream-gold-darker { background-color: hsl(var(--dream-gold-darker)); }
+.bg-dream-purple-darker {
+  background-color: hsl(var(--dream-purple-darker));
+}
+.bg-dream-purple-dark {
+  background-color: hsl(var(--dream-purple-dark));
+}
+.bg-dream-purple {
+  background-color: hsl(var(--dream-purple));
+}
+.bg-dream-purple-light {
+  background-color: hsl(var(--dream-purple-light));
+}
+.bg-dream-purple-lighter {
+  background-color: hsl(var(--dream-purple-lighter));
+}
+.bg-dream-gold {
+  background-color: hsl(var(--dream-gold));
+}
+.bg-dream-gold-light {
+  background-color: hsl(var(--dream-gold-light));
+}
+.bg-dream-gold-darker {
+  background-color: hsl(var(--dream-gold-darker));
+}
 
-.border-dream-purple-darker { border-color: hsl(var(--dream-purple-darker)); }
-.border-dream-purple-dark { border-color: hsl(var(--dream-purple-dark)); }
-.border-dream-purple { border-color: hsl(var(--dream-purple)); }
-.border-dream-purple-light { border-color: hsl(var(--dream-purple-light)); }
-.border-dream-purple-lighter { border-color: hsl(var(--dream-purple-lighter)); }
-.border-dream-gold { border-color: hsl(var(--dream-gold)); }
-.border-dream-gold-light { border-color: hsl(var(--dream-gold-light)); }
-.border-dream-gold-darker { border-color: hsl(var(--dream-gold-darker)); }
+.border-dream-purple-darker {
+  border-color: hsl(var(--dream-purple-darker));
+}
+.border-dream-purple-dark {
+  border-color: hsl(var(--dream-purple-dark));
+}
+.border-dream-purple {
+  border-color: hsl(var(--dream-purple));
+}
+.border-dream-purple-light {
+  border-color: hsl(var(--dream-purple-light));
+}
+.border-dream-purple-lighter {
+  border-color: hsl(var(--dream-purple-lighter));
+}
+.border-dream-gold {
+  border-color: hsl(var(--dream-gold));
+}
+.border-dream-gold-light {
+  border-color: hsl(var(--dream-gold-light));
+}
+.border-dream-gold-darker {
+  border-color: hsl(var(--dream-gold-darker));
+}
+
+/* Enhanced semantic color classes */
+.text-success {
+  color: hsl(var(--success));
+}
+.text-warning {
+  color: hsl(var(--warning));
+}
+.text-info {
+  color: hsl(var(--info));
+}
+.bg-success {
+  background-color: hsl(var(--success));
+}
+.bg-warning {
+  background-color: hsl(var(--warning));
+}
+.bg-info {
+  background-color: hsl(var(--info));
+}
+.border-success {
+  border-color: hsl(var(--success));
+}
+.border-warning {
+  border-color: hsl(var(--warning));
+}
+.border-info {
+  border-color: hsl(var(--info));
+}
+
+/* Improved text contrast utilities */
+.text-contrast-high {
+  color: hsl(var(--foreground));
+  font-weight: 600;
+}
+
+.text-contrast-medium {
+  color: hsl(var(--muted-foreground));
+  font-weight: 500;
+}
+
+.text-contrast-low {
+  color: hsl(var(--muted-foreground) / 0.8);
+  font-weight: 400;
+}
+
+/* Enhanced button states */
+.btn-primary {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border: 1px solid hsl(var(--primary));
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  background: hsl(var(--primary) / 0.9);
+  border-color: hsl(var(--primary) / 0.9);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px hsl(var(--primary) / 0.25);
+}
+
+.btn-secondary {
+  background: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+  border: 1px solid hsl(var(--secondary));
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-secondary:hover {
+  background: hsl(var(--secondary) / 0.9);
+  border-color: hsl(var(--secondary) / 0.9);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px hsl(var(--secondary) / 0.25);
+}
+
+.btn-outline {
+  background: transparent;
+  color: hsl(var(--foreground));
+  border: 2px solid hsl(var(--border));
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-outline:hover {
+  background: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  border-color: hsl(var(--accent-foreground) / 0.2);
+  transform: translateY(-1px);
+}
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(-1deg); }
-  50% { transform: translateY(-15px) rotate(1deg); } 
+  0%,
+  100% {
+    transform: translateY(0px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(1deg);
+  }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 12px hsla(var(--dream-purple), 0.15), 0 0 20px hsla(var(--dream-purple), 0.1); }
-  50% { box-shadow: 0 0 25px hsla(var(--dream-purple), 0.3), 0 0 40px hsla(var(--dream-purple), 0.2); }
+  0%,
+  100% {
+    box-shadow: 0 0 12px hsla(var(--dream-purple), 0.15),
+      0 0 20px hsla(var(--dream-purple), 0.1);
+  }
+  50% {
+    box-shadow: 0 0 25px hsla(var(--dream-purple), 0.3),
+      0 0 40px hsla(var(--dream-purple), 0.2);
+  }
 }
 
 *:focus-visible {
-  outline: 3px solid hsl(var(--ring) / 0.6);
-  outline-offset: 3px;
-  border-radius: var(--radius);
-  box-shadow: 0 0 0 4px hsl(var(--background)), 0 0 0 6px hsl(var(--ring) / 0.6);
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+  border-radius: calc(var(--radius) - 2px);
+}
+
+/* Enhanced focus states for better accessibility */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px hsl(var(--ring) / 0.12);
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --foreground: 0 0% 0%;
+    --background: 0 0% 100%;
+    --border: 0 0% 50%;
+    --muted-foreground: 0 0% 25%;
+  }
+
+  .dark {
+    --foreground: 0 0% 100%;
+    --background: 0 0% 0%;
+    --border: 0 0% 50%;
+    --muted-foreground: 0 0% 75%;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .floating-animation,
+  .pulse-glow {
+    animation: none !important;
+  }
 }
 
 ::-webkit-scrollbar {
@@ -199,12 +456,12 @@ h1, h2, h3, h4, h5, h6 {
   background: hsl(var(--background) / 0.5);
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted-foreground) / 0.5); 
+  background: hsl(var(--muted-foreground) / 0.5);
   border-radius: 10px;
   border: 2px solid hsl(var(--background) / 0.5);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--muted-foreground) / 0.8); 
+  background: hsl(var(--muted-foreground) / 0.8);
 }
 
 html {
