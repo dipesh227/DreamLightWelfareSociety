@@ -38,15 +38,33 @@
 
   --radius: 0.75rem; 
 
-  --dream-purple-darker: 276 100% 25%; 
-  --dream-purple-dark: 276 100% 32%; 
-  --dream-purple: 283 89% 37%; 
-  --dream-purple-light: 316 79% 40%; 
-  --dream-purple-lighter: 316 79% 92%; 
+  /* NGO-focused color scheme based on logo and standards */
+  --dream-forest-green: 158 64% 25%;
+  --dream-forest-green-light: 158 64% 35%;
+  --dream-forest-green-lighter: 158 34% 92%;
   
-  --dream-gold: 43 99% 49%; 
-  --dream-gold-light: 55 100% 50%; 
-  --dream-gold-darker: 43 99% 40%; 
+  --dream-sky-blue: 200 94% 55%;
+  --dream-sky-blue-light: 200 94% 65%;
+  --dream-sky-blue-lighter: 200 54% 92%;
+  
+  --dream-warm-orange: 32 95% 55%;
+  --dream-warm-orange-light: 32 95% 65%;
+  --dream-warm-orange-lighter: 32 55% 92%;
+  
+  --dream-deep-purple: 260 60% 35%;
+  --dream-deep-purple-light: 260 60% 45%;
+  --dream-deep-purple-lighter: 260 30% 92%;
+  
+  /* Keep original for backward compatibility */
+  --dream-purple-darker: 276 100% 25%;
+  --dream-purple-dark: 276 100% 32%;
+  --dream-purple: 283 89% 37%;
+  --dream-purple-light: 316 79% 40%;
+  --dream-purple-lighter: 316 79% 92%;
+  
+  --dream-gold: 43 99% 49%;
+  --dream-gold-light: 55 100% 50%;
+  --dream-gold-darker: 43 99% 40%;
 }
 
 * {
@@ -71,20 +89,59 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .gradient-bg {
-  background: linear-gradient(135deg, hsl(var(--dream-purple)) 0%, hsl(var(--dream-purple-dark)) 100%);
+  background: linear-gradient(135deg, hsl(var(--dream-forest-green)) 0%, hsl(var(--dream-deep-purple)) 100%);
   transition: background 0.3s ease;
 }
 .gradient-bg:hover {
-   background: linear-gradient(135deg, hsl(var(--dream-purple-dark)) 0%, hsl(var(--dream-purple-darker)) 100%);
+   background: linear-gradient(135deg, hsl(var(--dream-deep-purple)) 0%, hsl(var(--dream-forest-green)) 100%);
+}
+
+.gradient-bg-warm {
+  background: linear-gradient(135deg, hsl(var(--dream-warm-orange)) 0%, hsl(var(--dream-warm-orange-light)) 100%);
+  transition: background 0.3s ease;
+}
+.gradient-bg-warm:hover {
+   background: linear-gradient(135deg, hsl(var(--dream-warm-orange-light)) 0%, hsl(var(--dream-warm-orange)) 100%);
+}
+
+.gradient-bg-blue {
+  background: linear-gradient(135deg, hsl(var(--dream-sky-blue)) 0%, hsl(var(--dream-sky-blue-light)) 100%);
+  transition: background 0.3s ease;
+}
+.gradient-bg-blue:hover {
+   background: linear-gradient(135deg, hsl(var(--dream-sky-blue-light)) 0%, hsl(var(--dream-sky-blue)) 100%);
 }
 
 
 .gradient-text {
-  background: linear-gradient(135deg, hsl(var(--dream-purple)) 0%, hsl(var(--dream-gold)) 100%);
+  background: linear-gradient(135deg, hsl(var(--dream-forest-green)) 0%, hsl(var(--dream-sky-blue)) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  display: inline-block; 
+  display: inline-block;
+}
+
+.gradient-text-warm {
+  background: linear-gradient(135deg, hsl(var(--dream-warm-orange)) 0%, hsl(var(--dream-deep-purple)) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+/* Dark mode specific styles */
+.dark {
+  --background: 222 84% 5%;
+  --foreground: 213 31% 91%;
+  --border: 217 33% 17%;
+  --input: 217 33% 17%;
+}
+
+.dark .gradient-text {
+  background: linear-gradient(135deg, hsl(var(--dream-forest-green-light)) 0%, hsl(var(--dream-sky-blue-light)) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .glass-effect {

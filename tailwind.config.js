@@ -50,6 +50,28 @@ module.exports = {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))',
 				},
+        // NGO-focused color palette based on logo
+        'dream-forest': {
+          'green': '#1e5f3a',
+          'light': '#2d7a4f',
+          'lighter': '#e8f5f0'
+        },
+        'dream-sky': {
+          'blue': '#2563eb',
+          'light': '#3b82f6',
+          'lighter': '#eff6ff'
+        },
+        'dream-warm': {
+          'orange': '#ea7317',
+          'light': '#f59e0b',
+          'lighter': '#fef3c7'
+        },
+        'dream-deep': {
+          'purple': '#5b21b6',
+          'light': '#7c3aed',
+          'lighter': '#f3e8ff'
+        },
+        // Keep original colors for backward compatibility
         'dream-purple-dark': '#3A0CA3',
         'dream-purple': '#7209B7',
         'dream-purple-light': '#B5179E',

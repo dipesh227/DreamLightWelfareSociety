@@ -12,9 +12,9 @@ const NavLinkItem = ({ to, label, icon: Icon, mobile = false, onClick, className
     <Link
       to={to}
       className={`flex items-center px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ease-in-out group ${className}
-        ${isActive 
-          ? 'text-dream-purple-dark bg-dream-purple-lighter font-semibold shadow-inner' 
-          : 'text-slate-700 hover:text-dream-purple hover:bg-dream-purple-lighter/70'}
+        ${isActive
+          ? 'text-dream-forest-green bg-dream-forest-lighter font-semibold shadow-inner'
+          : 'text-gray-700 hover:text-dream-forest-green hover:bg-dream-forest-lighter'}
         ${mobile ? 'w-full text-left text-base py-3.5' : ''}
       `}
       onClick={() => {
@@ -22,7 +22,7 @@ const NavLinkItem = ({ to, label, icon: Icon, mobile = false, onClick, className
         else if (onClick) onClick();
       }}
     >
-      {Icon && <Icon className={`mr-2.5 h-5 w-5 ${isActive ? 'text-dream-purple' : 'text-slate-500 group-hover:text-dream-purple'}`} />}
+      {Icon && <Icon className={`mr-2.5 h-5 w-5 ${isActive ? 'text-dream-forest-green' : 'text-gray-500 group-hover:text-dream-forest-green'}`} />}
       {label}
     </Link>
   );
@@ -55,13 +55,13 @@ const DropdownMenu = ({ label, icon: Icon, subLinks, mobile = false, closeMobile
         <button
           onClick={() => setIsOpen(!isOpen)}
           className={`flex items-center justify-between w-full px-3 py-3.5 text-base font-medium text-left rounded-lg group
-            ${isParentActive ? 'text-dream-purple-dark bg-dream-purple-lighter font-semibold' : 'text-slate-700 hover:text-dream-purple hover:bg-dream-purple-lighter/70'}`}
+            ${isParentActive ? 'text-dream-forest-green bg-dream-forest-lighter font-semibold' : 'text-slate-700 hover:text-dream-forest-green hover:bg-dream-forest-lighter'}`}
         >
           <div className="flex items-center">
-            {Icon && <Icon className={`mr-2.5 h-5 w-5 ${isParentActive ? 'text-dream-purple' : 'text-slate-500 group-hover:text-dream-purple'}`} />}
+            {Icon && <Icon className={`mr-2.5 h-5 w-5 ${isParentActive ? 'text-dream-forest-green' : 'text-slate-500 group-hover:text-dream-forest-green'}`} />}
             {label}
           </div>
-          <ChevronDown className={`h-5 w-5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''} ${isParentActive ? 'text-dream-purple' : 'text-slate-500 group-hover:text-dream-purple'}`} />
+          <ChevronDown className={`h-5 w-5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''} ${isParentActive ? 'text-dream-forest-green' : 'text-slate-500 group-hover:text-dream-forest-green'}`} />
         </button>
         <AnimatePresence>
           {isOpen && (
@@ -69,7 +69,7 @@ const DropdownMenu = ({ label, icon: Icon, subLinks, mobile = false, closeMobile
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="pl-5 border-l-2 border-dream-purple-lighter ml-3.5"
+              className="pl-5 border-l-2 border-dream-forest-lighter ml-3.5"
             >
               {subLinks.map(link => 
                 link.subLinks ? 
@@ -87,10 +87,10 @@ const DropdownMenu = ({ label, icon: Icon, subLinks, mobile = false, closeMobile
     <div className="relative" ref={menuRef} onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
       <button
         className={`flex items-center px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ease-in-out group
-          ${isParentActive ? 'text-dream-purple-dark bg-dream-purple-lighter font-semibold shadow-sm' : 'text-slate-700 hover:text-dream-purple hover:bg-dream-purple-lighter/70'}`}
+          ${isParentActive ? 'text-dream-forest-green bg-dream-forest-lighter font-semibold shadow-sm' : 'text-slate-700 hover:text-dream-forest-green hover:bg-dream-forest-lighter'}`}
       >
-        {Icon && <Icon className={`mr-1.5 h-4 w-4 ${isParentActive ? 'text-dream-purple' : 'text-slate-500 group-hover:text-dream-purple'}`} />}
-        {label} <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''} ${isParentActive ? 'text-dream-purple' : 'text-slate-500 group-hover:text-dream-purple'}`} />
+        {Icon && <Icon className={`mr-1.5 h-4 w-4 ${isParentActive ? 'text-dream-forest-green' : 'text-slate-500 group-hover:text-dream-forest-green'}`} />}
+        {label} <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''} ${isParentActive ? 'text-dream-forest-green' : 'text-slate-500 group-hover:text-dream-forest-green'}`} />
       </button>
       <AnimatePresence>
         {isOpen && (
@@ -104,12 +104,12 @@ const DropdownMenu = ({ label, icon: Icon, subLinks, mobile = false, closeMobile
             {subLinks.map(link => 
               link.subLinks ? 
               <div key={link.label} className="relative group/submenu">
-                 <button className="flex items-center justify-between w-full px-4 py-2.5 text-sm text-slate-700 hover:bg-dream-purple-lighter/70 hover:text-dream-purple">
+                 <button className="flex items-center justify-between w-full px-4 py-2.5 text-sm text-slate-700 hover:bg-dream-forest-lighter hover:text-dream-forest-green">
                     <div className="flex items-center">
-                      {link.icon && <link.icon className="mr-2 h-4 w-4 text-slate-500 group-hover/submenu:text-dream-purple" />}
+                      {link.icon && <link.icon className="mr-2 h-4 w-4 text-slate-500 group-hover/submenu:text-dream-forest-green" />}
                       {link.label}
                     </div>
-                    <ChevronDown className="h-4 w-4 rotate-[-90deg] text-slate-400 group-hover/submenu:text-dream-purple" />
+                    <ChevronDown className="h-4 w-4 rotate-[-90deg] text-slate-400 group-hover/submenu:text-dream-forest-green" />
                   </button>
                   <motion.div 
                     initial={{ opacity: 0, x: -10 }}
@@ -208,8 +208,7 @@ const Navbar = ({ logoUrl, handleDonateToast }) => {
       initial={{ y: -120 }} 
       animate={{ y: 0 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.1 }} 
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ease-in-out print:hidden
-      ${(isScrolledEnough || isMenuOpen || !isHomePage) ? 'bg-white shadow-xl border-b border-slate-200' : 'bg-transparent'}`}
+      className="fixed top-0 w-full z-50 transition-all duration-300 ease-in-out print:hidden bg-white shadow-lg border-b border-gray-200"
     >
       <motion.div 
         className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8"
@@ -227,11 +226,11 @@ const Navbar = ({ logoUrl, handleDonateToast }) => {
               }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
               whileHover={{ scale: 1.08, rotate: isMenuOpen ? 0 : 3 }}
-              style={{ filter: `drop-shadow(0 2px 3px rgba(0,0,0,0.08)) ${!isScrolledEnough && isHomePage ? 'invert(0)' : 'invert(0)'}` }}
+              style={{ filter: `drop-shadow(0 2px 3px rgba(0,0,0,0.08))` }}
             />
              {(!isMenuOpen || !isScrolledEnough) && (
-                <motion.span 
-                  className={`text-2xl md:text-3xl font-bold hidden sm:inline tracking-tight group-hover:opacity-80 transition-opacity ${(!isScrolledEnough && isHomePage) ? 'text-white text-shadow-md' : 'gradient-text'}`}
+                <motion.span
+                  className="text-2xl md:text-3xl font-bold hidden sm:inline tracking-tight group-hover:opacity-80 transition-opacity gradient-text"
                   initial={{ opacity: 1 }}
                   animate={{ opacity: isScrolledEnough && !isMenuOpen ? 0 : 1, x: isScrolledEnough && !isMenuOpen ? -10 : 0 }}
                   transition={{ duration: 0.25 }}
@@ -249,18 +248,18 @@ const Navbar = ({ logoUrl, handleDonateToast }) => {
             )}
             <div className="flex items-center space-x-1.5 ml-4">
               <Link to="/admin/login">
-                <Button variant="ghost" size="sm" className="text-slate-600 hover:bg-dream-purple-lighter/70 hover:text-dream-purple">
+                <Button variant="ghost" size="sm" className="text-slate-600 hover:bg-dream-forest-lighter hover:text-dream-forest-green">
                   <Lock size={14} className="mr-1.5"/> Admin
                 </Button>
               </Link>
               <Link to="/volunteer-dashboard/login">
-                 <Button variant="ghost" size="sm" className="text-slate-600 hover:bg-dream-purple-lighter/70 hover:text-dream-purple">
+                 <Button variant="ghost" size="sm" className="text-slate-600 hover:bg-dream-forest-lighter hover:text-dream-forest-green">
                   <UserCheck size={14} className="mr-1.5"/> Volunteer
                 </Button>
               </Link>
             </div>
             <Link to="/donate" className="ml-2">
-              <Button onClick={handleDonateToast} className="gradient-bg text-white hover:opacity-90 rounded-full px-7 py-3 text-sm font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group/btn">
+              <Button onClick={handleDonateToast} className="gradient-bg-warm text-white hover:opacity-90 rounded-full px-7 py-3 text-sm font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group/btn">
                 <Sparkles className="mr-2 h-4 w-4 group-hover/btn:animate-ping" />
                 Donate
               </Button>
@@ -270,7 +269,7 @@ const Navbar = ({ logoUrl, handleDonateToast }) => {
           <div className="lg:hidden">
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`p-2.5 rounded-lg transition-colors ${(!isScrolledEnough && isHomePage && !isMenuOpen) ? 'text-white hover:bg-white/10' : 'text-dream-purple-dark hover:bg-dream-purple-lighter/70'}`}
+              className="p-2.5 rounded-lg transition-colors text-gray-700 hover:bg-gray-100"
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMenuOpen}
             >
@@ -322,7 +321,7 @@ const Navbar = ({ logoUrl, handleDonateToast }) => {
                 <NavLinkItem to="/volunteer-dashboard/login" label="Volunteer Login" icon={UserCheck} mobile={true} onClick={closeMobileMenu} />
               </div>
               <Link to="/donate" className="block w-full pt-4">
-                <Button onClick={() => { handleDonateToast(); closeMobileMenu(); }} className="w-full gradient-bg text-white hover:opacity-90 rounded-full py-3.5 text-base font-semibold shadow-md flex items-center justify-center">
+                <Button onClick={() => { handleDonateToast(); closeMobileMenu(); }} className="w-full gradient-bg-warm text-white hover:opacity-90 rounded-full py-3.5 text-base font-semibold shadow-md flex items-center justify-center">
                   <Sparkles className="mr-2 h-5 w-5"/> Donate Now
                 </Button>
               </Link>
