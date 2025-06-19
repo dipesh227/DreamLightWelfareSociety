@@ -1,0 +1,206 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+
+:root {
+  --background: 220 20% 97%; 
+  --foreground: 224 71% 4%; 
+  
+  --card: 0 0% 100%; 
+  --card-foreground: 224 71% 4%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 224 71% 4%;
+  
+  --primary: 283 89% 37%; 
+  --primary-foreground: 0 0% 100%; 
+  
+  --secondary: 43 99% 49%; 
+  --secondary-foreground: 276 100% 10%; 
+
+  --muted: 220 14% 93%; 
+  --muted-foreground: 220 9% 46%; 
+  
+  --accent: 283 89% 96%; 
+  --accent-foreground: 283 89% 25%; 
+  
+  --destructive: 0 72% 51%; 
+  --destructive-foreground: 0 0% 100%;
+  
+  --border: 220 13% 88%; 
+  --input: 220 13% 88%; 
+  --ring: 283 89% 50%; 
+
+  --radius: 0.75rem; 
+
+  --dream-purple-darker: 276 100% 25%; 
+  --dream-purple-dark: 276 100% 32%; 
+  --dream-purple: 283 89% 37%; 
+  --dream-purple-light: 316 79% 40%; 
+  --dream-purple-lighter: 316 79% 92%; 
+  
+  --dream-gold: 43 99% 49%; 
+  --dream-gold-light: 55 100% 50%; 
+  --dream-gold-darker: 43 99% 40%; 
+}
+
+* {
+  border-color: hsl(var(--border));
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.65; 
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', 'Inter', sans-serif; 
+  letter-spacing: -0.02em; 
+  line-height: 1.3; 
+}
+
+
+.gradient-bg {
+  background: linear-gradient(135deg, hsl(var(--dream-purple)) 0%, hsl(var(--dream-purple-dark)) 100%);
+  transition: background 0.3s ease;
+}
+.gradient-bg:hover {
+   background: linear-gradient(135deg, hsl(var(--dream-purple-dark)) 0%, hsl(var(--dream-purple-darker)) 100%);
+}
+
+
+.gradient-text {
+  background: linear-gradient(135deg, hsl(var(--dream-purple)) 0%, hsl(var(--dream-gold)) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block; 
+}
+
+.glass-effect {
+  background: hsla(var(--dream-purple-dark), 0.05); 
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid hsla(var(--dream-purple), 0.1);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+}
+
+.hero-pattern { 
+  background-image: 
+    radial-gradient(circle at 10% 15%, hsla(var(--dream-purple), 0.06) 0%, transparent 35%),
+    radial-gradient(circle at 90% 80%, hsla(var(--dream-gold), 0.06) 0%, transparent 35%),
+    linear-gradient(170deg, hsla(var(--dream-purple-lighter), 0.1) 0%, transparent 50%);
+}
+
+.floating-animation {
+  animation: float 7s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(-1deg); }
+  50% { transform: translateY(-15px) rotate(1deg); } 
+}
+
+.pulse-glow {
+  animation: pulse-glow 2.8s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 12px hsla(var(--dream-purple), 0.15), 0 0 20px hsla(var(--dream-purple), 0.1); }
+  50% { box-shadow: 0 0 25px hsla(var(--dream-purple), 0.3), 0 0 40px hsla(var(--dream-purple), 0.2); }
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px); 
+  transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card-hover {
+  transition: transform 0.35s cubic-bezier(0.075, 0.82, 0.165, 1), box-shadow 0.35s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-10px) scale(1.02); 
+  box-shadow: 0 20px 40px -15px hsla(var(--dream-purple-dark), 0.15); 
+}
+
+.text-shadow {
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.08); 
+}
+.text-shadow-md {
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15); 
+}
+.text-shadow-lg {
+  text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+
+.bg-pattern { 
+  background-image: 
+    linear-gradient(45deg, hsla(var(--dream-purple), 0.02) 25%, transparent 25%),
+    linear-gradient(-45deg, hsla(var(--dream-purple), 0.02) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, hsla(var(--dream-gold), 0.02) 75%),
+    linear-gradient(-45deg, transparent 75%, hsla(var(--dream-gold), 0.02) 75%);
+  background-size: 30px 30px; 
+  background-position: 0 0, 0 15px, 15px -15px, -15px 0px;
+}
+
+*:focus-visible {
+  outline: 3px solid hsl(var(--ring) / 0.6);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+  box-shadow: 0 0 0 4px hsl(var(--background)), 0 0 0 6px hsl(var(--ring) / 0.6);
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background) / 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.5); 
+  border-radius: 10px;
+  border: 2px solid hsl(var(--background) / 0.5);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.8); 
+}
+
+html {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.hero-radial-bg {
+  background-color: #240e3a;
+  background-image: 
+    radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.05) 0.5px, transparent 1px),
+    radial-gradient(circle at 60% 30%, rgba(255, 255, 255, 0.05) 0.5px, transparent 1px),
+    radial-gradient(circle at 90% 10%, rgba(255, 255, 255, 0.07) 1px, transparent 2px),
+    radial-gradient(circle at 30% 85%, rgba(255, 255, 255, 0.07) 1px, transparent 2px),
+    radial-gradient(circle at 75% 90%, rgba(255, 255, 255, 0.05) 0.5px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04) 1.5px, transparent 3px),
+    radial-gradient(circle at 25% 75%, rgba(255, 255, 255, 0.05) 0.5px, transparent 1px),
+    radial-gradient(circle at 5% 5%, rgba(255, 255, 255, 0.07) 1px, transparent 2px),
+    radial-gradient(circle at 95% 95%, rgba(255, 255, 255, 0.07) 1.5px, transparent 2px);
+  background-size: 100% 100%;
+}
