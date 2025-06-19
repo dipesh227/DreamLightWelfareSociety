@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Landmark, Users, Droplets, BookOpen, Shield } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const FocusNode = ({ icon: Icon, title, description, className, delay }) => (
   <motion.div
@@ -58,11 +59,11 @@ const MobileFocusNode = ({ icon: Icon, title, description, delay }) => (
 const HeroSection = ({ logoUrl }) => {
 
   const focusAreas = [
-    { icon: Landmark, title: "Panchayati Raj & Urban Development", description: "Empowering local governance.", className: "top-[8%] left-1/2 -translate-x-1/2", delay: 0.5 },
-    { icon: Shield, title: "Women Empowerment & Safety", description: "Promoting self-reliance.", className: "top-[30%] left-[8%]", delay: 0.65 },
-    { icon: Users, title: "Child Development & Disability Assistance", description: "Nurturing and supporting.", className: "top-[30%] right-[8%]", delay: 0.8 },
-    { icon: Droplets, title: "Drinking Water & Sanitation", description: "Ensuring clean resources.", className: "bottom-[8%] left-[15%]", delay: 0.95 },
-    { icon: BookOpen, title: "Skill Development & Modern Education", description: "Fostering a self-reliant future.", className: "bottom-[8%] right-[15%]", delay: 1.1 },
+    { icon: Landmark, title: "Panchayati Raj & Urban Development", description: "Empowering local governance.", className: "top-[5%] left-1/2 -translate-x-1/2", delay: 0.5 },
+    { icon: Shield, title: "Women Empowerment & Safety", description: "Promoting self-reliance.", className: "top-[25%] right-[12%]", delay: 0.65 },
+    { icon: Users, title: "Child Development & Disability Assistance", description: "Nurturing and supporting.", className: "bottom-[20%] right-[20%]", delay: 0.8 },
+    { icon: Droplets, title: "Drinking Water & Sanitation", description: "Ensuring clean resources.", className: "bottom-[20%] left-[20%]", delay: 0.95 },
+    { icon: BookOpen, title: "Skill Development & Modern Education", description: "Fostering a self-reliant future.", className: "top-[25%] left-[12%]", delay: 1.1 },
   ];
 
   return (
