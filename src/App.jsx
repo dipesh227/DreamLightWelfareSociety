@@ -11,32 +11,32 @@ import ScrollToTop from '@/components/common/layout/ScrollToTop';
 import PageTransition from '@/components/common/layout/PageTransition';
 
 // Public (Root) Pages
-import HomePage from '@/pages/public/HomePage';
-import AboutPage from '@/pages/features/about/AboutPage';
-import ProgramsPage from '@/pages/features/programs/ProgramsPage';
-import ImpactPage from '@/pages/features/impact/ImpactPage';
-import EventsPage from '@/pages/features/events/EventsPage';
-import DonatePage from '@/pages/features/donate/DonatePage';
-import ContactPage from '@/pages/features/contact/ContactPage';
-import TeamPage from '@/pages/features/team/TeamPage';
-import GalleryPage from '@/pages/features/gallery/GalleryPage';
-import TransparencyPage from '@/pages/features/transparency/TransparencyPage';
-import CareersPage from '@/pages/features/careers/CareersPage';
-import VolunteerPortalPage from '@/pages/features/volunteer/VolunteerPortalPage'; // This is the public-facing volunteer info page
-import PressMediaPage from '@/pages/public/PressMediaPage';
-import FaqPage from '@/pages/public/FaqPage';
-import OurValuesPage from '@/pages/features/about/OurValuesPage';
-import SuccessStoriesPage from '@/pages/features/impact/SuccessStoriesPage';
-import PartnershipsPage from '@/pages/public/PartnershipsPage';
-import FinancialsOverviewPage from '@/pages/features/transparency/FinancialsOverviewPage';
-import ChildProtectionPolicyPage from '@/pages/features/transparency/ChildProtectionPolicyPage';
-import EnvironmentalPolicyPage from '@/pages/features/transparency/EnvironmentalPolicyPage';
-import BlogPage from '@/pages/features/blog/BlogPage';
-import BlogPostPage from '@/pages/features/blog/BlogPostPage';
+import HomePage from '@/pages/HomePage';
+import AboutPage from '@/pages/AboutPage';
+import ProgramsPage from '@/pages/ProgramsPage';
+import ImpactPage from '@/pages/ImpactPage';
+import EventsPage from '@/pages/EventsPage';
+import DonatePage from '@/pages/DonatePage';
+import ContactPage from '@/pages/ContactPage';
+import TeamPage from '@/pages/TeamPage';
+import GalleryPage from '@/pages/GalleryPage';
+import TransparencyPage from '@/pages/TransparencyPage';
+import CareersPage from '@/pages/CareersPage';
+import VolunteerPortalPage from '@/pages/VolunteerPortalPage'; // This is the public-facing volunteer info page
+import PressMediaPage from '@/pages/PressMediaPage';
+import FaqPage from '@/pages/FaqPage';
+import OurValuesPage from '@/pages/OurValuesPage';
+import SuccessStoriesPage from '@/pages/SuccessStoriesPage';
+import PartnershipsPage from '@/pages/PartnershipsPage';
+import FinancialsOverviewPage from '@/pages/FinancialsOverviewPage';
+import ChildProtectionPolicyPage from '@/pages/ChildProtectionPolicyPage';
+import EnvironmentalPolicyPage from '@/pages/EnvironmentalPolicyPage';
+import BlogPage from '@/pages/BlogPage'; 
+import BlogPostPage from '@/pages/BlogPostPage';
 
 // Auth Pages
-import AdminLoginPage from '@/pages/features/auth/AdminLoginPage';
-import VolunteerLoginPage from '@/pages/features/auth/VolunteerLoginPage';
+import AdminLoginPage from '@/pages/auth/AdminLoginPage';
+import VolunteerLoginPage from '@/pages/auth/VolunteerLoginPage';
 
 // Simulated Admin Pages
 import AdminLayout from '@/components/common/layout/AdminLayout';
@@ -49,12 +49,12 @@ import AdminManageUsersPage from '@/pages/admin/AdminManageUsersPage'; // New Ad
 
 // Simulated Volunteer Dashboard Pages
 import VolunteerLayout from '@/components/common/layout/VolunteerLayout';
-import VolunteerDashboardPage from '@/pages/features/volunteer/VolunteerDashboardPage';
-import VolunteerProfilePage from '@/pages/features/volunteer/VolunteerProfilePage';
-import VolunteerIdCardPage from '@/pages/features/volunteer/VolunteerIdCardPage';
-import VolunteerHoursLogPage from '@/pages/features/volunteer/VolunteerHoursLogPage';
-import VolunteerEventsPage from '@/pages/features/volunteer/VolunteerEventsPage'; // New Volunteer Events Page
-import VolunteerResourcesPage from '@/pages/features/volunteer/VolunteerResourcesPage'; // New Volunteer Resources Page
+import VolunteerDashboardPage from '@/pages/volunteer/VolunteerDashboardPage';
+import VolunteerProfilePage from '@/pages/volunteer/VolunteerProfilePage';
+import VolunteerIdCardPage from '@/pages/volunteer/VolunteerIdCardPage';
+import VolunteerHoursLogPage from '@/pages/volunteer/VolunteerHoursLogPage';
+import VolunteerEventsPage from '@/pages/volunteer/VolunteerEventsPage'; // New Volunteer Events Page
+import VolunteerResourcesPage from '@/pages/volunteer/VolunteerResourcesPage'; // New Volunteer Resources Page
 
 
 function App() {

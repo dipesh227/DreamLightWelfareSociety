@@ -51,27 +51,32 @@ module.exports = {
 					foreground: 'hsl(var(--card-foreground))',
 				},
         // NGO-focused color palette based on logo
-        'dream-forest-green': '#1e5f3a',
-        'dream-forest-green-light': '#2d7a4f',
-        'dream-forest-green-lighter': '#e8f5f0',
-        'dream-sky-blue': '#2563eb',
-        'dream-sky-blue-light': '#3b82f6',
-        'dream-sky-blue-lighter': '#eff6ff',
-        'dream-warm-orange': '#ea7317',
-        'dream-warm-orange-light': '#f59e0b',
-        'dream-warm-orange-lighter': '#fef3c7',
-        'dream-deep-purple': '#5b21b6',
-        'dream-deep-purple-light': '#7c3aed',
-        'dream-deep-purple-lighter': '#f3e8ff',
+        'dream-forest': {
+          'green': '#1e5f3a',
+          'light': '#2d7a4f',
+          'lighter': '#e8f5f0'
+        },
+        'dream-sky': {
+          'blue': '#2563eb',
+          'light': '#3b82f6',
+          'lighter': '#eff6ff'
+        },
+        'dream-warm': {
+          'orange': '#ea7317',
+          'light': '#f59e0b',
+          'lighter': '#fef3c7'
+        },
+        'dream-deep': {
+          'purple': '#5b21b6',
+          'light': '#7c3aed',
+          'lighter': '#f3e8ff'
+        },
         // Keep original colors for backward compatibility
-        'dream-purple-darker': '#240e3a',
         'dream-purple-dark': '#3A0CA3',
         'dream-purple': '#7209B7',
         'dream-purple-light': '#B5179E',
-        'dream-purple-lighter': '#f3e8ff',
         'dream-gold': '#F7B801',
         'dream-gold-light': '#FEEA00',
-        'dream-gold-darker': '#d19b00',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
