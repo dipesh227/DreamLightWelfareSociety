@@ -1,114 +1,137 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { Heart, Users, PlayCircle, Award, ShieldCheck, Sparkles, ChevronsDown } from 'lucide-react';
+import { Landmark, Users, Droplets, BookOpen, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-const HeroSection = ({ logoUrl, handleDonate, handleVolunteer }) => {
+const FocusNode = ({ icon: Icon, title, description, className, delay }) => (
+  <motion.div
+    className={`absolute text-center flex flex-col items-center w-[180px] lg:w-[220px] ${className}`}
+    initial={{ opacity: 0, scale: 0.5 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
+  >
+    <motion.div
+      className="bg-dream-logo-blue/20 rounded-full p-2 mb-3 border-2 border-dream-logo-blue/50 cursor-pointer"
+      whileHover={{ scale: 1.15, boxShadow: '0 0 30px rgba(0, 191, 255, 0.5)' }}
+      transition={{ type: 'spring', stiffness: 300, damping: 10 }}
+      animate={{
+        filter: [
+          'drop-shadow(0 0 2px rgba(0, 191, 255, 0.3))',
+          'drop-shadow(0 0 8px rgba(0, 191, 255, 0.5))',
+        ]
+      }}
+      style={{
+        transition: 'filter 2s ease-in-out infinite'
+      }}
+    >
+      <div className="bg-gradient-to-br from-dream-logo-blue to-dream-sky-blue-light rounded-full p-3.5 shadow-inner">
+        <Icon className="h-8 w-8 text-white" />
+      </div>
+    </motion.div>
+    <h3 className="text-base lg:text-lg font-bold text-dream-logo-blue-light text-shadow-md uppercase tracking-wide">{title}</h3>
+    <p className="text-xs lg:text-sm text-slate-200 leading-snug mt-1.5">{description}</p>
+  </motion.div>
+);
 
-  const stats = [
-    { value: "12+", label: "Years Strong", icon: Award, color: "text-dream-gold" },
-    { value: "75K+", label: "Lives Touched", icon: Users, color: "text-dream-purple" },
-    { value: "95%", label: "Fund Utilization", icon: ShieldCheck, color: "text-green-500" },
+const MobileFocusNode = ({ icon: Icon, title, description, delay }) => (
+  <motion.div
+    className="text-center flex flex-col items-center w-full"
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.3 }}
+    transition={{ duration: 0.5, delay }}
+  >
+    <div
+      className="bg-dream-logo-blue/20 rounded-full p-1.5 mb-3 border border-dream-logo-blue/50"
+    >
+      <div className="bg-gradient-to-br from-dream-logo-blue to-dream-deep-purple rounded-full p-3">
+        <Icon className="h-7 w-7 text-white" />
+      </div>
+    </div>
+    <h3 className="text-sm font-bold text-dream-logo-blue-light uppercase tracking-wide">{title}</h3>
+    <p className="text-xs text-slate-200 leading-snug mt-1 max-w-[150px] mx-auto">{description}</p>
+  </motion.div>
+);
+
+
+const HeroSection = ({ logoUrl }) => {
+
+  const focusAreas = [
+    { icon: Landmark, title: "Panchayati Raj & Urban Development", description: "Empowering local governance.", className: "top-[5%] left-1/2 -translate-x-1/2", delay: 0.5 },
+    { icon: Shield, title: "Women Empowerment & Safety", description: "Promoting self-reliance.", className: "top-[25%] right-[12%]", delay: 0.65 },
+    { icon: Users, title: "Child Development & Disability Assistance", description: "Nurturing and supporting.", className: "bottom-[20%] right-[20%]", delay: 0.8 },
+    { icon: Droplets, title: "Drinking Water & Sanitation", description: "Ensuring clean resources.", className: "bottom-[20%] left-[20%]", delay: 0.95 },
+    { icon: BookOpen, title: "Skill Development & Modern Education", description: "Fostering a self-reliant future.", className: "top-[25%] left-[12%]", delay: 1.1 },
   ];
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 md:pt-0">
-      <div className="absolute inset-0 z-0">
-        <img   
-          class="w-full h-full object-cover opacity-30"
-          alt="Vibrant group of Indian children smiling and learning outdoors, showcasing community upliftment and hope"
-          src="https://images.unsplash.com/photo-1681745207024-42f0dfbcedd5" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-slate-100/80 to-slate-100"></div>
-      </div>
-      
-      <div className="relative z-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16 md:py-0">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-          className="space-y-8 md:space-y-10"
-        >
-          <motion.div 
-            className="inline-block p-3 bg-white/80 rounded-full shadow-2xl backdrop-blur-md pulse-glow"
-            whileHover={{ scale: 1.05, rotate: 5 }}
-            transition={{ type: "spring", stiffness: 260, damping: 10 }}
-          >
-            <img src={logoUrl} alt="Dreamlight Welfare Society main logo" className="h-20 w-20 md:h-28 md:w-28" />
-          </motion.div>
-          
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-dream-purple-darker tracking-tighter leading-tight text-shadow-md">
-            Igniting Hope, <br className="hidden sm:block" /> <span className="gradient-text">Empowering Futures.</span>
-          </h1>
-          
-          <p className="text-lg md:text-xl text-slate-700 max-w-3xl mx-auto leading-relaxed">
-            Dreamlight Welfare Society is a beacon of change, dedicated to uplifting communities in India through sustainable education, healthcare, and livelihood programs. Join our movement to transform lives.
-          </p>
-          
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4 md:gap-5 justify-center items-center pt-5"
-            initial={{ opacity:0, y: 20 }}
-            animate={{ opacity:1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          >
-            <Link to="/donate">
-              <Button 
-                onClick={handleDonate}
-                size="lg"
-                className="gradient-bg text-white px-8 py-3.5 text-base md:text-lg font-semibold rounded-full hover:opacity-90 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto group"
-              >
-                <Sparkles className="mr-2.5 h-5 w-5 group-hover:animate-spin animation-duration-1000" />
-                Donate Now
-              </Button>
-            </Link>
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-gradient-to-br from-dream-forest-green via-dream-deep-purple to-dream-sky-blue text-white">
+      <div className="absolute inset-0 bg-black/20"></div>
+      <div className="relative z-10 flex flex-col items-center justify-center w-full min-h-screen px-4 py-20">
+
+        <div className="hidden lg:block w-full max-w-7xl mx-auto">
+            <div className="relative w-full h-[90vh] flex items-center justify-center">
+                <motion.div
+                  className="flex flex-col items-center text-center"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+                >
+                  <motion.img
+                    src={logoUrl}
+                    alt="Dreamlight Logo"
+                    className="h-40 w-40 mb-6"
+                    animate={{
+                      filter: [
+                        'drop-shadow(0 0 12px rgba(255, 215, 0, 0.5))',
+                        'drop-shadow(0 0 32px rgba(255, 215, 0, 0.8))',
+                      ]
+                    }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  />
+                  <h1 className="text-7xl font-bold text-dream-logo-yellow tracking-wider mb-2" style={{textShadow: '0 0 20px rgba(255, 215, 0, 0.4)'}}>DreamLight</h1>
+                  <p className="text-3xl text-white/90 tracking-wide font-medium">Welfare Society</p>
+                </motion.div>
+                
+                <div className="absolute inset-0">
+                  {focusAreas.map((area, i) => <FocusNode key={i} {...area} />)}
+                </div>
+            </div>
+        </div>
+
+        <div className="lg:hidden flex flex-col items-center justify-center w-full max-w-md mx-auto">
+           <motion.div
+              className="flex flex-col items-center text-center mb-16"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            >
+              <motion.img
+                src={logoUrl}
+                alt="Dreamlight Logo"
+                className="h-32 w-32 mb-6"
+                animate={{
+                  filter: [
+                    'drop-shadow(0 0 8px rgba(0, 191, 255, 0.4))',
+                    'drop-shadow(0 0 20px rgba(0, 191, 255, 0.7))',
+                  ]
+                }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <h1 className="text-5xl font-bold text-dream-logo-blue-light tracking-wider mb-3" style={{textShadow: '0 0 15px rgba(0, 191, 255, 0.3)'}}>DreamLight</h1>
+              <p className="text-2xl text-dream-logo-blue-light font-medium">Welfare Society</p>
+            </motion.div>
             
-            <Link to="/volunteer">
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="px-8 py-3.5 text-base md:text-lg font-semibold border-2 border-dream-purple text-dream-purple hover:bg-dream-purple/10 hover:text-dream-purple-dark rounded-full transform hover:-translate-y-1 transition-all duration-300 w-full sm:w-auto group"
-              >
-                <Users className="mr-2.5 h-5 w-5 group-hover:text-dream-gold transition-colors" />
-                Get Involved
-              </Button>
-            </Link>
-          </motion.div>
-
-          <motion.div 
-            className="pt-10 md:pt-12 grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-6 max-w-2xl mx-auto"
-            initial="hidden"
-            animate="visible"
-            variants={{
-              visible: { transition: { staggerChildren: 0.2, delayChildren: 0.5 } }
-            }}
-          >
-            {stats.map((stat, index) => (
-              <motion.div 
-                key={index} 
-                className="bg-white/70 backdrop-blur-sm p-4 rounded-xl shadow-lg text-center border border-slate-200/60 hover:shadow-xl transition-shadow duration-300"
-                variants={{ hidden: { opacity: 0, y: 20, scale:0.9 }, visible: { opacity: 1, y: 0, scale:1 } }}
-                whileHover={{ y: -5 }}
-              >
-                <stat.icon className={`h-7 w-7 mx-auto mb-1.5 ${stat.color}`} />
-                <p className="text-xl md:text-2xl font-bold text-dream-purple-dark">{stat.value}</p>
-                <p className="text-xs md:text-sm text-slate-600">{stat.label}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity:0, y: 20 }}
-            animate={{ opacity:1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
-            className="pt-6"
-          >
-             <a href="#about" className="inline-flex items-center text-sm text-slate-600 hover:text-dream-purple transition-colors duration-300 group animate-bounce animation-delay-2000">
-              Scroll to Discover <ChevronsDown className="ml-1.5 h-5 w-5" />
-            </a>
-          </motion.div>
-
-        </motion.div>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-12 w-full">
+              <MobileFocusNode {...focusAreas[1]} delay={0.3}/>
+              <MobileFocusNode {...focusAreas[2]} delay={0.4}/>
+              <div className="col-span-2 flex justify-center py-4">
+                <MobileFocusNode {...focusAreas[0]} delay={0.5}/>
+              </div>
+              <MobileFocusNode {...focusAreas[3]} delay={0.6}/>
+              <MobileFocusNode {...focusAreas[4]} delay={0.7}/>
+            </div>
+        </div>
       </div>
     </section>
   );

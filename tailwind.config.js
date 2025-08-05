@@ -23,11 +23,11 @@ module.exports = {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: 'hsl(var(--primary))',
+					DEFAULT: 'hsl(var(--dream-logo-blue))', // Mapped to new blue
 					foreground: 'hsl(var(--primary-foreground))',
 				},
 				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
+					DEFAULT: 'hsl(var(--dream-logo-yellow))', // Mapped to new yellow
 					foreground: 'hsl(var(--secondary-foreground))',
 				},
 				destructive: {
@@ -52,31 +52,34 @@ module.exports = {
 				},
         // NGO-focused color palette based on logo
         'dream-forest': {
-          'green': '#1e5f3a',
-          'light': '#2d7a4f',
-          'lighter': '#e8f5f0'
+          'green': 'hsl(var(--dream-forest-green))',
+          'light': 'hsl(var(--dream-forest-green-light))',
+          'lighter': 'hsl(var(--dream-forest-green-lighter))'
         },
         'dream-sky': {
-          'blue': '#2563eb',
-          'light': '#3b82f6',
-          'lighter': '#eff6ff'
+          'blue': 'hsl(var(--dream-sky-blue))',
+          'light': 'hsl(var(--dream-sky-blue-light))',
+          'lighter': 'hsl(var(--dream-sky-blue-lighter))'
         },
         'dream-warm': {
-          'orange': '#ea7317',
-          'light': '#f59e0b',
-          'lighter': '#fef3c7'
+          'orange': 'hsl(var(--dream-warm-orange))',
+          'light': 'hsl(var(--dream-warm-orange-light))',
+          'lighter': 'hsl(var(--dream-warm-orange-lighter))'
         },
         'dream-deep': {
-          'purple': '#5b21b6',
-          'light': '#7c3aed',
-          'lighter': '#f3e8ff'
+          'purple': 'hsl(var(--dream-deep-purple))',
+          'light': 'hsl(var(--dream-deep-purple-light))',
+          'lighter': 'hsl(var(--dream-deep-purple-lighter))'
         },
-        // Keep original colors for backward compatibility
-        'dream-purple-dark': '#3A0CA3',
-        'dream-purple': '#7209B7',
-        'dream-purple-light': '#B5179E',
-        'dream-gold': '#F7B801',
-        'dream-gold-light': '#FEEA00',
+        // New logo colors
+        'dream-logo': {
+          'blue': 'hsl(var(--dream-logo-blue))',
+          'blue-light': 'hsl(var(--dream-logo-blue-light))',
+          'blue-dark': 'hsl(var(--dream-logo-blue-dark))',
+          'yellow': 'hsl(var(--dream-logo-yellow))',
+          'yellow-light': 'hsl(var(--dream-logo-yellow-light))',
+          'yellow-dark': 'hsl(var(--dream-logo-yellow-dark))',
+        },
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

@@ -24,25 +24,25 @@ const MetricDisplay = ({ value, label, description, icon: Icon, color, index }) 
 
 const FinancialsOverviewPage = () => {
   const keyFinancials = [
-    { value: "Target: ₹1 Cr", label: "Funds Goal (Current FY)", description: "From diverse sources including individuals, corporates, and grants for Uttarakhand projects.", icon: BarChart3, color: "text-dream-purple", index: 0 },
+    { value: "Target: ₹1 Cr", label: "Funds Goal (Current FY)", description: "From diverse sources including individuals, corporates, and grants for Uttarakhand projects.", icon: BarChart3, color: "text-primary", index: 0 },
     { value: "Est. 90%+", label: "Program Expense Ratio", description: "Projected percentage of total expenses spent directly on program activities and services.", icon: PieChart, color: "text-green-600", index: 1 },
     { value: "<8%", label: "Administrative Overhead", description: "To be efficiently managed to maximize funds for direct impact.", icon: Landmark, color: "text-blue-600", index: 2 },
-    { value: "<2%", label: "Fundraising Costs", description: "Strategic investments to secure future funding and sustainability for our NGO.", icon: FileText, color: "text-dream-gold", index: 3 },
+    { value: "<2%", label: "Fundraising Costs", description: "Strategic investments to secure future funding and sustainability for our NGO.", icon: FileText, color: "text-secondary", index: 3 },
   ];
 
   const fundSources = [
-    { name: "Individual Donations", percentage: "40%", color: "bg-dream-purple" },
+    { name: "Individual Donations", percentage: "40%", color: "bg-primary" },
     { name: "Corporate Partnerships (CSR)", percentage: "35%", color: "bg-green-600" },
     { name: "Government & Institutional Grants", percentage: "20%", color: "bg-blue-600" },
-    { name: "Other Income/Events", percentage: "5%", color: "bg-dream-gold" },
+    { name: "Other Income/Events", percentage: "5%", color: "bg-secondary" },
   ];
 
   const fundUtilization = [
-    { name: "Women & Child Development", percentage: "35%", color: "bg-dream-purple" },
+    { name: "Women & Child Development", percentage: "35%", color: "bg-primary" },
     { name: "Skill Training & Livelihood", percentage: "25%", color: "bg-green-600" },
     { name: "Health Awareness Programs", percentage: "20%", color: "bg-blue-600" },
     { name: "Environmental Projects", percentage: "12%", color: "bg-teal-500" },
-    { name: "Admin & Fundraising", percentage: "8%", color: "bg-dream-gold" },
+    { name: "Admin & Fundraising", percentage: "8%", color: "bg-secondary" },
   ];
 
   const ChartBar = ({ name, percentage, color }) => (
@@ -69,16 +69,16 @@ const FinancialsOverviewPage = () => {
         title="Financial Transparency"
         subtitle="Understanding how your contributions are utilized to create maximum impact. Dreamlight Welfare Society is committed to accountability and responsible stewardship of resources. Registered NGO: TRSOCI067080525216401."
         icon={Landmark}
-        iconColor="text-dream-purple-dark"
-        gradientFrom="from-dream-gold"
-        gradientTo="to-dream-gold-light"
+        iconColor="text-secondary-foreground"
+        gradientFrom="from-secondary"
+        gradientTo="to-dream-logo-yellow-light"
         bgPatternOpacity="opacity-20"
       />
 
       <section className="py-16 md:py-24">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 md:mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold text-dream-purple-dark mb-4">Our Financial Framework (Projected)</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary-foreground mb-4">Our Financial Framework (Projected)</h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
               Key metrics illustrating our commitment to efficient resource utilization. (Figures are projections for the upcoming financial year)
             </p>
@@ -97,7 +97,7 @@ const FinancialsOverviewPage = () => {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7 }}
             >
-              <h3 className="text-2xl font-bold text-dream-purple-dark mb-6">Projected Sources of Funding</h3>
+              <h3 className="text-2xl font-bold text-secondary-foreground mb-6">Projected Sources of Funding</h3>
               <div className="space-y-4">
                 {fundSources.map((source, index) => <ChartBar key={index} {...source} />)}
               </div>
@@ -110,7 +110,7 @@ const FinancialsOverviewPage = () => {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7, delay: 0.1 }}
             >
-              <h3 className="text-2xl font-bold text-dream-purple-dark mb-6">Projected Utilization of Contributions</h3>
+              <h3 className="text-2xl font-bold text-secondary-foreground mb-6">Projected Utilization of Contributions</h3>
               <div className="space-y-4">
                 {fundUtilization.map((item, index) => <ChartBar key={index} {...item} />)}
               </div>
@@ -120,21 +120,21 @@ const FinancialsOverviewPage = () => {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-dream-purple-dark text-white">
+      <section className="py-16 md:py-24 bg-dream-logo-blue-dark text-white">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <FileText className="h-16 w-16 mx-auto text-dream-gold-light mb-6" />
+          <FileText className="h-16 w-16 mx-auto text-dream-logo-yellow-light mb-6" />
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Detailed Reports & Audits</h2>
           <p className="text-slate-300 text-lg leading-relaxed mb-8">
             For a comprehensive understanding of our financial performance, governance, and impact, please refer to our detailed annual reports and audited financial statements, which will be available after the completion of our first financial year.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/transparency">
-              <Button size="lg" className="bg-dream-gold text-dream-purple-dark hover:bg-dream-gold-light font-semibold px-8 py-3.5 rounded-full text-base shadow-lg w-full sm:w-auto">
+              <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-dream-logo-yellow-light font-semibold px-8 py-3.5 rounded-full text-base shadow-lg w-full sm:w-auto">
                 <Download size={18} className="mr-2"/> View Reports (Future)
               </Button>
             </Link>
             <Link to="/contact?subject=FinancialInquiry">
-              <Button size="lg" variant="outline" className="border-2 border-dream-gold-light text-dream-gold-light hover:bg-dream-gold-light/10 font-semibold px-8 py-3.5 rounded-full text-base w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="border-2 border-dream-logo-yellow-light text-dream-logo-yellow-light hover:bg-dream-logo-yellow-light/10 font-semibold px-8 py-3.5 rounded-full text-base w-full sm:w-auto">
                 Contact Finance Team
               </Button>
             </Link>

@@ -48,11 +48,11 @@ const FaqItem = ({ q, a }) => {
       <motion.button
         layout
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex justify-between items-center p-5 text-left text-md font-semibold text-dream-purple-dark focus:outline-none"
+        className="w-full flex justify-between items-center p-5 text-left text-md font-semibold text-secondary-foreground focus:outline-none"
       >
         {q}
         <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.3 }}>
-          <ChevronDown className={`h-5 w-5 transition-colors ${isOpen ? 'text-dream-purple' : 'text-slate-500'}`} />
+          <ChevronDown className={`h-5 w-5 transition-colors ${isOpen ? 'text-primary' : 'text-slate-500'}`} />
         </motion.div>
       </motion.button>
       <AnimatePresence>
@@ -90,8 +90,8 @@ const FaqPage = () => {
         title="Frequently Asked Questions"
         subtitle="Find answers to common questions about Dreamlight Welfare Society, our work, donations, volunteering, and more."
         icon={HelpCircle}
-        gradientFrom="from-dream-purple"
-        gradientTo="to-dream-purple-dark"
+        gradientFrom="from-primary"
+        gradientTo="to-dream-logo-blue-dark"
       />
 
       <section className="py-16 md:py-24">
@@ -103,7 +103,7 @@ const FaqPage = () => {
                 placeholder="Search FAQs (e.g., donation, volunteer, programs)"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full p-4 pl-12 border border-slate-300 rounded-xl focus:ring-2 focus:ring-dream-purple focus:border-transparent transition-shadow shadow-sm"
+                className="w-full p-4 pl-12 border border-slate-300 rounded-xl focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow shadow-sm"
               />
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
             </div>
@@ -117,8 +117,8 @@ const FaqPage = () => {
                   onClick={() => setActiveCategory(cat.category)}
                   className={`w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200
                     ${activeCategory === cat.category 
-                      ? 'bg-dream-purple text-white shadow-md' 
-                      : 'bg-white text-slate-700 hover:bg-dream-purple-lighter/70 hover:text-dream-purple'}`}
+                      ? 'bg-primary text-white shadow-md' 
+                      : 'bg-white text-slate-700 hover:bg-dream-logo-blue/10 hover:text-primary'}`}
                 >
                   {cat.category}
                 </button>
@@ -135,7 +135,7 @@ const FaqPage = () => {
                     animate={{ opacity: 1, y:0 }}
                     transition={{ duration: 0.4 }}
                   >
-                    <h2 className="text-2xl font-bold text-dream-purple-dark mb-6 pb-2 border-b-2 border-dream-gold">{category.category}</h2>
+                    <h2 className="text-2xl font-bold text-secondary-foreground mb-6 pb-2 border-b-2 border-secondary">{category.category}</h2>
                     <div className="space-y-4">
                       {category.questions.map((item, index) => (
                         <FaqItem key={index} q={item.q} a={item.a} />

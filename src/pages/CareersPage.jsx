@@ -18,17 +18,17 @@ const jobTypes = ["All", ...new Set(jobOpenings.map(job => job.type))];
 
 const JobCard = ({ job, index }) => (
   <motion.div
-    className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-dream-gold flex flex-col"
+    className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border-l-4 border-secondary flex flex-col"
     initial={{ opacity: 0, y: 30, scale: 0.98 }}
     whileInView={{ opacity: 1, y: 0, scale: 1 }}
     viewport={{ once: true, amount: 0.2 }}
     transition={{ duration: 0.5, delay: index * 0.05, ease: "easeOut" }}
   >
-    <h3 className="text-xl font-bold text-dream-purple-dark mb-2">{job.title}</h3>
+    <h3 className="text-xl font-bold text-secondary-foreground mb-2">{job.title}</h3>
     <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-500 mb-3">
-      <span className="flex items-center"><MapPin size={12} className="mr-1 text-dream-purple"/>{job.location}</span>
-      <span className="flex items-center"><Clock size={12} className="mr-1 text-dream-purple"/>{job.type}</span>
-      <span className="flex items-center"><Briefcase size={12} className="mr-1 text-dream-purple"/>{job.department}</span>
+      <span className="flex items-center"><MapPin size={12} className="mr-1 text-primary"/>{job.location}</span>
+      <span className="flex items-center"><Clock size={12} className="mr-1 text-primary"/>{job.type}</span>
+      <span className="flex items-center"><Briefcase size={12} className="mr-1 text-primary"/>{job.department}</span>
     </div>
     <p className="text-sm text-slate-600 leading-relaxed mb-4 flex-grow">{job.description.substring(0, 120)}...</p>
     <div className="flex justify-between items-center mt-auto pt-3 border-t border-slate-200">
@@ -55,9 +55,9 @@ const CareersPage = () => {
         title="Join Our Team, Make a Difference"
         subtitle="We're looking for passionate, talented individuals to help us achieve our mission. Explore current openings and find your place at Dreamlight Welfare Society."
         icon={Award}
-        iconColor="text-dream-purple-dark"
-        gradientFrom="from-dream-gold"
-        gradientTo="to-dream-gold-light"
+        iconColor="text-secondary-foreground"
+        gradientFrom="from-secondary"
+        gradientTo="to-dream-logo-yellow-light"
         bgPatternOpacity="opacity-20"
       />
 
@@ -66,20 +66,20 @@ const CareersPage = () => {
           <div className="mb-10 md:mb-14 p-6 bg-white rounded-xl shadow-lg">
             <div className="flex flex-col sm:flex-row gap-4 items-center">
               <div className="flex items-center text-sm font-medium text-slate-700 mr-3">
-                <Filter size={18} className="mr-2 text-dream-purple"/> Filters:
+                <Filter size={18} className="mr-2 text-primary"/> Filters:
               </div>
               <div className="flex flex-wrap gap-3">
                 <select 
                   value={departmentFilter} 
                   onChange={(e) => setDepartmentFilter(e.target.value)}
-                  className="p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-dream-purple focus:border-dream-purple"
+                  className="p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-primary focus:border-primary"
                 >
                   {departments.map(dep => <option key={dep} value={dep}>{dep} Department</option>)}
                 </select>
                 <select 
                   value={typeFilter} 
                   onChange={(e) => setTypeFilter(e.target.value)}
-                  className="p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-dream-purple focus:border-dream-purple"
+                  className="p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-primary focus:border-primary"
                 >
                   {jobTypes.map(type => <option key={type} value={type}>{type} Type</option>)}
                 </select>
@@ -107,11 +107,11 @@ const CareersPage = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-dream-purple-dark text-white">
+      <section className="py-20 bg-dream-logo-blue-dark text-white">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <Users className="h-12 w-12 md:h-16 md:w-16 mx-auto text-dream-gold-light mb-6" />
+          <Users className="h-12 w-12 md:h-16 md:w-16 mx-auto text-dream-logo-yellow-light mb-6" />
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Why Work With Us?</h2>
-          <ul className="space-y-3 text-slate-300 text-lg leading-relaxed mb-8 list-disc list-inside marker:text-dream-gold-light text-left max-w-md mx-auto">
+          <ul className="space-y-3 text-slate-300 text-lg leading-relaxed mb-8 list-disc list-inside marker:text-dream-logo-yellow-light text-left max-w-md mx-auto">
             <li>Make a tangible impact on communities.</li>
             <li>Collaborative and supportive work environment.</li>
             <li>Opportunities for growth and development.</li>
@@ -122,7 +122,7 @@ const CareersPage = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <Button asChild size="lg" className="bg-dream-gold text-dream-purple-dark hover:bg-dream-gold-light font-semibold px-10 py-3.5 rounded-full text-base shadow-lg hover:shadow-xl transition-all duration-300">
+            <Button asChild size="lg" className="bg-secondary text-secondary-foreground hover:bg-dream-logo-yellow-light font-semibold px-10 py-3.5 rounded-full text-base shadow-lg hover:shadow-xl transition-all duration-300">
               <Link to="/contact">Spontaneous Application <Send size={18} className="ml-2"/></Link>
             </Button>
           </motion.div>

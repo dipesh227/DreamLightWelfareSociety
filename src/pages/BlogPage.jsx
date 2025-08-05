@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Rss, CalendarDays, User, Tag, Search, ArrowRight } from 'lucide-react';
@@ -27,12 +26,12 @@ const BlogPostCard = ({ post, index }) => (
       <div className="relative h-56">
         <img  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt={post.title} src={post.imageSrc} />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-        <span className="absolute top-3 right-3 bg-dream-gold text-dream-purple-dark px-2.5 py-1 rounded-full text-xs font-semibold shadow-md">{post.category}</span>
+        <span className="absolute top-3 right-3 bg-secondary text-secondary-foreground px-2.5 py-1 rounded-full text-xs font-semibold shadow-md">{post.category}</span>
       </div>
     </Link>
     <div className="p-6 flex flex-col flex-grow">
       <Link to={`/blog/${post.id}`} className="block">
-        <h3 className="text-xl font-bold text-dream-purple-dark mb-2 group-hover:text-dream-purple transition-colors">{post.title}</h3>
+        <h3 className="text-xl font-bold text-secondary-foreground mb-2 group-hover:text-primary transition-colors">{post.title}</h3>
       </Link>
       <div className="flex items-center text-xs text-slate-500 mb-3 space-x-3">
         <span className="flex items-center"><CalendarDays size={14} className="mr-1"/> {post.date}</span>
@@ -40,7 +39,7 @@ const BlogPostCard = ({ post, index }) => (
       </div>
       <p className="text-sm text-slate-600 leading-relaxed mb-4 flex-grow">{post.excerpt}</p>
       <Link to={`/blog/${post.id}`} className="mt-auto self-start">
-        <Button variant="link" className="text-dream-purple px-0 hover:text-dream-gold">
+        <Button variant="link" className="text-primary px-0 hover:text-secondary">
           Read More <ArrowRight size={16} className="ml-1.5" />
         </Button>
       </Link>
@@ -63,8 +62,8 @@ const BlogPage = () => {
         title="Dreamlight Insights & Updates"
         subtitle="Explore our latest articles, stories from the field, and updates on our work. Discover the impact we're making together."
         icon={Rss}
-        gradientFrom="from-dream-purple"
-        gradientTo="to-dream-purple-dark"
+        gradientFrom="from-primary"
+        gradientTo="to-dream-logo-blue-dark"
       />
 
       <section className="py-16 md:py-24">
@@ -76,7 +75,7 @@ const BlogPage = () => {
                 placeholder="Search articles..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full p-3.5 pl-10 border border-slate-300 rounded-lg focus:ring-2 focus:ring-dream-purple focus:border-transparent transition-shadow"
+                className="w-full p-3.5 pl-10 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow"
               />
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
             </div>
@@ -90,7 +89,7 @@ const BlogPage = () => {
                   className={`rounded-full px-4 py-1.5 text-xs capitalize transition-all duration-300
                     ${selectedCategory === cat 
                       ? 'gradient-bg text-white shadow-md' 
-                      : 'border-dream-purple/50 text-dream-purple hover:bg-dream-purple/10'}`}
+                      : 'border-primary/50 text-primary hover:bg-primary/10'}`}
                 >
                   <Tag size={12} className="mr-1.5 opacity-70"/>{cat}
                 </Button>
@@ -116,15 +115,15 @@ const BlogPage = () => {
         </div>
       </section>
 
-      <section className="py-16 md:py-20 bg-dream-gold text-center">
+      <section className="py-16 md:py-20 bg-secondary text-center">
         <div className="max-w-3xl mx-auto px-4">
-          <Rss className="h-16 w-16 mx-auto text-dream-purple-dark mb-6" />
-          <h2 className="text-3xl md:text-4xl font-bold text-dream-purple-dark mb-6">Subscribe for Updates</h2>
-          <p className="text-dream-purple/90 text-lg leading-relaxed mb-8">
+          <Rss className="h-16 w-16 mx-auto text-secondary-foreground mb-6" />
+          <h2 className="text-3xl md:text-4xl font-bold text-secondary-foreground mb-6">Subscribe for Updates</h2>
+          <p className="text-secondary-foreground/90 text-lg leading-relaxed mb-8">
             Don't miss out on our latest news, success stories, and event announcements. Subscribe to the Dreamlight newsletter.
           </p>
           <Link to="/#footer-newsletter"> {/* Assuming newsletter is in footer */}
-            <Button size="lg" className="bg-dream-purple text-white hover:bg-dream-purple-dark rounded-full px-10 py-3.5 text-base font-semibold">
+            <Button size="lg" className="bg-primary text-white hover:bg-dream-logo-blue-dark rounded-full px-10 py-3.5 text-base font-semibold">
               Subscribe Now
             </Button>
           </Link>

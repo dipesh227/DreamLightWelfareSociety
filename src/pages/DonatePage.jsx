@@ -9,7 +9,7 @@ import PageHeader from '@/components/layout/PageHeader';
 
 const DonationImpactCard = ({ amount, impact, icon: Icon, iconColor }) => (
   <motion.div 
-    className="bg-dream-purple-light/10 p-4 rounded-lg text-center flex items-center space-x-3"
+    className="bg-primary/10 p-4 rounded-lg text-center flex items-center space-x-3"
     initial={{ opacity: 0, y: 10 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5 }}
@@ -18,7 +18,7 @@ const DonationImpactCard = ({ amount, impact, icon: Icon, iconColor }) => (
       <Icon className={`h-6 w-6 ${iconColor}`} />
     </div>
     <div>
-      <p className="text-xl font-bold text-dream-purple">${amount}</p>
+      <p className="text-xl font-bold text-primary">${amount}</p>
       <p className="text-xs text-slate-600 text-left">{impact}</p>
     </div>
   </motion.div>
@@ -29,12 +29,12 @@ const FundTargetProgress = ({ targetName, current, target, color }) => {
   return (
     <div className="mb-6">
       <div className="flex justify-between items-center mb-1 text-sm">
-        <span className="font-semibold text-dream-purple-dark">{targetName}</span>
+        <span className="font-semibold text-secondary-foreground">{targetName}</span>
         <span className={`font-bold ${color}`}>${current.toLocaleString()} / ${target.toLocaleString()}</span>
       </div>
       <div className="w-full bg-slate-200 rounded-full h-3">
         <motion.div 
-          className={`h-3 rounded-full ${color === 'text-dream-gold' ? 'bg-dream-gold' : color === 'text-blue-600' ? 'bg-blue-600' : color === 'text-green-600' ? 'bg-green-600' : 'bg-dream-purple'}`}
+          className={`h-3 rounded-full ${color === 'text-secondary' ? 'bg-secondary' : color === 'text-blue-600' ? 'bg-blue-600' : color === 'text-green-600' ? 'bg-green-600' : 'bg-primary'}`}
           initial={{ width: 0 }}
           animate={{ width: `${percentage}%`}}
           transition={{ duration: 1, ease: "easeOut" }}
@@ -68,23 +68,23 @@ const DonatePage = () => {
     toast({
       title: "Thank You for Your Generosity!",
       description: `Your ${donationFrequency} donation of $${donationAmount} to ${selectedProgram === 'general' ? 'our general fund' : selectedProgram} is deeply appreciated. (Payment processing is simulated).`,
-      className: "bg-dream-purple text-white border-dream-gold",
+      className: "bg-primary text-white border-secondary",
       duration: 7000,
     });
   };
   
   const fundTargets = [
-    { name: "Education for All Children", current: 12500, target: 25000, color: "text-dream-purple" },
+    { name: "Education for All Children", current: 12500, target: 25000, color: "text-primary" },
     { name: "Clean Water Access Initiative", current: 8200, target: 15000, color: "text-blue-600" },
     { name: "Healthcare Support Fund", current: 18000, target: 30000, color: "text-green-600" },
-    { name: "Emergency Relief Operations", current: 5500, target: 10000, color: "text-dream-gold" },
+    { name: "Emergency Relief Operations", current: 5500, target: 10000, color: "text-secondary" },
   ];
 
   const impactExamples = [
-    { amount: 25, impact: "Provides school supplies for a child for one month.", icon: BookOpen, iconColor: "text-dream-purple" },
+    { amount: 25, impact: "Provides school supplies for a child for one month.", icon: BookOpen, iconColor: "text-primary" },
     { amount: 50, impact: "Offers a family access to clean water solutions for six months.", icon: Droplets, iconColor: "text-blue-600" },
     { amount: 100, impact: "Supports a health check-up for 5 individuals in a remote community.", icon: Stethoscope, iconColor: "text-green-600" },
-    { amount: 250, impact: "Helps fund a vocational training module for one aspiring youth.", icon: Briefcase, iconColor: "text-dream-gold" },
+    { amount: 250, impact: "Helps fund a vocational training module for one aspiring youth.", icon: Briefcase, iconColor: "text-secondary" },
   ];
 
   return (
@@ -93,8 +93,8 @@ const DonatePage = () => {
         title="Your Gift Makes a Difference"
         subtitle="Every contribution, no matter the size, empowers us to continue our vital work. Join us in creating lasting change and building brighter futures."
         icon={Heart}
-        gradientFrom="from-dream-purple"
-        gradientTo="to-dream-purple-dark"
+        gradientFrom="from-primary"
+        gradientTo="to-dream-logo-blue-dark"
       />
 
       <section className="py-16 md:py-24">
@@ -107,7 +107,7 @@ const DonatePage = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7 }}
           >
-            <h2 className="text-3xl font-bold text-dream-purple-dark mb-8 text-center md:text-left">Make Your Donation</h2>
+            <h2 className="text-3xl font-bold text-secondary-foreground mb-8 text-center md:text-left">Make Your Donation</h2>
             <form onSubmit={handleDonationSubmit} className="space-y-8">
               <div>
                 <label className="block text-sm font-semibold text-slate-700 mb-2">Choose Amount (USD)</label>
@@ -138,7 +138,7 @@ const DonatePage = () => {
                     type="number" 
                     value={donationAmount}
                     onChange={(e) => setDonationAmount(Number(e.target.value))}
-                    className="w-24 p-2 border border-slate-300 rounded-md text-center font-semibold text-dream-purple"
+                    className="w-24 p-2 border border-slate-300 rounded-md text-center font-semibold text-primary"
                   />
                 </div>
               </div>
@@ -160,7 +160,7 @@ const DonatePage = () => {
                 </div>
                 {donationFrequency === 'monthly' && (
                   <p className="text-xs text-slate-500 mt-2 flex items-center">
-                    <Info className="h-3 w-3 mr-1.5 text-dream-purple"/> Monthly donations provide sustainable support for our ongoing projects.
+                    <Info className="h-3 w-3 mr-1.5 text-primary"/> Monthly donations provide sustainable support for our ongoing projects.
                   </p>
                 )}
               </div>
@@ -171,7 +171,7 @@ const DonatePage = () => {
                   id="program"
                   value={selectedProgram}
                   onChange={(e) => setSelectedProgram(e.target.value)}
-                  className="w-full p-3 border border-slate-300 rounded-lg bg-white focus:ring-2 focus:ring-dream-purple focus:border-transparent"
+                  className="w-full p-3 border border-slate-300 rounded-lg bg-white focus:ring-2 focus:ring-primary focus:border-transparent"
                 >
                   <option value="general">General Fund (Where most needed)</option>
                   <option value="education">Education Empowerment</option>
@@ -201,24 +201,24 @@ const DonatePage = () => {
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             <div className="bg-white p-8 rounded-2xl shadow-xl">
-              <h3 className="text-2xl font-bold text-dream-purple-dark mb-6 text-center">See Your Impact (Examples)</h3>
+              <h3 className="text-2xl font-bold text-secondary-foreground mb-6 text-center">See Your Impact (Examples)</h3>
               <div className="space-y-3">
                 {impactExamples.map(ex => <DonationImpactCard key={ex.amount} {...ex} />)}
               </div>
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-xl">
-              <h3 className="text-2xl font-bold text-dream-purple-dark mb-6 text-center">Other Ways to Give</h3>
+              <h3 className="text-2xl font-bold text-secondary-foreground mb-6 text-center">Other Ways to Give</h3>
               <ul className="space-y-4">
                 <li className="flex items-start">
-                  <Gift className="h-6 w-6 mr-3 text-dream-gold flex-shrink-0 mt-0.5" />
+                  <Gift className="h-6 w-6 mr-3 text-secondary flex-shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-semibold text-slate-700">Corporate Partnerships</h4>
                     <p className="text-sm text-slate-600">Align your brand with a cause. Contact us for partnership opportunities.</p>
                   </div>
                 </li>
                 <li className="flex items-start">
-                  <Users className="h-6 w-6 mr-3 text-dream-purple flex-shrink-0 mt-0.5" />
+                  <Users className="h-6 w-6 mr-3 text-primary flex-shrink-0 mt-0.5" />
                   <div>
                     <h4 className="font-semibold text-slate-700">Fundraise for Us</h4>
                     <p className="text-sm text-slate-600">Start your own campaign to support our projects. We'll provide resources!</p>
@@ -230,9 +230,9 @@ const DonatePage = () => {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-dream-purple-light/10">
+      <section className="py-16 md:py-24 bg-dream-logo-blue/10">
         <div className="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-dream-purple-dark mb-12 text-center">Current Fundraising Goals</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-secondary-foreground mb-12 text-center">Current Fundraising Goals</h2>
           <div className="grid md:grid-cols-2 gap-x-10 gap-y-8">
             {fundTargets.map(fund => (
               <FundTargetProgress key={fund.name} {...fund} />
@@ -247,7 +247,7 @@ const DonatePage = () => {
       <section className="py-16 md:py-24 text-center">
         <div className="max-w-screen-md mx-auto px-4 sm:px-6 lg:px-8">
             <CheckCircle className="h-16 w-16 mx-auto mb-6 text-green-500"/>
-            <h2 className="text-3xl md:text-4xl font-bold text-dream-purple-dark mb-6">Your Trust, Our Commitment</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary-foreground mb-6">Your Trust, Our Commitment</h2>
             <p className="text-lg md:text-xl mb-8 text-slate-700 max-w-2xl mx-auto">
                 We are dedicated to transparency and ensuring your donation makes the maximum possible impact. 95% of all donations go directly to our programs.
             </p>
