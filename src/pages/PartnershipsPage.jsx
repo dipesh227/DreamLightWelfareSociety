@@ -1,7 +1,8 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, Briefcase, Zap, HeartHandshake as Handshake, MessageSquare, FileText, Award } from 'lucide-react';
-import PageHeader from '@/components/common/layout/PageHeader';
+import PageHeader from '@/components/layout/PageHeader';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
@@ -16,11 +17,11 @@ const PartnershipTypeCard = ({ icon: Icon, title, description, benefits, color, 
     <div className={`inline-block p-4 rounded-full mb-5 self-start ${color.replace('text-', 'bg-')}/10`}>
       <Icon className={`h-10 w-10 ${color}`} />
     </div>
-    <h3 className="text-2xl font-bold text-dws-blue-dark mb-3">{title}</h3>
+    <h3 className="text-2xl font-bold text-dream-purple-dark mb-3">{title}</h3>
     <p className="text-slate-600 leading-relaxed text-sm mb-4 flex-grow">{description}</p>
     <div className="mb-5">
       <h4 className="text-sm font-semibold text-slate-700 mb-2">Key Benefits:</h4>
-      <ul className="space-y-1.5 text-xs text-slate-500 list-disc list-inside marker:text-dws-blue-dark">
+      <ul className="space-y-1.5 text-xs text-slate-500 list-disc list-inside marker:text-dream-purple">
         {benefits.map((benefit, i) => <li key={i}>{benefit}</li>)}
       </ul>
     </div>
@@ -50,10 +51,10 @@ const PartnerLogo = ({ src, alt, link, index }) => (
 
 const PartnershipsPage = () => {
   const partnershipTypes = [
-    { icon: Briefcase, title: "Corporate Partnerships (CSR)", description: "Align your company's social responsibility goals with our impactful programs. We offer tailored CSR initiatives that create shared value and demonstrate your commitment to social good.", benefits: ["Enhanced brand reputation", "Employee engagement opportunities", "Measurable social impact", "Tax benefits (as applicable)"], color: "text-dws-blue-dark", index: 0 },
-    { icon: Zap, title: "Program Sponsorship", description: "Sponsor specific projects or entire programs in areas like education, healthcare, or environmental conservation. Your support directly fuels on-ground activities and creates lasting change.", benefits: ["Targeted impact in chosen area", "Naming rights & recognition", "Regular progress reports", "Site visit opportunities"], color: "text-dws-green", index: 1 },
-    { icon: Handshake, title: "Cause Marketing Campaigns", description: "Collaborate on co-branded marketing campaigns that raise awareness and funds for Dreamlight's mission while engaging your customers with a meaningful cause.", benefits: ["Increased customer loyalty", "Positive PR and media coverage", "Innovative brand association", "Mutual audience reach"], color: "text-dws-blue-light", index: 2 },
-    { icon: Users, title: "Institutional & NGO Alliances", description: "We actively seek collaborations with other NGOs, foundations, academic institutions, and government bodies to amplify our reach, share best practices, and tackle complex challenges together.", benefits: ["Synergistic impact", "Resource & knowledge sharing", "Joint advocacy efforts", "Expanded program delivery"], color: "text-dws-gold", index: 3 },
+    { icon: Briefcase, title: "Corporate Partnerships (CSR)", description: "Align your company's social responsibility goals with our impactful programs. We offer tailored CSR initiatives that create shared value and demonstrate your commitment to social good.", benefits: ["Enhanced brand reputation", "Employee engagement opportunities", "Measurable social impact", "Tax benefits (as applicable)"], color: "text-dream-purple", index: 0 },
+    { icon: Zap, title: "Program Sponsorship", description: "Sponsor specific projects or entire programs in areas like education, healthcare, or environmental conservation. Your support directly fuels on-ground activities and creates lasting change.", benefits: ["Targeted impact in chosen area", "Naming rights & recognition", "Regular progress reports", "Site visit opportunities"], color: "text-green-600", index: 1 },
+    { icon: Handshake, title: "Cause Marketing Campaigns", description: "Collaborate on co-branded marketing campaigns that raise awareness and funds for Dreamlight's mission while engaging your customers with a meaningful cause.", benefits: ["Increased customer loyalty", "Positive PR and media coverage", "Innovative brand association", "Mutual audience reach"], color: "text-blue-600", index: 2 },
+    { icon: Users, title: "Institutional & NGO Alliances", description: "We actively seek collaborations with other NGOs, foundations, academic institutions, and government bodies to amplify our reach, share best practices, and tackle complex challenges together.", benefits: ["Synergistic impact", "Resource & knowledge sharing", "Joint advocacy efforts", "Expanded program delivery"], color: "text-dream-gold", index: 3 },
   ];
 
   const currentPartners = [
@@ -72,14 +73,14 @@ const PartnershipsPage = () => {
         title="Partner With Us for Greater Impact"
         subtitle="Together, we can achieve more. Dreamlight Welfare Society collaborates with corporations, foundations, NGOs, and institutions to create sustainable change and uplift communities."
         icon={Handshake}
-        gradientFrom="from-dws-blue-dark"
-        gradientTo="to-dws-blue-light"
+        gradientFrom="from-dream-purple"
+        gradientTo="to-dream-purple-dark"
       />
 
       <section className="py-16 md:py-24">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 md:mb-20">
-            <h2 className="text-3xl md:text-4xl font-bold text-dws-blue-dark mb-4">Ways to Collaborate</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-dream-purple-dark mb-4">Ways to Collaborate</h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
               We offer diverse partnership models to suit your organization's objectives and capacity.
             </p>
@@ -92,10 +93,10 @@ const PartnershipsPage = () => {
         </div>
       </section>
       
-      <section className="py-16 md:py-24 bg-dws-blue-light/10">
+      <section className="py-16 md:py-24 bg-dream-purple-light/10">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-dws-blue-dark mb-4">Our Valued Partners</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-dream-purple-dark mb-4">Our Valued Partners</h2>
             <p className="text-lg text-slate-600 max-w-xl mx-auto">
               We are grateful for the support of organizations that share our vision. (Logos are for demonstration)
             </p>
@@ -110,8 +111,8 @@ const PartnershipsPage = () => {
 
       <section className="py-20 bg-white">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <MessageSquare className="h-16 w-16 mx-auto text-dws-gold mb-6" />
-          <h2 className="text-3xl md:text-4xl font-bold text-dws-blue-dark mb-6">Let's Discuss a Partnership</h2>
+          <MessageSquare className="h-16 w-16 mx-auto text-dream-gold mb-6" />
+          <h2 className="text-3xl md:text-4xl font-bold text-dream-purple-dark mb-6">Let's Discuss a Partnership</h2>
           <p className="text-slate-700 text-lg leading-relaxed mb-8">
             If your organization is interested in exploring a partnership with Dreamlight Welfare Society, we would love to hear from you. Contact our partnerships team to start a conversation.
           </p>

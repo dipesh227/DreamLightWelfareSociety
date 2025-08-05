@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Users, PlusCircle, Edit2, Trash2, Search, Filter, ArrowUpDown } from 'lucide-react';
@@ -60,7 +61,7 @@ const AdminManageEventsPage = () => {
   };
 
   const getStatusColor = (status) => {
-    if (status === 'Published') return 'bg-dws-green/10 text-dws-green';
+    if (status === 'Published') return 'bg-green-100 text-green-700';
     if (status === 'Draft') return 'bg-yellow-100 text-yellow-700';
     if (status === 'Cancelled') return 'bg-red-100 text-red-700';
     return 'bg-slate-100 text-slate-700';
@@ -75,7 +76,7 @@ const AdminManageEventsPage = () => {
     >
       <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
         <h1 className="text-2xl font-semibold text-slate-800">Manage Events</h1>
-        <Button className="bg-dws-blue-dark hover:bg-dws-blue-light text-white">
+        <Button className="bg-dream-purple hover:bg-dream-purple-dark text-white">
           <PlusCircle size={18} className="mr-2" /> Create New Event
         </Button>
       </div>
@@ -88,21 +89,21 @@ const AdminManageEventsPage = () => {
               placeholder="Search by Name or Location..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full p-2.5 pl-10 border border-slate-300 rounded-lg text-sm focus:ring-dws-blue-dark focus:border-dws-blue-dark"
+              className="w-full p-2.5 pl-10 border border-slate-300 rounded-lg text-sm focus:ring-dream-purple focus:border-dream-purple"
             />
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
           </div>
           <select 
             value={filterCategory} 
             onChange={(e) => setFilterCategory(e.target.value)}
-            className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-dws-blue-dark focus:border-dws-blue-dark bg-white"
+            className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-dream-purple focus:border-dream-purple bg-white"
           >
             {categories.map(cat => <option key={cat} value={cat}>{cat === 'All' ? 'All Categories' : cat}</option>)}
           </select>
           <select 
             value={filterStatus} 
             onChange={(e) => setFilterStatus(e.target.value)}
-            className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-dws-blue-dark focus:border-dws-blue-dark bg-white"
+            className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-dream-purple focus:border-dream-purple bg-white"
           >
             {statuses.map(stat => <option key={stat} value={stat}>{stat === 'All' ? 'All Statuses' : stat}</option>)}
           </select>

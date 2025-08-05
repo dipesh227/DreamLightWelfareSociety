@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { CalendarClock, PlusCircle, Trash2, Edit2, Check, AlertTriangle } from 'lucide-react';
@@ -33,7 +34,7 @@ const VolunteerHoursLogPage = () => {
     e.preventDefault();
     if (currentLog) { // Editing existing log
       setLoggedHours(loggedHours.map(log => log.id === currentLog.id ? { ...log, ...formData, hours: parseFloat(formData.hours), approved: false } : log));
-      toast({ title: "Log Updated", description: "Your hour log has been updated and is pending approval.", className: "bg-dws-blue-light text-white" });
+      toast({ title: "Log Updated", description: "Your hour log has been updated and is pending approval.", className: "bg-blue-600 text-white" });
     } else { // Adding new log
       const newLog = { 
         id: Date.now(), 
@@ -42,7 +43,7 @@ const VolunteerHoursLogPage = () => {
         approved: false 
       };
       setLoggedHours([...loggedHours, newLog]);
-      toast({ title: "Hours Logged Successfully", description: "Your hours have been submitted for approval.", className: "bg-dws-green text-white" });
+      toast({ title: "Hours Logged Successfully", description: "Your hours have been submitted for approval.", className: "bg-green-600 text-white" });
     }
     setIsModalOpen(false);
     setCurrentLog(null);
@@ -80,9 +81,9 @@ const VolunteerHoursLogPage = () => {
     >
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
         <h1 className="text-2xl font-semibold text-slate-800 flex items-center mb-3 sm:mb-0">
-          <CalendarClock size={26} className="mr-3 text-dws-blue-dark" /> Log Your Volunteer Hours
+          <CalendarClock size={26} className="mr-3 text-dream-purple" /> Log Your Volunteer Hours
         </h1>
-        <Button onClick={openNewLogModal} className="bg-dws-blue-dark hover:bg-dws-blue-light text-white">
+        <Button onClick={openNewLogModal} className="bg-dream-purple hover:bg-dream-purple-dark text-white">
           <PlusCircle size={18} className="mr-2" /> Add New Log
         </Button>
       </div>
@@ -90,11 +91,11 @@ const VolunteerHoursLogPage = () => {
       <div className="grid sm:grid-cols-2 gap-6 mb-6">
         <div className="bg-white p-4 rounded-lg shadow text-center">
           <p className="text-xs text-slate-500">Total Logged Hours</p>
-          <p className="text-2xl font-bold text-dws-blue-dark">{totalLoggedHours.toFixed(1)}</p>
+          <p className="text-2xl font-bold text-dream-purple">{totalLoggedHours.toFixed(1)}</p>
         </div>
         <div className="bg-white p-4 rounded-lg shadow text-center">
           <p className="text-xs text-slate-500">Total Approved Hours</p>
-          <p className="text-2xl font-bold text-dws-green">{totalApprovedHours.toFixed(1)}</p>
+          <p className="text-2xl font-bold text-green-600">{totalApprovedHours.toFixed(1)}</p>
         </div>
       </div>
       
@@ -124,7 +125,7 @@ const VolunteerHoursLogPage = () => {
                   <td className="p-3 text-sm text-slate-700">{log.activity}</td>
                   <td className="p-3 text-sm text-center">
                     {log.approved ? (
-                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-dws-green/10 text-dws-green">
+                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-700">
                         <Check size={14} className="mr-1" /> Approved
                       </span>
                     ) : (
@@ -136,7 +137,7 @@ const VolunteerHoursLogPage = () => {
                   <td className="p-3 text-sm text-center space-x-1">
                     {!log.approved && (
                       <>
-                        <Button variant="ghost" size="icon" className="text-dws-blue-light hover:bg-dws-blue-light/10" onClick={() => handleEditLog(log)} title="Edit Log">
+                        <Button variant="ghost" size="icon" className="text-blue-600 hover:bg-blue-100" onClick={() => handleEditLog(log)} title="Edit Log">
                           <Edit2 size={16}/>
                         </Button>
                         <Button variant="ghost" size="icon" className="text-red-600 hover:bg-red-100" onClick={() => handleDeleteLog(log.id)} title="Delete Log">
@@ -170,19 +171,19 @@ const VolunteerHoursLogPage = () => {
             className="bg-white p-6 rounded-xl shadow-2xl w-full max-w-md"
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 className="text-xl font-semibold text-dws-blue-dark mb-6">{currentLog ? 'Edit Hour Log' : 'Log New Volunteer Hours'}</h2>
+            <h2 className="text-xl font-semibold text-dream-purple mb-6">{currentLog ? 'Edit Hour Log' : 'Log New Volunteer Hours'}</h2>
             <form onSubmit={handleSubmitLog} className="space-y-4">
               <div>
                 <label htmlFor="date" className="block text-sm font-medium text-slate-700 mb-1">Date</label>
-                <input type="date" id="date" name="date" value={formData.date} onChange={handleInputChange} required className="w-full p-2 border border-slate-300 rounded-md focus:ring-dws-blue-dark focus:border-dws-blue-dark" />
+                <input type="date" id="date" name="date" value={formData.date} onChange={handleInputChange} required className="w-full p-2 border border-slate-300 rounded-md focus:ring-dream-purple focus:border-dream-purple" />
               </div>
               <div>
                 <label htmlFor="hours" className="block text-sm font-medium text-slate-700 mb-1">Hours (e.g., 2.5)</label>
-                <input type="number" id="hours" name="hours" value={formData.hours} onChange={handleInputChange} step="0.1" min="0.1" required className="w-full p-2 border border-slate-300 rounded-md focus:ring-dws-blue-dark focus:border-dws-blue-dark" />
+                <input type="number" id="hours" name="hours" value={formData.hours} onChange={handleInputChange} step="0.1" min="0.1" required className="w-full p-2 border border-slate-300 rounded-md focus:ring-dream-purple focus:border-dream-purple" />
               </div>
               <div>
                 <label htmlFor="activity" className="block text-sm font-medium text-slate-700 mb-1">Activity / Description</label>
-                <textarea id="activity" name="activity" value={formData.activity} onChange={handleInputChange} rows={3} required className="w-full p-2 border border-slate-300 rounded-md focus:ring-dws-blue-dark focus:border-dws-blue-dark" placeholder="Briefly describe your volunteer activity..."></textarea>
+                <textarea id="activity" name="activity" value={formData.activity} onChange={handleInputChange} rows={3} required className="w-full p-2 border border-slate-300 rounded-md focus:ring-dream-purple focus:border-dream-purple" placeholder="Briefly describe your volunteer activity..."></textarea>
               </div>
               <div className="flex justify-end space-x-3 pt-4">
                 <Button type="button" variant="outline" onClick={() => { setIsModalOpen(false); setCurrentLog(null); }}>Cancel</Button>

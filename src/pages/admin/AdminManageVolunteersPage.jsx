@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Users, Filter, Search, Check, X, Mail, Phone, ArrowUpDown } from 'lucide-react';
@@ -57,7 +58,7 @@ const AdminManageVolunteersPage = () => {
   };
 
   const getStatusColor = (status) => {
-    if (status === 'Active') return 'bg-dws-green/10 text-dws-green';
+    if (status === 'Active') return 'bg-green-100 text-green-700';
     if (status === 'Pending Approval') return 'bg-yellow-100 text-yellow-700';
     if (status === 'Inactive') return 'bg-red-100 text-red-700';
     return 'bg-slate-100 text-slate-700';
@@ -72,7 +73,7 @@ const AdminManageVolunteersPage = () => {
     >
       <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
         <h1 className="text-2xl font-semibold text-slate-800">Manage Volunteers</h1>
-        <Button className="bg-dws-blue-light hover:bg-dws-blue-dark text-white">
+        <Button className="bg-blue-600 hover:bg-blue-700 text-white">
           <Users size={18} className="mr-2" /> Add New Volunteer
         </Button>
       </div>
@@ -85,21 +86,21 @@ const AdminManageVolunteersPage = () => {
               placeholder="Search by Name or Email..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full p-2.5 pl-10 border border-slate-300 rounded-lg text-sm focus:ring-dws-blue-light focus:border-dws-blue-light"
+              className="w-full p-2.5 pl-10 border border-slate-300 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500"
             />
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
           </div>
           <select 
             value={filterArea} 
             onChange={(e) => setFilterArea(e.target.value)}
-            className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-dws-blue-light focus:border-dws-blue-light bg-white"
+            className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500 bg-white"
           >
             {areas.map(area => <option key={area} value={area}>{area === 'All' ? 'All Areas of Interest' : area}</option>)}
           </select>
           <select 
             value={filterStatus} 
             onChange={(e) => setFilterStatus(e.target.value)}
-            className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-dws-blue-light focus:border-dws-blue-light bg-white"
+            className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-blue-500 focus:border-blue-500 bg-white"
           >
             {statuses.map(status => <option key={status} value={status}>{status === 'All' ? 'All Statuses' : status}</option>)}
           </select>
@@ -142,11 +143,11 @@ const AdminManageVolunteersPage = () => {
                 <td className="p-3 text-sm">
                   {volunteer.status === 'Pending Approval' && (
                     <>
-                      <Button variant="ghost" size="icon" className="text-dws-green hover:bg-dws-green/10"><Check size={18}/></Button>
+                      <Button variant="ghost" size="icon" className="text-green-600 hover:bg-green-100"><Check size={18}/></Button>
                       <Button variant="ghost" size="icon" className="text-red-600 hover:bg-red-100"><X size={18}/></Button>
                     </>
                   )}
-                  <Button variant="link" size="sm" className="text-dws-blue-light px-1">Details</Button>
+                  <Button variant="link" size="sm" className="text-blue-600 px-1">Details</Button>
                 </td>
               </motion.tr>
             ))}

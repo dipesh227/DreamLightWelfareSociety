@@ -57,7 +57,7 @@ const teamMembersData = [
     dob: "28-OCT-1994",
     membership: "General",
     ao_pio: "",
-    imageUrl: "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHBvcnRyYWl0JTIwd29tYW58ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60", 
+    imageUrl: "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHBvcnRyYWl0JTIwd29tYW58ZW58MHx8MHx8fDA%3D%3D&auto=format&fit=crop&w=500&q=60", 
     socials: { mail: "mailto:poonam.dreamlight@example.com" }, 
     expertise: ["Financial Oversight", "Record Keeping", "Budgeting"] 
   },
@@ -71,7 +71,7 @@ const teamMembersData = [
     dob: "25-MAY-1997",
     membership: "General",
     ao_pio: "",
-    imageUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60", 
+    imageUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D%3D&auto=format&fit=crop&w=500&q=60", 
     socials: { mail: "mailto:shalinee.dreamlight@example.com" }, 
     expertise: ["Youth Engagement", "Event Support", "Social Media"] 
   },
@@ -85,7 +85,7 @@ const teamMembersData = [
     dob: "23-JUN-1993",
     membership: "General",
     ao_pio: "",
-    imageUrl: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60", 
+    imageUrl: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D%3D&auto=format&fit=crop&w=500&q=60", 
     socials: { mail: "mailto:suraj.dreamlight@example.com" }, 
     expertise: ["Field Work", "Logistics Support", "Community Liaison"] 
   },
@@ -117,15 +117,15 @@ const TeamMemberCard = ({ name, role, fatherHusbandName, address, mobile, occupa
       <img  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt={name} src={imageUrl} />
       <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4">
         <div className="flex space-x-3 justify-center">
-          {socials.linkedin && <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-slate-200 hover:text-dws-gold"><Linkedin size={20}/></a>}
-          {socials.mail && <a href={socials.mail} className="text-slate-200 hover:text-dws-gold"><Mail size={20}/></a>}
-          {mobile && <a href={`tel:${mobile}`} className="text-slate-200 hover:text-dws-gold"><Phone size={20}/></a>}
+          {socials.linkedin && <a href={socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-slate-200 hover:text-dream-gold"><Linkedin size={20}/></a>}
+          {socials.mail && <a href={socials.mail} className="text-slate-200 hover:text-dream-gold"><Mail size={20}/></a>}
+          {mobile && <a href={`tel:${mobile}`} className="text-slate-200 hover:text-dream-gold"><Phone size={20}/></a>}
         </div>
       </div>
     </div>
     <div className="p-6 text-center flex-grow flex flex-col">
-      <h3 className="text-2xl font-bold text-dws-blue-dark mb-1">{name}</h3>
-      <p className="text-dws-blue-dark font-medium text-sm mb-1">{role}</p>
+      <h3 className="text-2xl font-bold text-dream-purple-dark mb-1">{name}</h3>
+      <p className="text-dream-purple font-medium text-sm mb-1">{role}</p>
       <p className="text-slate-500 text-xs mb-1">{fatherHusbandName}</p>
       <p className="text-slate-500 text-xs mb-3">{occupation}</p>
       <p className="text-slate-600 text-xs leading-relaxed mb-4 flex-grow">{address}</p>
@@ -133,7 +133,7 @@ const TeamMemberCard = ({ name, role, fatherHusbandName, address, mobile, occupa
         <h4 className="text-xs font-semibold text-slate-500 mb-1.5 uppercase tracking-wider">Key Responsibilities</h4>
         <div className="flex flex-wrap justify-center gap-1.5">
           {expertise.map(skill => (
-            <span key={skill} className="bg-dws-blue-light/10 text-dws-blue-dark text-[10px] px-2 py-0.5 rounded-full">{skill}</span>
+            <span key={skill} className="bg-dream-purple-light/10 text-dream-purple text-[10px] px-2 py-0.5 rounded-full">{skill}</span>
           ))}
         </div>
       </div>
@@ -148,14 +148,14 @@ const TeamPage = () => {
         title="Meet Our Dedicated Team"
         subtitle="The founding members of Dreamlight Welfare Society, united by a common goal: to make a lasting positive impact in Uttarakhand."
         icon={UserCheck}
-        gradientFrom="from-dws-blue-dark"
-        gradientTo="to-dws-blue-light"
+        gradientFrom="from-dream-purple"
+        gradientTo="to-dream-purple-dark"
       />
       
       <section className="py-16 md:py-24">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-dws-blue-dark mb-3">Founding Office Bearers & Members</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-dream-purple-dark mb-3">Founding Office Bearers & Members</h2>
             <p className="text-slate-600 text-lg max-w-xl mx-auto">Guiding our vision and strategy with expertise and dedication.</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
@@ -168,8 +168,8 @@ const TeamPage = () => {
       
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <Users className="h-12 w-12 md:h-16 md:w-16 mx-auto text-dws-gold mb-6" />
-          <h2 className="text-3xl md:text-4xl font-bold text-dws-blue-dark mb-6">Join Our Mission</h2>
+          <Users className="h-12 w-12 md:h-16 md:w-16 mx-auto text-dream-gold mb-6" />
+          <h2 className="text-3xl md:text-4xl font-bold text-dream-purple-dark mb-6">Join Our Mission</h2>
           <p className="text-slate-700 text-lg leading-relaxed mb-8">
             We are always looking for passionate individuals to join our cause as volunteers or supporters. If you believe in our vision for Uttarakhand, we'd love to hear from you.
           </p>

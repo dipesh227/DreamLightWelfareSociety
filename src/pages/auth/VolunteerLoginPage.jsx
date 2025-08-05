@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { UserCheck, LogIn, Eye, EyeOff } from 'lucide-react';
@@ -13,7 +14,7 @@ const VolunteerLoginPage = ({ setIsVolunteerAuthenticated }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const logoUrl = "/dws-logo.jpeg"; // Updated logo path
+  const logoUrl = "https://storage.googleapis.com/hostinger-horizons-assets-prod/9d4946d7-c457-49e5-84af-9b4b147f9101/d2bfdf7cdd6c053e918e6d40f2ee77c1.jpg";
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,7 +26,7 @@ const VolunteerLoginPage = ({ setIsVolunteerAuthenticated }) => {
         toast({
           title: 'Login Successful!',
           description: 'Welcome to the Volunteer Hub! Redirecting...',
-          className: 'bg-dws-green text-white',
+          className: 'bg-green-600 text-white',
         });
         setIsVolunteerAuthenticated(true);
         localStorage.setItem('isVolunteerAuthenticated', 'true');
@@ -42,7 +43,7 @@ const VolunteerLoginPage = ({ setIsVolunteerAuthenticated }) => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-dws-gold-light/20 to-slate-100 p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-dream-gold-light/20 to-slate-100 p-4">
       <motion.div
         initial={{ opacity: 0, y: -30, scale: 0.9 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -58,7 +59,7 @@ const VolunteerLoginPage = ({ setIsVolunteerAuthenticated }) => {
               whileHover={{ scale: 1.1, rotate: -5 }}
             />
           </Link>
-          <h1 className="text-3xl font-bold text-dws-gold-dark flex items-center justify-center">
+          <h1 className="text-3xl font-bold text-dream-gold-darker flex items-center justify-center">
             <UserCheck className="mr-2.5" /> Volunteer Login
           </h1>
           <p className="text-sm text-slate-500 mt-1">Access your Dreamlight Volunteer Hub.</p>
@@ -91,26 +92,26 @@ const VolunteerLoginPage = ({ setIsVolunteerAuthenticated }) => {
              <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-2.5 top-9 text-slate-500 hover:text-dws-gold"
+              className="absolute right-2.5 top-9 text-slate-500 hover:text-dream-gold"
               aria-label={showPassword ? "Hide password" : "Show password"}
             >
               {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
             </button>
           </div>
           
-          <Button type="submit" className="w-full bg-dws-gold hover:bg-dws-gold-dark text-dws-blue-dark text-base py-3" disabled={isLoading}>
+          <Button type="submit" className="w-full bg-dream-gold hover:bg-dream-gold-darker text-dream-purple-dark text-base py-3" disabled={isLoading}>
              {isLoading ? (
-              <motion.div animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }} className="w-5 h-5 border-2 border-dws-blue-dark border-t-transparent rounded-full"></motion.div>
+              <motion.div animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity, ease: "linear" }} className="w-5 h-5 border-2 border-dream-purple-dark border-t-transparent rounded-full"></motion.div>
             ) : (
               <><LogIn size={18} className="mr-2" /> Login to Hub</>
             )}
           </Button>
         </form>
         <p className="text-xs text-slate-500 text-center mt-6">
-          Don't have an account? <Link to="/volunteer" className="text-dws-gold-dark hover:underline">Register here</Link>.
+          Don't have an account? <Link to="/volunteer" className="text-dream-gold-darker hover:underline">Register here</Link>.
         </p>
         <p className="text-xs text-slate-500 text-center mt-2">
-          Go back to <Link to="/" className="text-dws-gold-dark hover:underline">Homepage</Link>.
+          Go back to <Link to="/" className="text-dream-gold-darker hover:underline">Homepage</Link>.
         </p>
       </motion.div>
        <p className="text-xs text-slate-500 mt-8">

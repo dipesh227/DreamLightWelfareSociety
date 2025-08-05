@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { User, Mail, Phone, MapPin, Briefcase, Heart, Save, Edit2, Upload, Calendar } from 'lucide-react';
@@ -45,14 +46,14 @@ const VolunteerProfilePage = () => {
     toast({
       title: "Profile Updated (Simulated)",
       description: "Your profile information has been successfully updated.",
-      className: "bg-dws-green text-white",
+      className: "bg-green-600 text-white",
     });
   };
 
   const ProfileField = ({ icon: Icon, label, value, name, editing, onChange, type = "text" }) => (
     <div className="py-3 sm:grid sm:grid-cols-3 sm:gap-4">
       <dt className="text-sm font-medium text-slate-500 flex items-center">
-        <Icon size={16} className="mr-2 text-dws-blue-dark" /> {label}
+        <Icon size={16} className="mr-2 text-dream-purple" /> {label}
       </dt>
       <dd className="mt-1 text-sm text-slate-900 sm:mt-0 sm:col-span-2">
         {editing ? (
@@ -62,7 +63,7 @@ const VolunteerProfilePage = () => {
               value={value} 
               onChange={onChange} 
               rows={3}
-              className="w-full p-2 border border-slate-300 rounded-md focus:ring-dws-blue-dark focus:border-dws-blue-dark" 
+              className="w-full p-2 border border-slate-300 rounded-md focus:ring-dream-purple focus:border-dream-purple" 
             />
           ) : (
             <input 
@@ -70,7 +71,7 @@ const VolunteerProfilePage = () => {
               name={name} 
               value={value} 
               onChange={onChange} 
-              className="w-full p-2 border border-slate-300 rounded-md focus:ring-dws-blue-dark focus:border-dws-blue-dark" 
+              className="w-full p-2 border border-slate-300 rounded-md focus:ring-dream-purple focus:border-dream-purple" 
             />
           )
         ) : (
@@ -89,9 +90,9 @@ const VolunteerProfilePage = () => {
     >
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 pb-4 border-b border-slate-200">
         <h1 className="text-2xl font-semibold text-slate-800 flex items-center mb-3 sm:mb-0">
-          <User size={26} className="mr-3 text-dws-blue-dark" /> My Volunteer Profile
+          <User size={26} className="mr-3 text-dream-purple" /> My Volunteer Profile
         </h1>
-        <Button onClick={() => setIsEditing(!isEditing)} variant={isEditing ? "destructive" : "outline"} className="border-dws-blue-dark text-dws-blue-dark hover:bg-dws-blue-dark/10">
+        <Button onClick={() => setIsEditing(!isEditing)} variant={isEditing ? "destructive" : "outline"} className="border-dream-purple text-dream-purple hover:bg-dream-purple/10">
           {isEditing ? 'Cancel Editing' : <><Edit2 size={16} className="mr-2" /> Edit Profile</>}
         </Button>
       </div>
@@ -103,7 +104,7 @@ const VolunteerProfilePage = () => {
               key={profileData.profilePicture} // Re-trigger animation on change
               src={profileData.profilePicture || 'https://via.placeholder.com/150'}
               alt="Profile"
-              className="w-40 h-40 rounded-full object-cover shadow-lg mb-4 border-4 border-dws-gold"
+              className="w-40 h-40 rounded-full object-cover shadow-lg mb-4 border-4 border-dream-gold"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ type: 'spring', stiffness: 200 }}
@@ -128,7 +129,7 @@ const VolunteerProfilePage = () => {
               <ProfileField icon={Heart} label="Areas of Interest" value={profileData.areaOfInterest} name="areaOfInterest" editing={isEditing} onChange={handleInputChange} />
               <ProfileField icon={Briefcase} label="Skills" value={profileData.skills} name="skills" editing={isEditing} onChange={handleInputChange} type="textarea"/>
               <ProfileField icon={Calendar} label="Availability" value={profileData.availability} name="availability" editing={isEditing} onChange={handleInputChange}/>
-              <h3 className="text-md font-semibold text-dws-blue-dark pt-6 pb-2">Emergency Contact</h3>
+              <h3 className="text-md font-semibold text-dream-purple pt-6 pb-2">Emergency Contact</h3>
               <ProfileField icon={User} label="Contact Name" value={profileData.emergencyContactName} name="emergencyContactName" editing={isEditing} onChange={handleInputChange} />
               <ProfileField icon={Phone} label="Contact Phone" value={profileData.emergencyContactPhone} name="emergencyContactPhone" editing={isEditing} onChange={handleInputChange} />
             </dl>

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Users, Clock, CheckCircle, XCircle, AlertCircle, Search } from 'lucide-react';
@@ -16,11 +17,11 @@ const EventCard = ({ event, onConfirm, onDecline }) => {
   const getStatusBadge = () => {
     switch (event.status) {
       case 'Confirmed':
-        return <span className="flex items-center text-xs text-dws-green bg-dws-green/10 px-2 py-0.5 rounded-full"><CheckCircle size={12} className="mr-1"/>Confirmed</span>;
+        return <span className="flex items-center text-xs text-green-700 bg-green-100 px-2 py-0.5 rounded-full"><CheckCircle size={12} className="mr-1"/>Confirmed</span>;
       case 'Pending Confirmation':
         return <span className="flex items-center text-xs text-yellow-700 bg-yellow-100 px-2 py-0.5 rounded-full"><AlertCircle size={12} className="mr-1"/>Pending</span>;
       case 'Applied':
-        return <span className="flex items-center text-xs text-dws-blue-light bg-dws-blue-light/10 px-2 py-0.5 rounded-full"><Users size={12} className="mr-1"/>Applied</span>;
+        return <span className="flex items-center text-xs text-blue-700 bg-blue-100 px-2 py-0.5 rounded-full"><Users size={12} className="mr-1"/>Applied</span>;
       case 'Declined':
         return <span className="flex items-center text-xs text-red-700 bg-red-100 px-2 py-0.5 rounded-full"><XCircle size={12} className="mr-1"/>Declined</span>;
       default:
@@ -33,22 +34,22 @@ const EventCard = ({ event, onConfirm, onDecline }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="bg-white p-5 rounded-xl shadow-lg border-l-4 border-dws-blue-dark"
+      className="bg-white p-5 rounded-xl shadow-lg border-l-4 border-dream-purple"
     >
       <div className="flex justify-between items-start mb-2">
-        <h3 className="text-lg font-semibold text-dws-blue-dark">{event.title}</h3>
+        <h3 className="text-lg font-semibold text-dream-purple-dark">{event.title}</h3>
         {getStatusBadge()}
       </div>
       <div className="text-xs text-slate-500 space-y-1 mb-3">
-        <p className="flex items-center"><Calendar size={14} className="mr-1.5 text-dws-blue-dark/70"/> {event.date}</p>
-        <p className="flex items-center"><Clock size={14} className="mr-1.5 text-dws-blue-dark/70"/> {event.time}</p>
-        <p className="flex items-center"><MapPin size={14} className="mr-1.5 text-dws-blue-dark/70"/> {event.location}</p>
-        <p className="flex items-center"><Users size={14} className="mr-1.5 text-dws-blue-dark/70"/> Your Role: {event.role}</p>
+        <p className="flex items-center"><Calendar size={14} className="mr-1.5 text-dream-purple/70"/> {event.date}</p>
+        <p className="flex items-center"><Clock size={14} className="mr-1.5 text-dream-purple/70"/> {event.time}</p>
+        <p className="flex items-center"><MapPin size={14} className="mr-1.5 text-dream-purple/70"/> {event.location}</p>
+        <p className="flex items-center"><Users size={14} className="mr-1.5 text-dream-purple/70"/> Your Role: {event.role}</p>
       </div>
       <p className="text-sm text-slate-600 mb-4 leading-relaxed">{event.description}</p>
       {event.status === 'Pending Confirmation' && (
         <div className="flex gap-2">
-          <Button onClick={() => onConfirm(event.id)} size="sm" className="bg-dws-green hover:bg-dws-green/90 text-white text-xs">Confirm Attendance</Button>
+          <Button onClick={() => onConfirm(event.id)} size="sm" className="bg-green-600 hover:bg-green-700 text-white text-xs">Confirm Attendance</Button>
           <Button onClick={() => onDecline(event.id)} variant="outline" size="sm" className="text-red-600 border-red-500 hover:bg-red-50 text-xs">Decline</Button>
         </div>
       )}
@@ -62,7 +63,7 @@ const VolunteerEventsPage = () => {
 
   const handleConfirm = (eventId) => {
     setMyEvents(myEvents.map(e => e.id === eventId ? { ...e, status: 'Confirmed' } : e));
-    toast({ title: "Attendance Confirmed!", description: "Thank you for confirming. We look forward to seeing you!", className: "bg-dws-green text-white" });
+    toast({ title: "Attendance Confirmed!", description: "Thank you for confirming. We look forward to seeing you!", className: "bg-green-600 text-white" });
   };
 
   const handleDecline = (eventId) => {
@@ -86,10 +87,10 @@ const VolunteerEventsPage = () => {
     >
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center">
         <h1 className="text-2xl font-semibold text-slate-800 flex items-center mb-3 sm:mb-0">
-          <Calendar size={26} className="mr-3 text-dws-blue-dark" /> My Assigned Events
+          <Calendar size={26} className="mr-3 text-dream-purple" /> My Assigned Events
         </h1>
         <Link to="/volunteer">
-          <Button variant="outline" className="border-dws-blue-dark text-dws-blue-dark hover:bg-dws-blue-dark/10">
+          <Button variant="outline" className="border-dream-purple text-dream-purple hover:bg-dream-purple/10">
             Browse All Opportunities
           </Button>
         </Link>
@@ -102,7 +103,7 @@ const VolunteerEventsPage = () => {
             placeholder="Search your events by title, location, or role..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full p-3 pl-10 border border-slate-300 rounded-lg focus:ring-2 focus:ring-dws-blue-dark focus:border-transparent transition-shadow"
+            className="w-full p-3 pl-10 border border-slate-300 rounded-lg focus:ring-2 focus:ring-dream-purple focus:border-transparent transition-shadow"
           />
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
         </div>

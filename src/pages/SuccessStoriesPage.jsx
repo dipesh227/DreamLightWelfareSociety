@@ -1,9 +1,10 @@
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Award, Users, BookOpen, Stethoscope, Droplets, Briefcase, Leaf, ArrowRight, Filter, ChevronLeft, ChevronRight, XCircle, Maximize } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import PageHeader from '@/components/common/layout/PageHeader';
+import PageHeader from '@/components/layout/PageHeader';
 
 const storiesData = [
   {
@@ -50,12 +51,12 @@ const StoryCard = ({ story, onReadMore }) => (
   >
     <div className="relative h-56 overflow-hidden">
       <img  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt={story.title} src={story.imageSrc} />
-      <div className="absolute top-3 right-3 bg-dws-gold text-dws-blue-dark px-3 py-1 rounded-full text-xs font-semibold shadow-md">{story.category}</div>
+      <div className="absolute top-3 right-3 bg-dream-gold text-dream-purple-dark px-3 py-1 rounded-full text-xs font-semibold shadow-md">{story.category}</div>
     </div>
     <div className="p-6 flex flex-col flex-grow">
-      <h3 className="text-xl font-bold text-dws-blue-dark mb-2">{story.title}</h3>
+      <h3 className="text-xl font-bold text-dream-purple-dark mb-2">{story.title}</h3>
       <p className="text-sm text-slate-600 leading-relaxed mb-4 flex-grow">{story.excerpt}</p>
-      <Button onClick={() => onReadMore(story)} size="sm" variant="link" className="text-dws-blue-dark hover:text-dws-gold font-semibold self-start px-0 group/link">
+      <Button onClick={() => onReadMore(story)} size="sm" variant="link" className="text-dream-purple hover:text-dream-gold font-semibold self-start px-0 group/link">
         Read Full Story <ArrowRight size={16} className="ml-1.5 group-hover/link:translate-x-1 transition-transform" />
       </Button>
     </div>
@@ -79,22 +80,22 @@ const StoryModal = ({ story, onClose }) => (
       onClick={(e) => e.stopPropagation()}
     >
       <div className="flex justify-between items-start mb-4">
-        <h2 className="text-2xl md:text-3xl font-bold text-dws-blue-dark">{story.title}</h2>
-        <button onClick={onClose} className="text-slate-500 hover:text-dws-blue-dark">
+        <h2 className="text-2xl md:text-3xl font-bold text-dream-purple-dark">{story.title}</h2>
+        <button onClick={onClose} className="text-slate-500 hover:text-dream-purple">
           <XCircle size={28} />
         </button>
       </div>
       <img  class="w-full h-64 object-cover rounded-lg mb-6" alt={story.title} src={story.imageSrc} />
-      <p className="text-sm text-dws-gold font-semibold mb-1">{story.category}</p>
+      <p className="text-sm text-dream-gold font-semibold mb-1">{story.category}</p>
       <p className="text-slate-700 leading-relaxed mb-6 whitespace-pre-line">{story.fullStory}</p>
       
-      <h4 className="text-md font-semibold text-dws-blue-dark mb-2">Key Impacts:</h4>
+      <h4 className="text-md font-semibold text-dream-purple-dark mb-2">Key Impacts:</h4>
       <ul className="list-disc list-inside space-y-1 text-sm text-slate-600 mb-6">
         {story.impact.map((item, index) => <li key={index}>{item}</li>)}
       </ul>
       
       <Link to={story.relatedProgram}>
-        <Button variant="outline" className="border-dws-blue-dark text-dws-blue-dark hover:bg-dws-blue-dark/10 rounded-full">
+        <Button variant="outline" className="border-dream-purple text-dream-purple hover:bg-dream-purple/10 rounded-full">
           Learn about our {story.category} programs
         </Button>
       </Link>
@@ -116,16 +117,16 @@ const SuccessStoriesPage = () => {
         title="Stories of Transformation"
         subtitle="Witness the real-life impact of your support. These stories highlight the resilience, hope, and positive change fostered by Dreamlight's initiatives."
         icon={Award}
-        gradientFrom="from-dws-gold"
-        gradientTo="to-dws-gold-light"
-        iconColor="text-dws-blue-dark"
+        gradientFrom="from-dream-gold"
+        gradientTo="to-dream-gold-light"
+        iconColor="text-dream-purple-dark"
         bgPatternOpacity="opacity-20"
       />
 
       <section className="py-12 md:py-20">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10 md:mb-14 flex flex-wrap justify-center items-center gap-3">
-            <Filter className="h-5 w-5 text-dws-blue-dark mr-1 hidden sm:inline" />
+            <Filter className="h-5 w-5 text-dream-purple mr-1 hidden sm:inline" />
             {categories.map(category => (
               <Button
                 key={category}
@@ -135,7 +136,7 @@ const SuccessStoriesPage = () => {
                 className={`rounded-full px-5 py-2 text-xs sm:text-sm capitalize transition-all duration-300 shadow-sm hover:shadow-md
                   ${selectedCategory === category 
                     ? 'gradient-bg text-white' 
-                    : 'border-dws-blue-dark/50 text-dws-blue-dark hover:bg-dws-blue-dark/10'}`}
+                    : 'border-dream-purple/50 text-dream-purple hover:bg-dream-purple/10'}`}
               >
                 {category}
               </Button>
@@ -160,15 +161,15 @@ const SuccessStoriesPage = () => {
         </div>
       </section>
       
-      <section className="py-16 md:py-24 bg-dws-blue-dark text-white">
+      <section className="py-16 md:py-24 bg-dream-purple-dark text-white">
         <div className="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <Users className="h-16 w-16 mx-auto mb-6 text-dws-gold-light"/>
+            <Users className="h-16 w-16 mx-auto mb-6 text-dream-gold-light"/>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Share Your Story</h2>
             <p className="text-lg md:text-xl mb-8 text-slate-300 max-w-2xl mx-auto">
                 Have you been impacted by Dreamlight's work? We'd love to hear from you. Your story can inspire others and highlight the importance of community support.
             </p>
             <Link to="/contact?subject=MyStory">
-                <Button size="lg" className="bg-dws-gold text-dws-blue-dark hover:bg-dws-gold-light rounded-full px-10 py-3 text-base font-semibold">
+                <Button size="lg" className="bg-dream-gold text-dream-purple-dark hover:bg-dream-gold-light rounded-full px-10 py-3 text-base font-semibold">
                     Contact Us to Share
                 </Button>
             </Link>

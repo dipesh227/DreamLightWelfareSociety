@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { UserCog as UsersCog, UserPlus, Edit2, Trash2, Search, Filter, ArrowUpDown, Shield, UserCheck as VolunteerIcon } from 'lucide-react';
@@ -57,7 +58,7 @@ const AdminManageUsersPage = () => {
   };
 
   const getStatusColor = (status) => {
-    if (status === 'Active') return 'bg-dws-green/10 text-dws-green';
+    if (status === 'Active') return 'bg-green-100 text-green-700';
     if (status === 'Inactive') return 'bg-red-100 text-red-700';
     return 'bg-slate-100 text-slate-700';
   };
@@ -65,8 +66,8 @@ const AdminManageUsersPage = () => {
   const getRoleIcon = (role) => {
     if (role === 'Super Admin') return <Shield size={14} className="mr-1.5 text-red-500" />;
     if (role === 'Admin') return <Shield size={14} className="mr-1.5 text-orange-500" />;
-    if (role === 'Editor') return <Edit2 size={14} className="mr-1.5 text-dws-blue-light" />;
-    if (role === 'Coordinator') return <VolunteerIcon size={14} className="mr-1.5 text-dws-green" />;
+    if (role === 'Editor') return <Edit2 size={14} className="mr-1.5 text-blue-500" />;
+    if (role === 'Coordinator') return <VolunteerIcon size={14} className="mr-1.5 text-green-500" />;
     return <UsersCog size={14} className="mr-1.5 text-slate-500" />;
   };
 
@@ -94,9 +95,9 @@ const AdminManageUsersPage = () => {
     >
       <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
         <h1 className="text-2xl font-semibold text-slate-800 flex items-center">
-          <UsersCog size={26} className="mr-3 text-dws-blue-dark" /> Manage Admin Users
+          <UsersCog size={26} className="mr-3 text-dream-purple" /> Manage Admin Users
         </h1>
-        <Button onClick={handleAddUser} className="bg-dws-blue-dark hover:bg-dws-blue-light text-white">
+        <Button onClick={handleAddUser} className="bg-dream-purple hover:bg-dream-purple-dark text-white">
           <UserPlus size={18} className="mr-2" /> Add New User
         </Button>
       </div>
@@ -109,21 +110,21 @@ const AdminManageUsersPage = () => {
               placeholder="Search by Name or Email..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full p-2.5 pl-10 border border-slate-300 rounded-lg text-sm focus:ring-dws-blue-dark focus:border-dws-blue-dark"
+              className="w-full p-2.5 pl-10 border border-slate-300 rounded-lg text-sm focus:ring-dream-purple focus:border-dream-purple"
             />
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
           </div>
           <select 
             value={filterRole} 
             onChange={(e) => setFilterRole(e.target.value)}
-            className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-dws-blue-dark focus:border-dws-blue-dark bg-white"
+            className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-dream-purple focus:border-dream-purple bg-white"
           >
             {roles.map(role => <option key={role} value={role}>{role === 'All' ? 'All Roles' : role}</option>)}
           </select>
           <select 
             value={filterStatus} 
             onChange={(e) => setFilterStatus(e.target.value)}
-            className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-dws-blue-dark focus:border-dws-blue-dark bg-white"
+            className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-dream-purple focus:border-dream-purple bg-white"
           >
             {statuses.map(status => <option key={status} value={status}>{status === 'All' ? 'All Statuses' : status}</option>)}
           </select>

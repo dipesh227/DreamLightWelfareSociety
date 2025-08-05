@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -21,14 +22,14 @@ const AdminSidebarLink = ({ to, icon: Icon, label, isCollapsed, isActive, isDark
     className={`flex items-center px-3 py-3.5 rounded-lg transition-colors duration-200 ease-in-out group
       ${isCollapsed ? 'justify-center' : ''}
       ${isActive
-        ? 'bg-dws-blue-dark text-white shadow-md hover:bg-dws-blue-light'
+        ? 'bg-dream-forest-green text-white shadow-md hover:bg-dream-forest-light'
         : isDarkMode
-          ? 'text-gray-300 hover:bg-gray-700 hover:text-dws-blue-light'
-          : 'text-slate-600 hover:bg-dws-blue-light/20 hover:text-dws-blue-dark'
+          ? 'text-gray-300 hover:bg-gray-700 hover:text-dream-forest-light'
+          : 'text-slate-600 hover:bg-dream-forest-lighter hover:text-dream-forest-green'
       }`}
     title={isCollapsed ? label : undefined}
   >
-    <Icon className={`h-5 w-5 ${isCollapsed ? '' : 'mr-3'} ${isActive ? 'text-white' : isDarkMode ? 'text-gray-400 group-hover:text-dws-blue-light' : 'text-slate-500 group-hover:text-dws-blue-dark'}`} />
+    <Icon className={`h-5 w-5 ${isCollapsed ? '' : 'mr-3'} ${isActive ? 'text-white' : isDarkMode ? 'text-gray-400 group-hover:text-dream-forest-light' : 'text-slate-500 group-hover:text-dream-forest-green'}`} />
     {!isCollapsed && <span className="text-sm font-medium">{label}</span>}
   </Link>
 );
@@ -68,7 +69,7 @@ const AdminLayout = ({ logoUrl, setIsAdminAuthenticated }) => {
           {!isSidebarCollapsed && (
             <Link to="/admin/dashboard" className="flex items-center space-x-2 overflow-hidden">
               <img src={logoUrl} alt="Admin Logo" className="h-8 w-auto" />
-              <span className={`font-bold text-lg whitespace-nowrap ${isDarkMode ? 'text-dws-blue-light' : 'text-dws-blue-dark'}`}>Admin Panel</span>
+              <span className={`font-bold text-lg whitespace-nowrap ${isDarkMode ? 'text-dream-forest-light' : 'text-dream-forest-green'}`}>Admin Panel</span>
             </Link>
           )}
            <Button 
@@ -137,7 +138,7 @@ const AdminLayout = ({ logoUrl, setIsAdminAuthenticated }) => {
               {isDarkMode ? 'Light' : 'Dark'}
             </Button>
             <Link to="/">
-              <Button variant="outline" size="sm" className={`${isDarkMode ? 'text-dws-blue-light border-dws-blue-light hover:bg-dws-blue-light hover:text-gray-900' : 'text-dws-blue-dark border-dws-blue-dark hover:bg-dws-blue-dark hover:text-white'}`}>
+              <Button variant="outline" size="sm" className={`${isDarkMode ? 'text-dream-forest-light border-dream-forest-light hover:bg-dream-forest-light hover:text-gray-900' : 'text-dream-forest-green border-dream-forest-green hover:bg-dream-forest-green hover:text-white'}`}>
                 <Home size={16} className="mr-2"/> Back to Home
               </Button>
             </Link>
