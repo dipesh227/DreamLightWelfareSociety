@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { BookOpen, FileText, ShieldCheck, Users, Download, ExternalLink } from 'lucide-react';
@@ -51,10 +50,10 @@ const ResourceCard = ({ resource, index }) => (
     className="bg-white p-6 rounded-xl shadow-lg flex flex-col"
   >
     <div className="flex items-center mb-3">
-      <div className="p-2 bg-dream-purple-lighter rounded-full mr-3">
-        <resource.icon size={20} className="text-dream-purple" />
+      <div className="p-2 bg-dws-blue-light/20 rounded-full mr-3">
+        <resource.icon size={20} className="text-dws-blue-dark" />
       </div>
-      <h3 className="text-lg font-semibold text-dream-purple-dark">{resource.title}</h3>
+      <h3 className="text-lg font-semibold text-dws-blue-dark">{resource.title}</h3>
     </div>
     <p className="text-sm text-slate-600 mb-4 leading-relaxed flex-grow">{resource.description}</p>
     <a 
@@ -66,7 +65,7 @@ const ResourceCard = ({ resource, index }) => (
       <Button 
         variant={resource.type === "Download" ? "default" : "outline"} 
         size="sm" 
-        className={`w-full text-xs ${resource.type === "Download" ? "gradient-bg text-white" : "text-dream-purple border-dream-purple hover:bg-dream-purple/10"}`}
+        className={`w-full text-xs ${resource.type === "Download" ? "gradient-bg text-white" : "text-dws-blue-dark border-dws-blue-dark hover:bg-dws-blue-dark/10"}`}
       >
         {resource.type === "Download" && <Download size={14} className="mr-1.5" />}
         {resource.type === "External Link" && <ExternalLink size={14} className="mr-1.5" />}
@@ -85,7 +84,7 @@ const VolunteerResourcesPage = () => {
       className="space-y-8"
     >
       <h1 className="text-2xl font-semibold text-slate-800 flex items-center">
-        <BookOpen size={26} className="mr-3 text-dream-purple" /> Volunteer Resources
+        <BookOpen size={26} className="mr-3 text-dws-blue-dark" /> Volunteer Resources
       </h1>
       <p className="text-slate-600">
         Access important documents, guidelines, and training materials to support your volunteering journey with Dreamlight.
@@ -97,13 +96,13 @@ const VolunteerResourcesPage = () => {
         ))}
       </div>
       
-      <div className="mt-10 p-6 bg-dream-gold/10 border border-dream-gold/30 rounded-xl text-center">
-        <h3 className="text-xl font-semibold text-dream-gold-darker mb-2">Need Help or Have Questions?</h3>
+      <div className="mt-10 p-6 bg-dws-gold/10 border border-dws-gold/30 rounded-xl text-center">
+        <h3 className="text-xl font-semibold text-dws-gold-dark mb-2">Need Help or Have Questions?</h3>
         <p className="text-sm text-slate-700 mb-4">
           If you can't find what you're looking for or need further assistance, please don't hesitate to reach out to your volunteer coordinator or contact us.
         </p>
         <Link to="/contact?subject=VolunteerResourceQuery">
-          <Button className="bg-dream-gold text-dream-purple-dark hover:bg-dream-gold-darker">
+          <Button className="bg-dws-gold text-dws-blue-dark hover:bg-dws-gold-dark">
             Contact Support
           </Button>
         </Link>

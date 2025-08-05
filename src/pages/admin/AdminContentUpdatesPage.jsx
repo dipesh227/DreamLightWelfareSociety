@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Edit3, Home, Info, Users, Briefcase, FileText, Save, Eye, AlertCircle } from 'lucide-react';
@@ -38,7 +37,7 @@ const AdminContentUpdatesPage = () => {
       toast({
         title: "Content Updated (Simulated)",
         description: `Content for "${selectedSection.label}" has been saved.`,
-        className: "bg-green-600 text-white",
+        className: "bg-dws-green text-white",
       });
     }, 1500);
   };
@@ -57,7 +56,7 @@ const AdminContentUpdatesPage = () => {
             <Button
               key={section.id}
               variant={selectedSection.id === section.id ? "default" : "ghost"}
-              className={`w-full justify-start text-sm ${selectedSection.id === section.id ? 'bg-dream-purple text-white' : 'text-slate-600 hover:bg-dream-purple-lighter hover:text-dream-purple'}`}
+              className={`w-full justify-start text-sm ${selectedSection.id === section.id ? 'bg-dws-blue-dark text-white' : 'text-slate-600 hover:bg-dws-blue-light/20 hover:text-dws-blue-dark'}`}
               onClick={() => {
                 setSelectedSection(section);
                 setFormData({}); // Clear form for new section
@@ -74,12 +73,12 @@ const AdminContentUpdatesPage = () => {
         <div className="flex justify-between items-center mb-8 pb-4 border-b border-slate-200">
           <div>
             <h1 className="text-2xl font-semibold text-slate-800 flex items-center">
-              <Edit3 size={24} className="mr-3 text-dream-purple" />
+              <Edit3 size={24} className="mr-3 text-dws-blue-dark" />
               Editing: {selectedSection.label}
             </h1>
             <p className="text-sm text-slate-500 mt-1">Modify the content fields below. Changes are simulated for this demo.</p>
           </div>
-          <Button variant="outline" size="sm" className="text-dream-purple border-dream-purple hover:bg-dream-purple/10">
+          <Button variant="outline" size="sm" className="text-dws-blue-dark border-dws-blue-dark hover:bg-dws-blue-dark/10">
             <Eye size={16} className="mr-1.5" /> Preview Changes
           </Button>
         </div>
@@ -97,7 +96,7 @@ const AdminContentUpdatesPage = () => {
                   value={formData[field.name] || ''}
                   onChange={handleInputChange}
                   rows={4}
-                  className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-dream-purple focus:border-dream-purple shadow-sm"
+                  className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-dws-blue-dark focus:border-dws-blue-dark shadow-sm"
                   placeholder={`Enter ${field.label.toLowerCase()}...`}
                 />
               ) : (
@@ -107,7 +106,7 @@ const AdminContentUpdatesPage = () => {
                   name={field.name}
                   value={formData[field.name] || ''}
                   onChange={handleInputChange}
-                  className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-dream-purple focus:border-dream-purple shadow-sm"
+                  className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-dws-blue-dark focus:border-dws-blue-dark shadow-sm"
                   placeholder={`Enter ${field.label.toLowerCase()}...`}
                 />
               )}

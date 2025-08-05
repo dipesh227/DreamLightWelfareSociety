@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FolderHeart as HandHeart, Filter, Download, Search, ArrowUpDown } from 'lucide-react';
@@ -59,7 +58,7 @@ const AdminManageDonationsPage = () => {
   };
   
   const getStatusColor = (status) => {
-    if (status === 'Completed') return 'bg-green-100 text-green-700';
+    if (status === 'Completed') return 'bg-dws-green/10 text-dws-green';
     if (status === 'Pending') return 'bg-yellow-100 text-yellow-700';
     if (status === 'Failed') return 'bg-red-100 text-red-700';
     return 'bg-slate-100 text-slate-700';
@@ -74,7 +73,7 @@ const AdminManageDonationsPage = () => {
     >
       <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
         <h1 className="text-2xl font-semibold text-slate-800">Manage Donations</h1>
-        <Button className="bg-dream-purple hover:bg-dream-purple-dark text-white">
+        <Button className="bg-dws-blue-dark hover:bg-dws-blue-light text-white">
           <Download size={18} className="mr-2" /> Export Data
         </Button>
       </div>
@@ -87,21 +86,21 @@ const AdminManageDonationsPage = () => {
               placeholder="Search by Donor or ID..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full p-2.5 pl-10 border border-slate-300 rounded-lg text-sm focus:ring-dream-purple focus:border-dream-purple"
+              className="w-full p-2.5 pl-10 border border-slate-300 rounded-lg text-sm focus:ring-dws-blue-dark focus:border-dws-blue-dark"
             />
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
           </div>
           <select 
             value={filterProgram} 
             onChange={(e) => setFilterProgram(e.target.value)}
-            className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-dream-purple focus:border-dream-purple bg-white"
+            className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-dws-blue-dark focus:border-dws-blue-dark bg-white"
           >
             {programs.map(p => <option key={p} value={p}>{p === 'All' ? 'All Programs' : p}</option>)}
           </select>
           <select 
             value={filterStatus} 
             onChange={(e) => setFilterStatus(e.target.value)}
-            className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-dream-purple focus:border-dream-purple bg-white"
+            className="w-full p-2.5 border border-slate-300 rounded-lg text-sm focus:ring-dws-blue-dark focus:border-dws-blue-dark bg-white"
           >
             {statuses.map(s => <option key={s} value={s}>{s === 'All' ? 'All Statuses' : s}</option>)}
           </select>
@@ -141,7 +140,7 @@ const AdminManageDonationsPage = () => {
                   </span>
                 </td>
                 <td className="p-3 text-sm">
-                  <Button variant="link" size="sm" className="text-dream-purple px-1">View</Button>
+                  <Button variant="link" size="sm" className="text-dws-blue-dark px-1">View</Button>
                   <Button variant="link" size="sm" className="text-blue-600 px-1">Edit</Button>
                 </td>
               </motion.tr>

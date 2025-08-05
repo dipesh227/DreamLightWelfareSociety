@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Facebook, Twitter, Instagram, Youtube, Linkedin, ArrowUpCircle, Info, Briefcase, BarChart2, FolderHeart as HandHeart, Calendar, FileText, Users, ShieldCheck, BookOpen, Mail, Award, Newspaper, Landmark, ShieldAlert, Trees, Rss, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -57,12 +56,12 @@ const Footer = ({ logoUrl }) => {
 
   const FooterLinkColumn = ({ title, links }) => (
     <div>
-      <h3 className="text-md font-semibold text-dream-gold-light mb-5 tracking-wider uppercase">{title}</h3>
+      <h3 className="text-md font-semibold text-dws-gold-light mb-5 tracking-wider uppercase">{title}</h3>
       <ul className="space-y-3.5">
         {links.map(link => (
           <li key={link.to || link.label}>
             <Link to={link.to} className="text-sm hover:text-white transition-colors duration-200 hover:underline underline-offset-4 flex items-center group">
-              {link.icon && <link.icon className="h-4 w-4 mr-2.5 text-dream-gold-light/70 group-hover:text-dream-gold-light transition-colors" />}
+              {link.icon && <link.icon className="h-4 w-4 mr-2.5 text-dws-gold-light/70 group-hover:text-dws-gold-light transition-colors" />}
               {link.label}
             </Link>
           </li>
@@ -77,14 +76,14 @@ const Footer = ({ logoUrl }) => {
     toast({
       title: "Subscribed!",
       description: `Thank you, ${email}! You're now on our newsletter list.`,
-      className: "bg-dream-purple text-white border-dream-gold",
+      className: "bg-dws-blue-dark text-white border-dws-gold",
     });
     e.target.reset();
   };
 
 
   return (
-    <footer className="bg-gradient-to-br from-dream-purple-dark to-dream-purple text-slate-300 pt-20 pb-10 relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-dws-blue-dark to-dws-blue-light text-slate-300 pt-20 pb-10 relative overflow-hidden">
       <div className="absolute inset-0 hero-pattern opacity-10"></div>
       <div className="max-w-screen-2xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-10 lg:gap-12 mb-16">
@@ -97,13 +96,13 @@ const Footer = ({ logoUrl }) => {
                 whileHover={{ scale: 1.1, rotate: -3 }}
                 transition={{ type: "spring", stiffness: 400 }}
               />
-              <span className="text-2xl font-bold text-dream-gold">Dreamlight</span>
+              <span className="text-2xl font-bold text-dws-gold">Dreamlight</span>
             </Link>
             <p className="text-sm leading-relaxed text-slate-300/90">
               Empowering communities through education, healthcare, and sustainable development. Join us in lighting up futures across India.
             </p>
             <form onSubmit={handleNewsletterSubmit} className="mt-6">
-              <label htmlFor="newsletter-email" className="block text-sm font-medium text-dream-gold-light mb-2">Stay Updated</label>
+              <label htmlFor="newsletter-email" className="block text-sm font-medium text-dws-gold-light mb-2">Stay Updated</label>
               <div className="flex gap-2">
                 <input 
                   type="email" 
@@ -111,9 +110,9 @@ const Footer = ({ logoUrl }) => {
                   name="email"
                   required
                   placeholder="your.email@example.com"
-                  className="w-full px-4 py-2.5 rounded-lg bg-dream-purple-dark/50 border border-dream-purple-light/30 text-white placeholder-slate-400 focus:ring-2 focus:ring-dream-gold focus:border-transparent text-sm shadow-inner"
+                  className="w-full px-4 py-2.5 rounded-lg bg-dws-blue-dark/50 border border-dws-blue-light/30 text-white placeholder-slate-400 focus:ring-2 focus:ring-dws-gold focus:border-transparent text-sm shadow-inner"
                 />
-                <Button type="submit" className="bg-dream-gold text-dream-purple-dark hover:bg-dream-gold-light px-5 rounded-lg text-sm font-semibold shadow-md hover:shadow-lg transition-all">
+                <Button type="submit" className="bg-dws-gold text-dws-blue-dark hover:bg-dws-gold-light px-5 rounded-lg text-sm font-semibold shadow-md hover:shadow-lg transition-all">
                   Subscribe
                 </Button>
               </div>
@@ -145,18 +144,18 @@ const Footer = ({ logoUrl }) => {
           </div>
         </div>
         
-        <div className="border-t border-dream-purple/50 pt-8 mt-12 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-dws-blue-dark/50 pt-8 mt-12 flex flex-col md:flex-row justify-between items-center">
           <p className="text-center md:text-left text-xs text-slate-400/80 mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} Dreamlight Welfare Society. All rights reserved. Registered Non-Profit Organization in India.
           </p>
           <p className="text-center md:text-right text-xs text-slate-400/80">
-            Crafted with <span className="text-dream-gold-light">&hearts;</span> by Hostinger Horizons.
+            Crafted with <span className="text-dws-gold-light">&hearts;</span> by Hostinger Horizons.
           </p>
         </div>
       </div>
       <motion.button
         onClick={scrollToTop}
-        className="absolute bottom-8 right-8 bg-dream-gold text-dream-purple-dark p-3.5 rounded-full shadow-xl hover:bg-dream-gold-light transition-colors duration-300 z-20"
+        className="absolute bottom-8 right-8 bg-dws-gold text-dws-blue-dark p-3.5 rounded-full shadow-xl hover:bg-dws-gold-light transition-colors duration-300 z-20"
         aria-label="Scroll to top"
         whileHover={{ scale: 1.1, rotate: 360 }}
         whileTap={{ scale: 0.9 }}

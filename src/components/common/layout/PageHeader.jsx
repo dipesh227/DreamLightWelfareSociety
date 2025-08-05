@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const PageHeader = ({ title, subtitle, icon: Icon, iconBgColor = "bg-dream-purple-dark", iconColor = "text-dream-gold-light", gradientFrom = "from-dream-purple", gradientTo = "to-dream-purple-dark", bgPatternOpacity = "opacity-15" }) => {
+const PageHeader = ({ title, subtitle, icon: Icon, iconBgColor = "bg-dws-blue-dark", iconColor = "text-dws-gold-light", gradientFrom = "from-dws-blue-dark", gradientTo = "to-dws-blue-light", bgPatternOpacity = "opacity-15" }) => {
   return (
     <header className={`relative py-20 md:py-28 bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white text-center overflow-hidden`}>
       <div className={`absolute inset-0 hero-pattern ${bgPatternOpacity} transform scale-150`}></div>
@@ -38,7 +37,7 @@ const PageHeader = ({ title, subtitle, icon: Icon, iconBgColor = "bg-dream-purpl
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: Icon ? 0.5 : 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="text-lg md:text-xl max-w-3xl mx-auto text-dream-gold-light/90 leading-relaxed text-shadow-sm"
+            className="text-lg md:text-xl max-w-3xl mx-auto text-dws-gold-light/90 leading-relaxed text-shadow-sm"
           >
             {subtitle}
           </motion.p>

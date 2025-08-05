@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -13,8 +12,8 @@ const NavLinkItem = ({ to, label, icon: Icon, mobile = false, onClick, className
       to={to}
       className={`flex items-center px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ease-in-out group ${className}
         ${isActive
-          ? 'text-dream-forest-green bg-dream-forest-lighter font-semibold shadow-inner'
-          : 'text-gray-700 hover:text-dream-forest-green hover:bg-dream-forest-lighter'}
+          ? 'text-dws-blue-dark bg-dws-blue-light/20 font-semibold shadow-inner'
+          : 'text-slate-700 hover:text-dws-blue-dark hover:bg-dws-blue-light/20'}
         ${mobile ? 'w-full text-left text-base py-3.5' : ''}
       `}
       onClick={() => {
@@ -22,7 +21,7 @@ const NavLinkItem = ({ to, label, icon: Icon, mobile = false, onClick, className
         else if (onClick) onClick();
       }}
     >
-      {Icon && <Icon className={`mr-2.5 h-5 w-5 ${isActive ? 'text-dream-forest-green' : 'text-gray-500 group-hover:text-dream-forest-green'}`} />}
+      {Icon && <Icon className={`mr-2.5 h-5 w-5 ${isActive ? 'text-dws-blue-dark' : 'text-slate-500 group-hover:text-dws-blue-dark'}`} />}
       {label}
     </Link>
   );
@@ -55,13 +54,13 @@ const DropdownMenu = ({ label, icon: Icon, subLinks, mobile = false, closeMobile
         <button
           onClick={() => setIsOpen(!isOpen)}
           className={`flex items-center justify-between w-full px-3 py-3.5 text-base font-medium text-left rounded-lg group
-            ${isParentActive ? 'text-dream-forest-green bg-dream-forest-lighter font-semibold' : 'text-slate-700 hover:text-dream-forest-green hover:bg-dream-forest-lighter'}`}
+            ${isParentActive ? 'text-dws-blue-dark bg-dws-blue-light/20 font-semibold' : 'text-slate-700 hover:text-dws-blue-dark hover:bg-dws-blue-light/20'}`}
         >
           <div className="flex items-center">
-            {Icon && <Icon className={`mr-2.5 h-5 w-5 ${isParentActive ? 'text-dream-forest-green' : 'text-slate-500 group-hover:text-dream-forest-green'}`} />}
+            {Icon && <Icon className={`mr-2.5 h-5 w-5 ${isParentActive ? 'text-dws-blue-dark' : 'text-slate-500 group-hover:text-dws-blue-dark'}`} />}
             {label}
           </div>
-          <ChevronDown className={`h-5 w-5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''} ${isParentActive ? 'text-dream-forest-green' : 'text-slate-500 group-hover:text-dream-forest-green'}`} />
+          <ChevronDown className={`h-5 w-5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''} ${isParentActive ? 'text-dws-blue-dark' : 'text-slate-500 group-hover:text-dws-blue-dark'}`} />
         </button>
         <AnimatePresence>
           {isOpen && (
@@ -69,7 +68,7 @@ const DropdownMenu = ({ label, icon: Icon, subLinks, mobile = false, closeMobile
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="pl-5 border-l-2 border-dream-forest-lighter ml-3.5"
+              className="pl-5 border-l-2 border-dws-blue-light/20 ml-3.5"
             >
               {subLinks.map(link => 
                 link.subLinks ? 
@@ -87,10 +86,10 @@ const DropdownMenu = ({ label, icon: Icon, subLinks, mobile = false, closeMobile
     <div className="relative" ref={menuRef} onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
       <button
         className={`flex items-center px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ease-in-out group
-          ${isParentActive ? 'text-dream-forest-green bg-dream-forest-lighter font-semibold shadow-sm' : 'text-slate-700 hover:text-dream-forest-green hover:bg-dream-forest-lighter'}`}
+          ${isParentActive ? 'text-dws-blue-dark bg-dws-blue-light/20 font-semibold shadow-sm' : 'text-slate-700 hover:text-dws-blue-dark hover:bg-dws-blue-light/20'}`}
       >
-        {Icon && <Icon className={`mr-1.5 h-4 w-4 ${isParentActive ? 'text-dream-forest-green' : 'text-slate-500 group-hover:text-dream-forest-green'}`} />}
-        {label} <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''} ${isParentActive ? 'text-dream-forest-green' : 'text-slate-500 group-hover:text-dream-forest-green'}`} />
+        {Icon && <Icon className={`mr-1.5 h-4 w-4 ${isParentActive ? 'text-dws-blue-dark' : 'text-slate-500 group-hover:text-dws-blue-dark'}`} />}
+        {label} <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''} ${isParentActive ? 'text-dws-blue-dark' : 'text-slate-500 group-hover:text-dws-blue-dark'}`} />
       </button>
       <AnimatePresence>
         {isOpen && (
@@ -99,23 +98,23 @@ const DropdownMenu = ({ label, icon: Icon, subLinks, mobile = false, closeMobile
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl py-2.5 z-20 border border-slate-200"
+            className="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-2xl py-2.5 z-20 border border-slate-200/80"
           >
             {subLinks.map(link => 
               link.subLinks ? 
               <div key={link.label} className="relative group/submenu">
-                 <button className="flex items-center justify-between w-full px-4 py-2.5 text-sm text-slate-700 hover:bg-dream-forest-lighter hover:text-dream-forest-green">
+                 <button className="flex items-center justify-between w-full px-4 py-2.5 text-sm text-slate-700 hover:bg-dws-blue-light/20 hover:text-dws-blue-dark rounded-md">
                     <div className="flex items-center">
-                      {link.icon && <link.icon className="mr-2 h-4 w-4 text-slate-500 group-hover/submenu:text-dream-forest-green" />}
+                      {link.icon && <link.icon className="mr-2 h-4 w-4 text-slate-500 group-hover/submenu:text-dws-blue-dark" />}
                       {link.label}
                     </div>
-                    <ChevronDown className="h-4 w-4 rotate-[-90deg] text-slate-400 group-hover/submenu:text-dream-forest-green" />
+                    <ChevronDown className="h-4 w-4 rotate-[-90deg] text-slate-400 group-hover/submenu:text-dws-blue-dark" />
                   </button>
                   <motion.div 
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -10 }}
-                    className="absolute left-full top-[-8px] ml-1 w-60 bg-white rounded-xl shadow-2xl py-2.5 z-30 border border-slate-200 hidden group-hover/submenu:block"
+                    className="absolute left-full top-[-8px] ml-1 w-60 bg-white rounded-xl shadow-2xl py-2.5 z-30 border border-slate-200/80 hidden group-hover/submenu:block"
                   >
                      {link.subLinks.map(sl => <NavLinkItem key={sl.to} {...sl} onClick={() => setIsOpen(false)} className="px-4 py-2.5"/>)}
                   </motion.div>
@@ -137,7 +136,7 @@ const Navbar = ({ logoUrl, handleDonateToast }) => {
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    setIsScrolledEnough(latest > 50); 
+    setIsScrolledEnough(latest > 60); 
   });
   
   const isHomePage = location.pathname === '/';
@@ -248,12 +247,12 @@ const Navbar = ({ logoUrl, handleDonateToast }) => {
             )}
             <div className="flex items-center space-x-1.5 ml-4">
               <Link to="/admin/login">
-                <Button variant="ghost" size="sm" className="text-slate-600 hover:bg-dream-forest-lighter hover:text-dream-forest-green">
+                <Button variant="ghost" size="sm" className="text-slate-600 hover:bg-dws-blue-light/20 hover:text-dws-blue-dark">
                   <Lock size={14} className="mr-1.5"/> Admin
                 </Button>
               </Link>
               <Link to="/volunteer-dashboard/login">
-                 <Button variant="ghost" size="sm" className="text-slate-600 hover:bg-dream-forest-lighter hover:text-dream-forest-green">
+                 <Button variant="ghost" size="sm" className="text-slate-600 hover:bg-dws-blue-light/20 hover:text-dws-blue-dark">
                   <UserCheck size={14} className="mr-1.5"/> Volunteer
                 </Button>
               </Link>

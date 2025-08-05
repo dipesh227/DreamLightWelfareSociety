@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -22,14 +21,14 @@ const VolunteerSidebarLink = ({ to, icon: Icon, label, isCollapsed, isActive, is
     className={`flex items-center px-3 py-3.5 rounded-lg transition-colors duration-200 ease-in-out group
       ${isCollapsed ? 'justify-center' : ''}
       ${isActive
-        ? 'bg-dream-sky-blue text-white shadow-md hover:bg-dream-sky-light'
+        ? 'bg-dws-blue-light text-white shadow-md hover:bg-dws-blue-light/80'
         : isDarkMode
-          ? 'text-gray-300 hover:bg-gray-700 hover:text-dream-sky-light'
-          : 'text-slate-600 hover:bg-dream-sky-lighter hover:text-dream-sky-blue'
+          ? 'text-gray-300 hover:bg-gray-700 hover:text-dws-blue-light'
+          : 'text-slate-600 hover:bg-dws-blue-light/20 hover:text-dws-blue-light'
       }`}
     title={isCollapsed ? label : undefined}
   >
-    <Icon className={`h-5 w-5 ${isCollapsed ? '' : 'mr-3'} ${isActive ? 'text-white' : isDarkMode ? 'text-gray-400 group-hover:text-dream-sky-light' : 'text-slate-500 group-hover:text-dream-sky-blue'}`} />
+    <Icon className={`h-5 w-5 ${isCollapsed ? '' : 'mr-3'} ${isActive ? 'text-white' : isDarkMode ? 'text-gray-400 group-hover:text-dws-blue-light' : 'text-slate-500 group-hover:text-dws-blue-light'}`} />
     {!isCollapsed && <span className="text-sm font-medium">{label}</span>}
   </Link>
 );
@@ -68,7 +67,7 @@ const VolunteerLayout = ({ logoUrl, setIsVolunteerAuthenticated }) => {
           {!isSidebarCollapsed && (
             <Link to="/volunteer-dashboard/overview" className="flex items-center space-x-2 overflow-hidden">
               <img src={logoUrl} alt="Volunteer Logo" className="h-8 w-auto" />
-              <span className={`font-bold text-lg whitespace-nowrap ${isDarkMode ? 'text-dream-sky-light' : 'text-dream-sky-blue'}`}>Volunteer Hub</span>
+              <span className={`font-bold text-lg whitespace-nowrap ${isDarkMode ? 'text-dws-blue-light' : 'text-dws-blue-light'}`}>Volunteer Hub</span>
             </Link>
           )}
            <Button 
@@ -137,7 +136,7 @@ const VolunteerLayout = ({ logoUrl, setIsVolunteerAuthenticated }) => {
               {isDarkMode ? 'Light' : 'Dark'}
             </Button>
             <Link to="/">
-              <Button variant="outline" size="sm" className={`${isDarkMode ? 'text-dream-sky-light border-dream-sky-light hover:bg-dream-sky-light hover:text-gray-900' : 'text-dream-sky-blue border-dream-sky-blue hover:bg-dream-sky-blue hover:text-white'}`}>
+              <Button variant="outline" size="sm" className={`${isDarkMode ? 'text-dws-blue-light border-dws-blue-light hover:bg-dws-blue-light hover:text-gray-900' : 'text-dws-blue-light border-dws-blue-light hover:bg-dws-blue-light hover:text-white'}`}>
                 <Home size={16} className="mr-2"/> Back to Home
               </Button>
             </Link>

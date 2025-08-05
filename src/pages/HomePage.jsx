@@ -1,4 +1,3 @@
-
 import React from 'react';
 import HeroSection from '@/components/root/sections/HeroSection';
 import AboutSection from '@/components/root/sections/AboutSection';

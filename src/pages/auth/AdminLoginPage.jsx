@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Lock, LogIn, Eye, EyeOff } from 'lucide-react';
@@ -14,7 +13,7 @@ const AdminLoginPage = ({ setIsAdminAuthenticated }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
-  const logoUrl = "https://storage.googleapis.com/hostinger-horizons-assets-prod/9d4946d7-c457-49e5-84af-9b4b147f9101/d2bfdf7cdd6c053e918e6d40f2ee77c1.jpg";
+  const logoUrl = "/dws-logo.jpeg"; // Updated logo path
 
 
   const handleSubmit = (e) => {
@@ -27,7 +26,7 @@ const AdminLoginPage = ({ setIsAdminAuthenticated }) => {
         toast({
           title: 'Login Successful!',
           description: 'Welcome back, Admin! Redirecting to dashboard...',
-          className: 'bg-green-600 text-white',
+          className: 'bg-dws-green text-white',
         });
         setIsAdminAuthenticated(true);
         localStorage.setItem('isAdminAuthenticated', 'true');
@@ -44,7 +43,7 @@ const AdminLoginPage = ({ setIsAdminAuthenticated }) => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-dream-purple-lighter to-slate-100 p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-dws-blue-light/20 to-slate-100 p-4">
       <motion.div
         initial={{ opacity: 0, y: -30, scale: 0.9 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -60,7 +59,7 @@ const AdminLoginPage = ({ setIsAdminAuthenticated }) => {
               whileHover={{ scale: 1.1, rotate: 5 }}
             />
           </Link>
-          <h1 className="text-3xl font-bold text-dream-purple-dark flex items-center justify-center">
+          <h1 className="text-3xl font-bold text-dws-blue-dark flex items-center justify-center">
             <Lock className="mr-2.5" /> Admin Login
           </h1>
           <p className="text-sm text-slate-500 mt-1">Access the Dreamlight Admin Panel.</p>
@@ -93,7 +92,7 @@ const AdminLoginPage = ({ setIsAdminAuthenticated }) => {
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-2.5 top-9 text-slate-500 hover:text-dream-purple"
+              className="absolute right-2.5 top-9 text-slate-500 hover:text-dws-blue-dark"
               aria-label={showPassword ? "Hide password" : "Show password"}
             >
               {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
@@ -109,10 +108,10 @@ const AdminLoginPage = ({ setIsAdminAuthenticated }) => {
           </Button>
         </form>
         <p className="text-xs text-slate-500 text-center mt-6">
-          Forgot your password? <Link to="#" className="text-dream-purple hover:underline">Reset it here</Link>.
+          Forgot your password? <Link to="#" className="text-dws-blue-dark hover:underline">Reset it here</Link>.
         </p>
          <p className="text-xs text-slate-500 text-center mt-2">
-          Go back to <Link to="/" className="text-dream-purple hover:underline">Homepage</Link>.
+          Go back to <Link to="/" className="text-dws-blue-dark hover:underline">Homepage</Link>.
         </p>
       </motion.div>
       <p className="text-xs text-slate-500 mt-8">

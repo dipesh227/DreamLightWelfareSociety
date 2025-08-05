@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Users, FolderHeart as HandHeart, Calendar, BarChart3, AlertTriangle, CheckCircle, Edit3 } from 'lucide-react';
@@ -47,23 +46,23 @@ const QuickActionCard = ({ title, icon: Icon, linkTo, color, index }) => (
 const AdminDashboardPage = () => {
   // These would come from an API or localStorage in a real app
   const stats = [
-    { title: "Total Donations (Month)", value: "$12,500", icon: HandHeart, color: { text: "text-green-600", border: "border-green-500", bg: "bg-green-100", icon: "text-green-600" }, linkTo: "/admin/donations" },
-    { title: "New Volunteers (Month)", value: "23", icon: Users, color: { text: "text-blue-600", border: "border-blue-500", bg: "bg-blue-100", icon: "text-blue-600" }, linkTo: "/admin/volunteers" },
-    { title: "Upcoming Events", value: "4", icon: Calendar, color: { text: "text-dream-purple", border: "border-dream-purple", bg: "bg-dream-purple-lighter", icon: "text-dream-purple" }, linkTo: "/admin/events" },
-    { title: "Site Visitors (Today)", value: "1,287", icon: BarChart3, color: { text: "text-dream-gold", border: "border-dream-gold", bg: "bg-dream-gold/20", icon: "text-dream-gold" }, linkTo: "/admin/reports" },
+    { title: "Total Donations (Month)", value: "$12,500", icon: HandHeart, color: { text: "text-dws-green", border: "border-dws-green", bg: "bg-dws-green/10", icon: "text-dws-green" }, linkTo: "/admin/donations" },
+    { title: "New Volunteers (Month)", value: "23", icon: Users, color: { text: "text-dws-blue-light", border: "border-dws-blue-light", bg: "bg-dws-blue-light/10", icon: "text-dws-blue-light" }, linkTo: "/admin/volunteers" },
+    { title: "Upcoming Events", value: "4", icon: Calendar, color: { text: "text-dws-blue-dark", border: "border-dws-blue-dark", bg: "bg-dws-blue-light/20", icon: "text-dws-blue-dark" }, linkTo: "/admin/events" },
+    { title: "Site Visitors (Today)", value: "1,287", icon: BarChart3, color: { text: "text-dws-gold", border: "border-dws-gold", bg: "bg-dws-gold/20", icon: "text-dws-gold" }, linkTo: "/admin/reports" },
   ];
 
   const quickActions = [
-    { title: "Add New Event", icon: Calendar, linkTo: "/admin/events/new", color: { text: "text-dream-purple", bg: "bg-dream-purple-lighter", icon: "text-dream-purple" } },
-    { title: "Review Donations", icon: HandHeart, linkTo: "/admin/donations", color: { text: "text-green-600", bg: "bg-green-100", icon: "text-green-600" } },
-    { title: "Approve Volunteers", icon: Users, linkTo: "/admin/volunteers/pending", color: { text: "text-blue-600", bg: "bg-blue-100", icon: "text-blue-600" } },
+    { title: "Add New Event", icon: Calendar, linkTo: "/admin/events/new", color: { text: "text-dws-blue-dark", bg: "bg-dws-blue-light/20", icon: "text-dws-blue-dark" } },
+    { title: "Review Donations", icon: HandHeart, linkTo: "/admin/donations", color: { text: "text-dws-green", bg: "bg-dws-green/10", icon: "text-dws-green" } },
+    { title: "Approve Volunteers", icon: Users, linkTo: "/admin/volunteers/pending", color: { text: "text-dws-blue-light", bg: "bg-dws-blue-light/10", icon: "text-dws-blue-light" } },
     { title: "Update Homepage", icon: Edit3, linkTo: "/admin/content/homepage", color: { text: "text-orange-600", bg: "bg-orange-100", icon: "text-orange-600" } },
   ];
 
   const recentActivities = [
-    { id: 1, message: "New donation of $100 received from John Doe.", icon: HandHeart, iconColor: "text-green-500", time: "2 mins ago" },
-    { id: 2, message: "Priya Sharma applied to volunteer for 'Education Program'.", icon: Users, iconColor: "text-blue-500", time: "15 mins ago" },
-    { id: 3, message: "'Annual Charity Gala' event page published.", icon: Calendar, iconColor: "text-dream-purple", time: "1 hour ago" },
+    { id: 1, message: "New donation of $100 received from John Doe.", icon: HandHeart, iconColor: "text-dws-green", time: "2 mins ago" },
+    { id: 2, message: "Priya Sharma applied to volunteer for 'Education Program'.", icon: Users, iconColor: "text-dws-blue-light", time: "15 mins ago" },
+    { id: 3, message: "'Annual Charity Gala' event page published.", icon: Calendar, iconColor: "text-dws-blue-dark", time: "1 hour ago" },
     { id: 4, message: "Content for 'About Us' page updated.", icon: Edit3, iconColor: "text-orange-500", time: "3 hours ago" },
   ];
 
@@ -113,7 +112,7 @@ const AdminDashboardPage = () => {
                 </div>
               </motion.div>
             ))}
-             <Link to="#" className="text-sm text-dream-purple hover:underline mt-2 block text-right">View all activity &rarr;</Link>
+             <Link to="#" className="text-sm text-dws-blue-dark hover:underline mt-2 block text-right">View all activity &rarr;</Link>
           </div>
         </section>
 
@@ -121,22 +120,22 @@ const AdminDashboardPage = () => {
           <h2 className="text-2xl font-semibold text-slate-800 mb-6">System Status</h2>
           <div className="bg-white p-6 rounded-xl shadow-lg space-y-4">
             <div className="flex items-center text-sm">
-              <CheckCircle size={18} className="mr-2 text-green-500" />
-              <span className="text-slate-700">Website: <span className="font-semibold text-green-600">Online</span></span>
+              <CheckCircle size={18} className="mr-2 text-dws-green" />
+              <span className="text-slate-700">Website: <span className="font-semibold text-dws-green">Online</span></span>
             </div>
             <div className="flex items-center text-sm">
-              <CheckCircle size={18} className="mr-2 text-green-500" />
-              <span className="text-slate-700">Donation Gateway: <span className="font-semibold text-green-600">Active</span></span>
+              <CheckCircle size={18} className="mr-2 text-dws-green" />
+              <span className="text-slate-700">Donation Gateway: <span className="font-semibold text-dws-green">Active</span></span>
             </div>
             <div className="flex items-center text-sm">
               <AlertTriangle size={18} className="mr-2 text-yellow-500" />
               <span className="text-slate-700">Email Service: <span className="font-semibold text-yellow-600">Degraded Performance</span></span>
             </div>
              <div className="flex items-center text-sm">
-              <CheckCircle size={18} className="mr-2 text-green-500" />
-              <span className="text-slate-700">Volunteer Portal: <span className="font-semibold text-green-600">Operational</span></span>
+              <CheckCircle size={18} className="mr-2 text-dws-green" />
+              <span className="text-slate-700">Volunteer Portal: <span className="font-semibold text-dws-green">Operational</span></span>
             </div>
-            <Link to="#" className="text-xs text-dream-purple hover:underline mt-2 block">View system health details &rarr;</Link>
+            <Link to="#" className="text-xs text-dws-blue-dark hover:underline mt-2 block">View system health details &rarr;</Link>
           </div>
         </section>
       </div>

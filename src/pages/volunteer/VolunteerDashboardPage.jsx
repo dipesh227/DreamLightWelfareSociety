@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { LayoutGrid, Calendar, CheckSquare, MessageSquare, Award, User, CalendarClock, WalletCards as IdCard } from 'lucide-react';
@@ -31,12 +30,12 @@ const UpcomingEventCard = ({ title, date, time, location, linkTo }) => (
     initial={{ opacity: 0, x: -20 }}
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.4 }}
-    className="bg-dream-gold/10 p-4 rounded-lg border border-dream-gold/30"
+    className="bg-dws-gold/10 p-4 rounded-lg border border-dws-gold/30"
   >
-    <h4 className="font-semibold text-dream-gold-darker text-sm">{title}</h4>
+    <h4 className="font-semibold text-dws-gold-dark text-sm">{title}</h4>
     <p className="text-xs text-slate-600">{date} at {time}</p>
     <p className="text-xs text-slate-500">{location}</p>
-    <Link to={linkTo || "/events"} className="text-xs text-dream-purple hover:underline mt-1 block">View Event</Link>
+    <Link to={linkTo || "/events"} className="text-xs text-dws-blue-dark hover:underline mt-1 block">View Event</Link>
   </motion.div>
 );
 
@@ -52,9 +51,9 @@ const VolunteerDashboardPage = () => {
   };
 
   const quickLinks = [
-    { title: "Log Volunteer Hours", icon: CalendarClock, linkTo: "/volunteer-dashboard/hours-log", color: { text: "text-dream-purple", border: "border-dream-purple", bg: "bg-dream-purple-lighter", icon: "text-dream-purple"} },
-    { title: "View My ID Card", icon: IdCard, linkTo: "/volunteer-dashboard/id-card", color: { text: "text-green-600", border: "border-green-500", bg: "bg-green-100", icon: "text-green-600"} },
-    { title: "Update My Profile", icon: User, linkTo: "/volunteer-dashboard/profile", color: { text: "text-blue-600", border: "border-blue-500", bg: "bg-blue-100", icon: "text-blue-600"} },
+    { title: "Log Volunteer Hours", icon: CalendarClock, linkTo: "/volunteer-dashboard/hours-log", color: { text: "text-dws-blue-dark", border: "border-dws-blue-dark", bg: "bg-dws-blue-light/20", icon: "text-dws-blue-dark"} },
+    { title: "View My ID Card", icon: IdCard, linkTo: "/volunteer-dashboard/id-card", color: { text: "text-dws-green", border: "border-dws-green", bg: "bg-dws-green/10", icon: "text-dws-green"} },
+    { title: "Update My Profile", icon: User, linkTo: "/volunteer-dashboard/profile", color: { text: "text-dws-blue-light", border: "border-dws-blue-light", bg: "bg-dws-blue-light/10", icon: "text-dws-blue-light"} },
     { title: "Browse Opportunities", icon: Calendar, linkTo: "/volunteer", color: { text: "text-orange-600", border: "border-orange-500", bg: "bg-orange-100", icon: "text-orange-600"} },
   ];
   
@@ -74,10 +73,10 @@ const VolunteerDashboardPage = () => {
         <h2 className="text-2xl font-semibold text-slate-800 mb-1">Welcome back, {volunteerData.name}!</h2>
         <p className="text-sm text-slate-500 mb-6">Here's an overview of your volunteer activity.</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <DashboardCard title="Total Hours Logged" value={volunteerData.totalHours} icon={CalendarClock} linkTo="/volunteer-dashboard/hours-log" color={{text: "text-dream-purple", border: "border-dream-purple", bg:"bg-dream-purple-lighter", icon:"text-dream-purple"}} index={0} />
-          <DashboardCard title="Upcoming Events" value={volunteerData.upcomingEvents} icon={Calendar} linkTo="/events" color={{text: "text-blue-600", border: "border-blue-500", bg:"bg-blue-100", icon:"text-blue-600"}} index={1} />
-          <DashboardCard title="Completed Tasks" value={volunteerData.completedTasks} icon={CheckSquare} linkTo="#" color={{text: "text-green-600", border: "border-green-500", bg:"bg-green-100", icon:"text-green-600"}} index={2} />
-          <DashboardCard title="Badges Earned" value={volunteerData.badges} icon={Award} linkTo="/volunteer-dashboard/achievements" color={{text: "text-dream-gold", border: "border-dream-gold", bg:"bg-dream-gold/20", icon:"text-dream-gold"}} index={3} />
+          <DashboardCard title="Total Hours Logged" value={volunteerData.totalHours} icon={CalendarClock} linkTo="/volunteer-dashboard/hours-log" color={{text: "text-dws-blue-dark", border: "border-dws-blue-dark", bg:"bg-dws-blue-light/20", icon:"text-dws-blue-dark"}} index={0} />
+          <DashboardCard title="Upcoming Events" value={volunteerData.upcomingEvents} icon={Calendar} linkTo="/events" color={{text: "text-dws-blue-light", border: "border-dws-blue-light", bg:"bg-dws-blue-light/10", icon:"text-dws-blue-light"}} index={1} />
+          <DashboardCard title="Completed Tasks" value={volunteerData.completedTasks} icon={CheckSquare} linkTo="#" color={{text: "text-dws-green", border: "border-dws-green", bg:"bg-dws-green/10", icon:"text-dws-green"}} index={2} />
+          <DashboardCard title="Badges Earned" value={volunteerData.badges} icon={Award} linkTo="/volunteer-dashboard/achievements" color={{text: "text-dws-gold", border: "border-dws-gold", bg:"bg-dws-gold/20", icon:"text-dws-gold"}} index={3} />
         </div>
       </section>
 
@@ -104,7 +103,7 @@ const VolunteerDashboardPage = () => {
               <Calendar size={36} className="mx-auto text-slate-400 mb-2" />
               <p className="text-sm text-slate-500">No upcoming events assigned. Check the main events page for opportunities!</p>
               <Link to="/events">
-                <Button variant="link" className="text-dream-purple mt-2 text-sm">View All Events</Button>
+                <Button variant="link" className="text-dws-blue-dark mt-2 text-sm">View All Events</Button>
               </Link>
             </div>
           )}
@@ -115,17 +114,17 @@ const VolunteerDashboardPage = () => {
         <h2 className="text-xl font-semibold text-slate-800 mb-4">Recent Announcements</h2>
         <div className="bg-white p-6 rounded-xl shadow-lg space-y-3">
           <div className="flex items-start space-x-3">
-            <div className="p-2 bg-slate-100 rounded-full mt-0.5"><MessageSquare size={16} className="text-dream-purple"/></div>
+            <div className="p-2 bg-slate-100 rounded-full mt-0.5"><MessageSquare size={16} className="text-dws-blue-dark"/></div>
             <div>
               <p className="text-sm font-medium text-slate-700">New Volunteer Handbook Available!</p>
-              <p className="text-xs text-slate-500">Please review the updated guidelines in the resources section. <Link to="#" className="text-dream-purple hover:underline">Read more</Link></p>
+              <p className="text-xs text-slate-500">Please review the updated guidelines in the resources section. <Link to="#" className="text-dws-blue-dark hover:underline">Read more</Link></p>
             </div>
           </div>
            <div className="flex items-start space-x-3 pt-3 border-t border-slate-100">
-            <div className="p-2 bg-slate-100 rounded-full mt-0.5"><Award size={16} className="text-dream-gold"/></div>
+            <div className="p-2 bg-slate-100 rounded-full mt-0.5"><Award size={16} className="text-dws-gold"/></div>
             <div>
               <p className="text-sm font-medium text-slate-700">Congratulations to our "Volunteer of the Month"!</p>
-              <p className="text-xs text-slate-500">Check out the spotlight on Priya Sharma for her amazing contributions. <Link to="/volunteer#volunteer-spotlight" className="text-dream-purple hover:underline">Learn more</Link></p>
+              <p className="text-xs text-slate-500">Check out the spotlight on Priya Sharma for her amazing contributions. <Link to="/volunteer#volunteer-spotlight" className="text-dws-blue-dark hover:underline">Learn more</Link></p>
             </div>
           </div>
         </div>

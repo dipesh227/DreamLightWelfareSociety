@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -20,7 +19,7 @@ const GetInvolvedCard = ({ icon: Icon, title, description, buttonText, linkTo, d
     >
       <Icon className="h-10 w-10 text-white" />
     </motion.div>
-    <h3 className="text-2xl font-bold text-dream-purple-dark mb-4">{title}</h3>
+    <h3 className="text-2xl font-bold text-dws-blue-dark mb-4">{title}</h3>
     <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-grow">{description}</p>
     <Link to={linkTo} className="w-full mt-auto">
       <Button 
@@ -47,7 +46,7 @@ const GetInvolvedSection = ({ handleDonate, handleVolunteer }) => {
       buttonText: "Make a Donation",
       linkTo: "/donate",
       buttonAction: handleDonate,
-      iconBgColor: "bg-gradient-to-br from-dream-purple to-dream-purple-light",
+      iconBgColor: "bg-gradient-to-br from-dws-blue-dark to-dws-blue-light",
     },
     { 
       icon: Users, 
@@ -56,10 +55,10 @@ const GetInvolvedSection = ({ handleDonate, handleVolunteer }) => {
       buttonText: "Become a Volunteer",
       linkTo: "/volunteer", 
       buttonAction: handleVolunteer,
-      iconBgColor: "bg-gradient-to-br from-green-500 to-green-600",
-      borderColor: "border-green-600",
-      textColor: "text-green-600",
-      hoverBgColor: "bg-green-600"
+      iconBgColor: "bg-gradient-to-br from-dws-green to-dws-green/80",
+      borderColor: "border-dws-green",
+      textColor: "text-dws-green",
+      hoverBgColor: "bg-dws-green"
     },
     { 
       icon: Handshake, 
@@ -67,17 +66,17 @@ const GetInvolvedSection = ({ handleDonate, handleVolunteer }) => {
       description: "Collaborate with Dreamlight. Align your CSR goals with our impactful projects for a mutually beneficial partnership.", 
       buttonText: "Explore Partnerships",
       linkTo: "/partnerships", 
-      iconBgColor: "bg-gradient-to-br from-dream-gold to-yellow-400",
-      borderColor: "border-dream-gold",
-      textColor: "text-dream-gold",
-      hoverBgColor: "bg-dream-gold"
+      iconBgColor: "bg-gradient-to-br from-dws-gold to-dws-gold-light",
+      borderColor: "border-dws-gold",
+      textColor: "text-dws-gold",
+      hoverBgColor: "bg-dws-gold"
     },
   ];
 
   return (
     <section className="py-20 md:py-28 bg-slate-50 relative overflow-hidden">
-       <div className="absolute -top-24 -left-24 w-80 h-80 bg-dream-purple-lighter/30 rounded-full filter blur-3xl opacity-50 animate-pulse"></div>
-       <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-dream-gold-light/20 rounded-full filter blur-3xl opacity-40 animate-pulse animation-delay-2000"></div>
+       <div className="absolute -top-24 -left-24 w-80 h-80 bg-dws-blue-light/30 rounded-full filter blur-3xl opacity-50 animate-pulse"></div>
+       <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-dws-gold-light/20 rounded-full filter blur-3xl opacity-40 animate-pulse animation-delay-2000"></div>
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div 
           initial={{opacity:0, y:20}} 
@@ -86,10 +85,10 @@ const GetInvolvedSection = ({ handleDonate, handleVolunteer }) => {
           transition={{duration:0.6}}
           className="text-center mb-14 md:mb-18"
         >
-          <span className="inline-block px-4 py-1.5 bg-dream-purple-light/10 text-dream-purple font-semibold text-xs rounded-full uppercase tracking-wider mb-3.5">
+          <span className="inline-block px-4 py-1.5 bg-dws-blue-light/10 text-dws-blue-dark font-semibold text-xs rounded-full uppercase tracking-wider mb-3.5">
             Join Our Mission
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-dream-purple-dark leading-tight text-shadow-md">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-dws-blue-dark leading-tight text-shadow-md">
             Be the Change You Wish to See in India
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto mt-5 leading-relaxed">
