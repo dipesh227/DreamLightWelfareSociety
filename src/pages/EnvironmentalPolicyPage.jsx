@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Leaf, Recycle, Sun, Droplets, FileText, Download } from 'lucide-react';
@@ -16,7 +17,7 @@ const PolicyPrinciple = ({ icon: Icon, title, description, color, index }) => (
     <div className={`inline-block p-3 rounded-full mb-4 ${color.replace('text-', 'bg-')}/10`}>
       <Icon className={`h-8 w-8 ${color}`} />
     </div>
-    <h3 className="text-xl font-semibold text-secondary-foreground mb-2">{title}</h3>
+    <h3 className="text-xl font-semibold text-dream-purple-dark mb-2">{title}</h3>
     <p className="text-sm text-slate-600 leading-relaxed">{description}</p>
   </motion.div>
 );
@@ -35,7 +36,7 @@ const EnvironmentalPolicyPage = () => {
         title="Our Environmental Commitment"
         subtitle="Dreamlight Welfare Society is dedicated to promoting environmental sustainability and responsible stewardship of natural resources in all our endeavors."
         icon={Leaf}
-        iconColor="text-secondary-foreground"
+        iconColor="text-dream-purple-dark"
         gradientFrom="from-green-500"
         gradientTo="to-teal-600"
         bgPatternOpacity="opacity-20"
@@ -50,7 +51,7 @@ const EnvironmentalPolicyPage = () => {
             transition={{ duration: 0.7 }}
             className="bg-white p-8 md:p-12 rounded-2xl shadow-xl mb-12"
           >
-            <h2 className="text-2xl md:text-3xl font-bold text-secondary-foreground mb-6">Protecting Our Planet, Securing Our Future</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-dream-purple-dark mb-6">Protecting Our Planet, Securing Our Future</h2>
             <p className="text-slate-700 leading-relaxed mb-4">
               Dreamlight Welfare Society recognizes the critical link between environmental health and human well-being. We are committed to minimizing our environmental footprint and actively promoting sustainable practices within the communities we serve and our own operations.
             </p>
@@ -59,7 +60,7 @@ const EnvironmentalPolicyPage = () => {
             </p>
           </motion.div>
 
-          <h2 className="text-2xl md:text-3xl font-bold text-secondary-foreground mb-10 text-center">Our Guiding Environmental Principles</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-dream-purple-dark mb-10 text-center">Our Guiding Environmental Principles</h2>
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             {principles.map((principle) => (
               <PolicyPrinciple key={principle.title} {...principle} />
@@ -73,7 +74,7 @@ const EnvironmentalPolicyPage = () => {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="text-center bg-green-500/5 p-8 rounded-2xl"
           >
-            <h3 className="text-xl font-semibold text-secondary-foreground mb-4">Download Our Full Environmental Policy</h3>
+            <h3 className="text-xl font-semibold text-dream-purple-dark mb-4">Download Our Full Environmental Policy</h3>
             <p className="text-slate-600 text-sm mb-6 max-w-md mx-auto">
               For detailed information on our environmental strategies, targets, and implementation plans, please download our complete policy document.
             </p>
@@ -86,15 +87,15 @@ const EnvironmentalPolicyPage = () => {
         </div>
       </section>
 
-      <section className="py-16 md:py-20 bg-dream-logo-blue-dark text-white">
+      <section className="py-16 md:py-20 bg-dream-purple-dark text-white">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <Leaf className="h-16 w-16 mx-auto text-dream-logo-yellow-light mb-6" />
+          <Leaf className="h-16 w-16 mx-auto text-dream-gold-light mb-6" />
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Join Us in Our Green Initiatives</h2>
           <p className="text-slate-300 text-lg leading-relaxed mb-8">
             Support our environmental programs or partner with us to implement sustainable solutions. Together, we can make a significant positive impact on our planet.
           </p>
           <Link to="/contact?subject=EnvironmentalPartnership">
-            <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-dream-logo-yellow-light font-semibold px-10 py-3.5 rounded-full text-base shadow-lg">
+            <Button size="lg" className="bg-dream-gold text-dream-purple-dark hover:bg-dream-gold-light font-semibold px-10 py-3.5 rounded-full text-base shadow-lg">
               Partner for Sustainability
             </Button>
           </Link>

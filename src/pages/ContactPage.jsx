@@ -14,16 +14,16 @@ const ContactInfoItemBig = ({ icon: Icon, title, lines, iconBgColor, iconColor }
     <div className={`${iconBgColor} p-4 rounded-full mb-4`}>
       <Icon className={`h-8 w-8 ${iconColor}`} />
     </div>
-    <h3 className="text-xl font-semibold text-secondary-foreground mb-2">{title}</h3>
+    <h3 className="text-xl font-semibold text-dream-purple-dark mb-2">{title}</h3>
     {lines.map((line, index) => <p key={index} className="text-slate-600 text-sm">{line}</p>)}
   </motion.div>
 );
 
 const ContactPage = () => {
   const contactDetails = [
-    { icon: MapPin, title: "Our Main Office", lines: ["Devi W/O Ramesh Singh", "Chandra Vatika, Khatima", "Udham Singh Nagar, Uttarakhand, 262308"], iconBgColor: "bg-dream-logo-blue/20", iconColor: "text-primary" },
+    { icon: MapPin, title: "Our Main Office", lines: ["Devi W/O Ramesh Singh", "Chandra Vatika, Khatima", "Udham Singh Nagar, Uttarakhand, 262308"], iconBgColor: "bg-dream-purple-light/20", iconColor: "text-dream-purple" },
     { icon: Phone, title: "Call Us", lines: ["Sapna (Adhyaksh): +91 8193991284", "Kailash Singh (Upadhyaksh): +91 7037180518", "Dipesh Joshi (Sachiv): +91 8630484930"], iconBgColor: "bg-green-500/10", iconColor: "text-green-600" },
-    { icon: Mail, title: "Email Us", lines: ["info@dreamlightwelfare.org (General)", "sapna.dreamlight@example.com (Adhyaksh)"], iconBgColor: "bg-secondary/10", iconColor: "text-secondary" },
+    { icon: Mail, title: "Email Us", lines: ["info@dreamlightwelfare.org (General)", "sapna.dreamlight@example.com (Adhyaksh)"], iconBgColor: "bg-dream-gold/10", iconColor: "text-dream-gold" },
   ];
 
   const handleFormSubmit = (e) => {
@@ -31,7 +31,7 @@ const ContactPage = () => {
     toast({
       title: "Message Sent Successfully!",
       description: "Thank you for reaching out. Our team will get back to you as soon as possible.",
-      className: "bg-primary text-white border-secondary",
+      className: "bg-dream-purple text-white border-dream-gold",
     });
     e.target.reset();
   };
@@ -42,9 +42,9 @@ const ContactPage = () => {
         title="Get in Touch With Us"
         subtitle="We'd love to hear from you! Whether you have a question, want to volunteer, partner, or just say hello, here's how you can reach us."
         icon={MessageCircle}
-        iconColor="text-secondary-foreground"
-        gradientFrom="from-secondary"
-        gradientTo="to-dream-logo-yellow-light"
+        iconColor="text-dream-purple-dark"
+        gradientFrom="from-dream-gold"
+        gradientTo="to-dream-gold-light"
         bgPatternOpacity="opacity-20"
       />
 
@@ -64,25 +64,25 @@ const ContactPage = () => {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.7 }}
             >
-              <h2 className="text-3xl font-bold text-secondary-foreground mb-8">Send Us a Message</h2>
+              <h2 className="text-3xl font-bold text-dream-purple-dark mb-8">Send Us a Message</h2>
               <form className="space-y-6" onSubmit={handleFormSubmit}>
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-semibold text-slate-700 mb-1.5">Full Name</label>
-                    <input type="text" id="name" name="name" required className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow" placeholder="e.g., John Doe"/>
+                    <input type="text" id="name" name="name" required className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-dream-purple focus:border-transparent transition-shadow" placeholder="e.g., John Doe"/>
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-1.5">Email Address</label>
-                    <input type="email" id="email" name="email" required className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow" placeholder="you@example.com"/>
+                    <input type="email" id="email" name="email" required className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-dream-purple focus:border-transparent transition-shadow" placeholder="you@example.com"/>
                   </div>
                 </div>
                 <div>
                   <label htmlFor="subject" className="block text-sm font-semibold text-slate-700 mb-1.5">Subject</label>
-                  <input type="text" id="subject" name="subject" required className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow" placeholder="Reason for your message"/>
+                  <input type="text" id="subject" name="subject" required className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-dream-purple focus:border-transparent transition-shadow" placeholder="Reason for your message"/>
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-semibold text-slate-700 mb-1.5">Your Message</label>
-                  <textarea id="message" name="message" rows={5} required className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-shadow" placeholder="Write your message here..."></textarea>
+                  <textarea id="message" name="message" rows={5} required className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-dream-purple focus:border-transparent transition-shadow" placeholder="Write your message here..."></textarea>
                 </div>
                 <Button type="submit" size="lg" className="w-full gradient-bg text-white text-base py-3 rounded-lg hover:opacity-90 shadow-lg">
                   <Send className="mr-2 h-5 w-5" /> Send Message
@@ -98,24 +98,24 @@ const ContactPage = () => {
               transition={{ duration: 0.7, delay:0.1 }}
             >
               <div id="volunteer" className="bg-white p-8 rounded-2xl shadow-xl">
-                <Users className="h-10 w-10 mb-4 text-primary" />
-                <h3 className="text-2xl font-bold text-secondary-foreground mb-3">Volunteer With Us</h3>
+                <Users className="h-10 w-10 mb-4 text-dream-purple" />
+                <h3 className="text-2xl font-bold text-dream-purple-dark mb-3">Volunteer With Us</h3>
                 <p className="text-slate-600 mb-4 leading-relaxed">
                   Share your skills and time to make a direct impact. We have various opportunities for individuals and groups.
                 </p>
-                <Button variant="outline" className="border-primary text-primary hover:bg-primary/10 rounded-full px-6">Learn About Volunteering</Button>
+                <Button variant="outline" className="border-dream-purple text-dream-purple hover:bg-dream-purple/10 rounded-full px-6">Learn About Volunteering</Button>
               </div>
               <div id="partner" className="bg-white p-8 rounded-2xl shadow-xl">
-                <Briefcase className="h-10 w-10 mb-4 text-secondary" />
-                <h3 className="text-2xl font-bold text-secondary-foreground mb-3">Partner With Us</h3>
+                <Briefcase className="h-10 w-10 mb-4 text-dream-gold" />
+                <h3 className="text-2xl font-bold text-dream-purple-dark mb-3">Partner With Us</h3>
                 <p className="text-slate-600 mb-4 leading-relaxed">
                   Collaborate with us on projects, sponsor an event, or explore corporate social responsibility initiatives.
                 </p>
-                <Button variant="outline" className="border-secondary text-secondary hover:bg-secondary/10 rounded-full px-6">Explore Partnerships</Button>
+                <Button variant="outline" className="border-dream-gold text-dream-gold hover:bg-dream-gold/10 rounded-full px-6">Explore Partnerships</Button>
               </div>
                <div id="reports" className="bg-white p-8 rounded-2xl shadow-xl">
                 <FileText className="h-10 w-10 mb-4 text-green-600" />
-                <h3 className="text-2xl font-bold text-secondary-foreground mb-3">Our Reports</h3>
+                <h3 className="text-2xl font-bold text-dream-purple-dark mb-3">Our Reports</h3>
                 <p className="text-slate-600 mb-4 leading-relaxed">
                   We believe in transparency. Access our annual reports and financial statements to see how your support is utilized.
                 </p>
@@ -128,7 +128,7 @@ const ContactPage = () => {
 
        <section className="py-16 md:py-20">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl md:text-3xl font-bold text-secondary-foreground mb-8 text-center">Frequently Asked Questions</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-dream-purple-dark mb-8 text-center">Frequently Asked Questions</h2>
           <div className="space-y-4 max-w-3xl mx-auto">
             {[
               { q: "How can I donate?", a: "You can donate online through our secure portal on the Donate page, or contact us for bank transfer details or other methods." },
@@ -139,7 +139,7 @@ const ContactPage = () => {
               <details key={index} className="bg-white p-4 rounded-lg shadow-md group">
                 <summary className="font-semibold text-slate-700 cursor-pointer list-none flex justify-between items-center">
                   {faq.q}
-                  <span className="transform transition-transform duration-200 group-open:rotate-45 text-primary">+</span>
+                  <span className="transform transition-transform duration-200 group-open:rotate-45 text-dream-purple">+</span>
                 </summary>
                 <p className="text-slate-600 mt-2 text-sm leading-relaxed">{faq.a}</p>
               </details>

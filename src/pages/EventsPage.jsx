@@ -10,23 +10,23 @@ const EventCard = ({ event, onRegister }) => {
   return (
     <motion.div 
       className="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col"
-      whileHover={{ y: -8, boxShadow: "0 20px 30px -10px rgba(0, 191, 255, 0.2)" }}
+      whileHover={{ y: -8, boxShadow: "0 20px 30px -10px rgba(58, 12, 163, 0.2)" }}
       transition={{ type: "spring", stiffness: 200 }}
     >
       <div className="relative h-56">
         <img  class="w-full h-full object-cover" alt={title} src="https://images.unsplash.com/photo-1611798416123-c1255cff2c0e" />
-        <div className="absolute top-3 right-3 bg-secondary text-secondary-foreground px-3 py-1 rounded-full text-xs font-semibold shadow-md">{category}</div>
+        <div className="absolute top-3 right-3 bg-dream-gold text-dream-purple-dark px-3 py-1 rounded-full text-xs font-semibold shadow-md">{category}</div>
       </div>
       <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-2xl font-bold text-secondary-foreground mb-3">{title}</h3>
+        <h3 className="text-2xl font-bold text-dream-purple-dark mb-3">{title}</h3>
         <div className="space-y-2 text-sm text-slate-600 mb-4">
-          <div className="flex items-center"><CalendarDays className="h-4 w-4 mr-2 text-primary" /> {date}</div>
-          <div className="flex items-center"><Clock className="h-4 w-4 mr-2 text-primary" /> {time}</div>
-          <div className="flex items-center"><MapPin className="h-4 w-4 mr-2 text-primary" /> {location}</div>
+          <div className="flex items-center"><CalendarDays className="h-4 w-4 mr-2 text-dream-purple" /> {date}</div>
+          <div className="flex items-center"><Clock className="h-4 w-4 mr-2 text-dream-purple" /> {time}</div>
+          <div className="flex items-center"><MapPin className="h-4 w-4 mr-2 text-dream-purple" /> {location}</div>
         </div>
         <p className="text-sm text-slate-700 leading-relaxed mb-5 flex-grow">{description}</p>
         <div className="flex justify-between items-center mt-auto pt-4 border-t border-slate-200">
-          <span className="text-xs text-primary font-semibold">{spotsLeft} spots left</span>
+          <span className="text-xs text-dream-purple font-semibold">{spotsLeft} spots left</span>
           <Button onClick={() => onRegister(event)} size="sm" className="gradient-bg text-white hover:opacity-90 rounded-full px-5">
             Register <ArrowRight className="ml-1.5 h-4 w-4" />
           </Button>
@@ -64,9 +64,9 @@ const EventsPage = () => {
         title="Upcoming Events & Initiatives"
         subtitle="Join us at our events to support our cause, learn more about our work, or volunteer your time. Together, we can make a greater impact."
         icon={Calendar}
-        iconColor="text-secondary-foreground"
-        gradientFrom="from-secondary"
-        gradientTo="to-dream-logo-yellow-light"
+        iconColor="text-dream-purple-dark"
+        gradientFrom="from-dream-gold"
+        gradientTo="to-dream-gold-light"
         bgPatternOpacity="opacity-20"
       />
 
@@ -81,7 +81,7 @@ const EventsPage = () => {
                 className={`rounded-full px-6 py-2 text-sm capitalize transition-all duration-300
                   ${filter === cat 
                     ? 'gradient-bg text-white shadow-lg' 
-                    : 'border-primary text-primary hover:bg-primary/10'}`}
+                    : 'border-dream-purple text-dream-purple hover:bg-dream-purple/10'}`}
               >
                 {cat}
               </Button>
@@ -103,15 +103,15 @@ const EventsPage = () => {
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-dream-logo-blue-dark text-white">
+      <section className="py-16 md:py-24 bg-dream-purple-dark text-white">
         <div className="max-w-screen-lg mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <CalendarDays className="h-16 w-16 mx-auto mb-6 text-dream-logo-yellow-light"/>
+            <CalendarDays className="h-16 w-16 mx-auto mb-6 text-dream-gold-light"/>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Host Your Own Fundraiser!</h2>
             <p className="text-lg md:text-xl mb-8 text-slate-300 max-w-2xl mx-auto">
                 Got an idea for an event? Partner with us to raise funds for a cause you care about. We'll provide support and resources to make your event a success.
             </p>
             <Link to="/contact#partner">
-                <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-dream-logo-yellow-light rounded-full px-10 py-3 text-base font-semibold">
+                <Button size="lg" className="bg-dream-gold text-dream-purple-dark hover:bg-dream-gold-light rounded-full px-10 py-3 text-base font-semibold">
                     Partner With Us
                 </Button>
             </Link>

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CalendarDays, MapPin, ArrowRight, Users, Clock } from 'lucide-react';
@@ -24,14 +25,14 @@ const EventPreviewCard = ({ title, date, location, imagePlaceholder, description
     </div>
     <div className="p-5 flex flex-col flex-grow">
       <div className="flex items-center text-xs text-slate-500 mb-1.5">
-        <CalendarDays className="h-3.5 w-3.5 mr-1.5 text-primary" /> {date}
+        <CalendarDays className="h-3.5 w-3.5 mr-1.5 text-dream-purple" /> {date}
       </div>
       <div className="flex items-center text-xs text-slate-500 mb-3">
-        <MapPin className="h-3.5 w-3.5 mr-1.5 text-primary" /> {location}
+        <MapPin className="h-3.5 w-3.5 mr-1.5 text-dream-purple" /> {location}
       </div>
       <p className="text-xs text-slate-600 leading-relaxed mb-4 flex-grow">{description.substring(0,90)}...</p>
       <Link to={linkTo} className="mt-auto self-start">
-        <Button variant="link" size="sm" className="text-primary px-0 group/btn text-xs font-medium hover:text-secondary transition-colors">
+        <Button variant="link" size="sm" className="text-dream-purple px-0 group/btn text-xs font-medium hover:text-dream-gold transition-colors">
           Event Details <ArrowRight className="ml-1 h-3 w-3 group-hover/btn:translate-x-0.5 transition-transform" />
         </Button>
       </Link>
@@ -47,7 +48,7 @@ const EventsPreviewSection = () => {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-br from-dream-logo-blue-dark to-dream-logo-blue text-white overflow-hidden">
+    <section className="py-20 md:py-28 bg-gradient-to-br from-dream-purple-dark to-dream-purple text-white overflow-hidden">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial={{opacity:0, y:20}} 
@@ -56,7 +57,7 @@ const EventsPreviewSection = () => {
           transition={{duration:0.6}}
           className="text-center mb-14 md:mb-18"
         >
-          <span className="inline-block px-4 py-1.5 bg-dream-logo-yellow/90 text-secondary-foreground font-semibold text-xs rounded-full uppercase tracking-wider mb-3.5 shadow-sm">
+          <span className="inline-block px-4 py-1.5 bg-dream-gold/90 text-dream-purple-dark font-semibold text-xs rounded-full uppercase tracking-wider mb-3.5 shadow-sm">
             Stay Connected
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-shadow-lg">
@@ -73,7 +74,7 @@ const EventsPreviewSection = () => {
         </div>
         <div className="text-center mt-14 md:mt-18">
             <Link to="/events">
-                <Button size="lg" className="bg-dream-logo-yellow text-secondary-foreground hover:bg-dream-logo-yellow-light rounded-full px-10 py-3.5 text-base font-semibold shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
+                <Button size="lg" className="bg-dream-gold text-dream-purple-dark hover:bg-dream-gold-light rounded-full px-10 py-3.5 text-base font-semibold shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 group">
                     <Users size={20} className="mr-2.5 group-hover:animate-pulse" /> View All Events
                 </Button>
             </Link>

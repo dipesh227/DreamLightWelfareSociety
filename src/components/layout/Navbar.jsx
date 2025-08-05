@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -12,8 +13,8 @@ const NavLinkItem = ({ to, label, icon: Icon, mobile = false, onClick, className
       to={to}
       className={`flex items-center px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ease-in-out group ${className}
         ${isActive 
-          ? 'text-primary bg-dream-logo-blue/10 font-semibold shadow-inner' 
-          : 'text-slate-700 hover:text-primary hover:bg-dream-logo-blue/10'}
+          ? 'text-dream-purple-dark bg-dream-purple-lighter font-semibold shadow-inner' 
+          : 'text-slate-700 hover:text-dream-purple hover:bg-dream-purple-lighter/70'}
         ${mobile ? 'w-full text-left text-base py-3.5' : ''}
       `}
       onClick={() => {
@@ -21,7 +22,7 @@ const NavLinkItem = ({ to, label, icon: Icon, mobile = false, onClick, className
         else if (onClick) onClick();
       }}
     >
-      {Icon && <Icon className={`mr-2.5 h-5 w-5 ${isActive ? 'text-primary' : 'text-slate-500 group-hover:text-primary'}`} />}
+      {Icon && <Icon className={`mr-2.5 h-5 w-5 ${isActive ? 'text-dream-purple' : 'text-slate-500 group-hover:text-dream-purple'}`} />}
       {label}
     </Link>
   );
@@ -54,13 +55,13 @@ const DropdownMenu = ({ label, icon: Icon, subLinks, mobile = false, closeMobile
         <button
           onClick={() => setIsOpen(!isOpen)}
           className={`flex items-center justify-between w-full px-3 py-3.5 text-base font-medium text-left rounded-lg group
-            ${isParentActive ? 'text-primary bg-dream-logo-blue/10 font-semibold' : 'text-slate-700 hover:text-primary hover:bg-dream-logo-blue/10'}`}
+            ${isParentActive ? 'text-dream-purple-dark bg-dream-purple-lighter font-semibold' : 'text-slate-700 hover:text-dream-purple hover:bg-dream-purple-lighter/70'}`}
         >
           <div className="flex items-center">
-            {Icon && <Icon className={`mr-2.5 h-5 w-5 ${isParentActive ? 'text-primary' : 'text-slate-500 group-hover:text-primary'}`} />}
+            {Icon && <Icon className={`mr-2.5 h-5 w-5 ${isParentActive ? 'text-dream-purple' : 'text-slate-500 group-hover:text-dream-purple'}`} />}
             {label}
           </div>
-          <ChevronDown className={`h-5 w-5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''} ${isParentActive ? 'text-primary' : 'text-slate-500 group-hover:text-primary'}`} />
+          <ChevronDown className={`h-5 w-5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''} ${isParentActive ? 'text-dream-purple' : 'text-slate-500 group-hover:text-dream-purple'}`} />
         </button>
         <AnimatePresence>
           {isOpen && (
@@ -68,7 +69,7 @@ const DropdownMenu = ({ label, icon: Icon, subLinks, mobile = false, closeMobile
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="pl-5 border-l-2 border-dream-logo-blue/10 ml-3.5"
+              className="pl-5 border-l-2 border-dream-purple-lighter ml-3.5"
             >
               {subLinks.map(link => 
                 link.subLinks ? 
@@ -86,10 +87,10 @@ const DropdownMenu = ({ label, icon: Icon, subLinks, mobile = false, closeMobile
     <div className="relative" ref={menuRef} onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
       <button
         className={`flex items-center px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ease-in-out group
-          ${isParentActive ? 'text-primary bg-dream-logo-blue/10 font-semibold shadow-sm' : 'text-slate-700 hover:text-primary hover:bg-dream-logo-blue/10'}`}
+          ${isParentActive ? 'text-dream-purple-dark bg-dream-purple-lighter font-semibold shadow-sm' : 'text-slate-700 hover:text-dream-purple hover:bg-dream-purple-lighter/70'}`}
       >
-        {Icon && <Icon className={`mr-1.5 h-4 w-4 ${isParentActive ? 'text-primary' : 'text-slate-500 group-hover:text-primary'}`} />}
-        {label} <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''} ${isParentActive ? 'text-primary' : 'text-slate-500 group-hover:text-primary'}`} />
+        {Icon && <Icon className={`mr-1.5 h-4 w-4 ${isParentActive ? 'text-dream-purple' : 'text-slate-500 group-hover:text-dream-purple'}`} />}
+        {label} <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''} ${isParentActive ? 'text-dream-purple' : 'text-slate-500 group-hover:text-dream-purple'}`} />
       </button>
       <AnimatePresence>
         {isOpen && (
@@ -103,12 +104,12 @@ const DropdownMenu = ({ label, icon: Icon, subLinks, mobile = false, closeMobile
             {subLinks.map(link => 
               link.subLinks ? 
               <div key={link.label} className="relative group/submenu">
-                 <button className="flex items-center justify-between w-full px-4 py-2.5 text-sm text-slate-700 hover:bg-dream-logo-blue/10 hover:text-primary rounded-md">
+                 <button className="flex items-center justify-between w-full px-4 py-2.5 text-sm text-slate-700 hover:bg-dream-purple-lighter/70 hover:text-dream-purple rounded-md">
                     <div className="flex items-center">
-                      {link.icon && <link.icon className="mr-2 h-4 w-4 text-slate-500 group-hover/submenu:text-primary" />}
+                      {link.icon && <link.icon className="mr-2 h-4 w-4 text-slate-500 group-hover/submenu:text-dream-purple" />}
                       {link.label}
                     </div>
-                    <ChevronDown className="h-4 w-4 rotate-[-90deg] text-slate-400 group-hover/submenu:text-primary" />
+                    <ChevronDown className="h-4 w-4 rotate-[-90deg] text-slate-400 group-hover/submenu:text-dream-purple" />
                   </button>
                   <motion.div 
                     initial={{ opacity: 0, x: -10 }}
@@ -255,7 +256,7 @@ const Navbar = ({ logoUrl, handleDonateToast }) => {
           <div className="lg:hidden">
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2.5 rounded-lg text-secondary-foreground hover:bg-dream-logo-blue/10 focus:outline-none focus:ring-2 focus:ring-primary ring-offset-2 transition-colors"
+              className="p-2.5 rounded-lg text-dream-purple-dark hover:bg-dream-purple-lighter/70 focus:outline-none focus:ring-2 focus:ring-dream-purple ring-offset-2 transition-colors"
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={isMenuOpen}
             >

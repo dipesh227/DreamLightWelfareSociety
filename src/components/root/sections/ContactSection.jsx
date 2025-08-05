@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { toast } from '@/components/ui/use-toast';
@@ -23,9 +24,9 @@ const SocialLink = ({ href, icon: Icon, bgColor, label }) => (
 
 const ContactSection = () => {
   const contactDetails = [
-    { icon: MapPin, title: "Address", lines: ["123 Welfare Street, Community Center", "New Delhi, India 110001"], iconBgColor: "bg-dream-logo-blue/20", iconColor: "text-primary" },
+    { icon: MapPin, title: "Address", lines: ["123 Welfare Street, Community Center", "New Delhi, India 110001"], iconBgColor: "bg-dream-purple-light/20", iconColor: "text-dream-purple" },
     { icon: Phone, title: "Phone", lines: ["+91 98765 43210", "+91 87654 32109"], iconBgColor: "bg-green-100", iconColor: "text-green-600" },
-    { icon: Mail, title: "Email", lines: ["info@dreamlightwelfare.org", "contact@dreamlightwelfare.org"], iconBgColor: "bg-dream-logo-yellow/20", iconColor: "text-secondary" },
+    { icon: Mail, title: "Email", lines: ["info@dreamlightwelfare.org", "contact@dreamlightwelfare.org"], iconBgColor: "bg-dream-gold-light/20", iconColor: "text-dream-gold" },
   ];
 
   const socialLinks = [
@@ -81,7 +82,7 @@ const ContactSection = () => {
                     type="text" 
                     id="name"
                     name="name"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-dream-purple focus:border-transparent"
                     placeholder="Your full name"
                     required
                   />
@@ -92,7 +93,7 @@ const ContactSection = () => {
                     type="email" 
                     id="email"
                     name="email"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-dream-purple focus:border-transparent"
                     placeholder="your.email@example.com"
                     required
                   />
@@ -103,7 +104,7 @@ const ContactSection = () => {
                     type="text" 
                     id="subject"
                     name="subject"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-dream-purple focus:border-transparent"
                     placeholder="How can we help?"
                     required
                   />
@@ -114,7 +115,7 @@ const ContactSection = () => {
                     id="message"
                     name="message"
                     rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-dream-purple focus:border-transparent"
                     placeholder="Tell us more about your inquiry..."
                     required
                   ></textarea>
@@ -129,7 +130,8 @@ const ContactSection = () => {
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
   );
 };
 

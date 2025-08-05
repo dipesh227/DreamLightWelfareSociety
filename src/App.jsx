@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { Toaster } from '@/components/ui/toaster';
@@ -57,7 +58,7 @@ import VolunteerResourcesPage from '@/pages/volunteer/VolunteerResourcesPage'; /
 
 
 function App() {
-  const logoUrl = "/dreamlight-logo.jpeg";
+  const logoUrl = "https://storage.googleapis.com/hostinger-horizons-assets-prod/9d4946d7-c457-49e5-84af-9b4b147f9101/d2bfdf7cdd6c053e918e6d40f2ee77c1.jpg";
   const location = useLocation();
 
   // For now, we simulate auth state. Replace with actual auth logic later.
@@ -101,7 +102,7 @@ function App() {
     toast({
       title: "Thank you for your interest!",
       description: "Our donation system is being set up. Please visit the Donate page or contact us for direct donations.",
-      className: "bg-dream-logo-blue text-white border-dream-logo-yellow shadow-xl",
+      className: "bg-dream-purple text-white border-dream-gold shadow-xl",
     });
   };
 
@@ -109,7 +110,7 @@ function App() {
     toast({
       title: "Welcome aboard!",
       description: "Thank you for wanting to volunteer. We'll contact you soon with opportunities.",
-      className: "bg-dream-logo-yellow text-secondary-foreground border-dream-logo-blue shadow-xl",
+      className: "bg-dream-gold text-dream-purple-dark border-dream-purple shadow-xl",
     });
   };
 

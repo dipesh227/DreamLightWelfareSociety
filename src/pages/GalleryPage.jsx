@@ -10,7 +10,7 @@ const galleryItems = [
   { id: 3, src: "https://images.unsplash.com/photo-1519085360753-6a5897ba9f75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2xlYW4lMjB3YXRlciUyMHByb2plY3R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=70", alt: "Clean water flowing from a new tap", category: "Water & Sanitation", title: "Access to Clean Water" },
   { id: 4, src: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dm9sdW50ZWVycyUyMGhlbHBpbmd8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=70", alt: "Volunteers distributing supplies", category: "Community Support", title: "Volunteers in Action" },
   { id: 5, src: "https://images.unsplash.com/photo-1604580864964-0e03581370ac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNraWxsJTIwZGV2ZWxvcG1lbnQlMjB3b3Jrc2hvcHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=70", alt: "People learning a new skill in a workshop", category: "Livelihood", title: "Skill Development Workshop" },
-  { id: 6, src: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZW52aXJvbm1lbnRhbCUyMGNsZWFudXBhfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=70", alt: "Group planting trees", category: "Environment", title: "Greener Tomorrow Initiative" },
+  { id: 6, src: "https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZW52aXJvbm1lbnRhbCUyMGNsZWFudXB8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=70", alt: "Group planting trees", category: "Environment", title: "Greener Tomorrow Initiative" },
   { id: 7, src: "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hhcml0eSUyMGV2ZW50fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=70", alt: "People at a charity event", category: "Events", title: "Annual Fundraising Gala" },
   { id: 8, src: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y29tbXVuaXR5JTIwbWVldGluZ3xlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=70", alt: "Community meeting", category: "Community Support", title: "Town Hall Discussion" },
 ];
@@ -46,16 +46,16 @@ const GalleryPage = () => {
         title="Moments of Impact"
         subtitle="Explore our gallery to see the tangible results of your support and the smiles we help create. Each image tells a story of hope and transformation."
         icon={ImageIcon}
-        iconColor="text-secondary-foreground"
-        gradientFrom="from-secondary"
-        gradientTo="to-dream-logo-yellow-light"
+        iconColor="text-dream-purple-dark"
+        gradientFrom="from-dream-gold"
+        gradientTo="to-dream-gold-light"
         bgPatternOpacity="opacity-20"
       />
 
       <section className="py-12 md:py-20">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10 md:mb-14 flex flex-wrap justify-center items-center gap-3">
-            <Filter className="h-5 w-5 text-primary mr-1 hidden sm:inline" />
+            <Filter className="h-5 w-5 text-dream-purple mr-1 hidden sm:inline" />
             {categories.map(category => (
               <Button
                 key={category}
@@ -65,7 +65,7 @@ const GalleryPage = () => {
                 className={`rounded-full px-5 py-2 text-xs sm:text-sm capitalize transition-all duration-300 shadow-sm hover:shadow-md
                   ${selectedCategory === category 
                     ? 'gradient-bg text-white' 
-                    : 'border-primary/50 text-primary hover:bg-primary/10'}`}
+                    : 'border-dream-purple/50 text-dream-purple hover:bg-dream-purple/10'}`}
               >
                 {category}
               </Button>
@@ -91,9 +91,9 @@ const GalleryPage = () => {
                   <img  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt={item.alt} src={item.src} />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                     <h3 className="text-white text-sm font-semibold mb-1">{item.title}</h3>
-                    <span className="text-dream-logo-yellow-light text-xs">{item.category}</span>
+                    <span className="text-dream-gold-light text-xs">{item.category}</span>
                   </div>
-                  <div className="absolute top-3 right-3 bg-white/80 text-primary p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-75 group-hover:scale-100">
+                  <div className="absolute top-3 right-3 bg-white/80 text-dream-purple p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform scale-75 group-hover:scale-100">
                     <Maximize size={16} />
                   </div>
                 </motion.div>
