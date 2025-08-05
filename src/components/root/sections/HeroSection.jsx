@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Landmark, Users, Droplets, BookOpen, Shield } from 'lucide-react';
@@ -19,7 +18,6 @@ const FocusNode = ({ icon: Icon, title, description, className, delay }) => (
         filter: [
           'drop-shadow(0 0 2px rgba(52, 211, 153, 0.3))',
           'drop-shadow(0 0 8px rgba(52, 211, 153, 0.5))',
-          'drop-shadow(0 0 2px rgba(52, 211, 153, 0.3))',
         ]
       }}
       style={{
@@ -87,7 +85,6 @@ const HeroSection = ({ logoUrl }) => {
                       filter: [
                         'drop-shadow(0 0 12px rgba(234, 179, 8, 0.5))',
                         'drop-shadow(0 0 32px rgba(234, 179, 8, 0.8))',
-                        'drop-shadow(0 0 12px rgba(234, 179, 8, 0.5))',
                       ]
                     }}
                     transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -117,7 +114,6 @@ const HeroSection = ({ logoUrl }) => {
                   filter: [
                     'drop-shadow(0 0 8px rgba(52, 211, 153, 0.4))',
                     'drop-shadow(0 0 20px rgba(52, 211, 153, 0.7))',
-                    'drop-shadow(0 0 8px rgba(52, 211, 153, 0.4))',
                   ]
                 }}
                 transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
